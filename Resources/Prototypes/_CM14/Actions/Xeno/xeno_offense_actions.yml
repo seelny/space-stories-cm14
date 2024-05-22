@@ -180,3 +180,92 @@
     event: !type:XenoBoneChipsActionEvent
     useDelay: 12
     range: 15
+
+- type: entity
+  id: ActionXenoPunch
+  parent: ActionXenoBase
+  name: Punch (10)
+  description: Punches the targeted marine dealing a hefty amount of damage as well as slowing the target for seconds.
+  components:
+  - type: EntityTargetAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: _CM14/Actions/xeno_actions.rsi
+      state: punch
+    event: !type:XenoPunchActionEvent
+    range: 1
+    useDelay: 6
+
+- type: entity
+  id: ActionXenoFling
+  parent: ActionXenoBase
+  name: Fling (10)
+  description: Flings the targeted marine a few tiles and damages them.
+  components:
+  - type: EntityTargetAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: _CM14/Actions/xeno_actions.rsi
+      state: fling
+    event: !type:XenoFlingActionEvent
+    range: 1
+    useDelay: 7
+
+- type: entity
+  id: ActionXenoScreech
+  parent: ActionXenoBase
+  name: Screech (250)
+  description: A wide area of effect stun, screeches upon activation.
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: _CM14/Actions/xeno_actions.rsi
+      state: screech
+    event: !type:XenoScreechActionEvent
+    useDelay: 50
+
+- type: entity
+  id: ActionXenoGut
+  parent: ActionXenoBase
+  name: Gut (200)
+  description: Gibs the mob you decide to gut.
+  components:
+  - type: EntityTargetAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: _CM14/Actions/xeno_actions.rsi
+      state: gut
+    event: !type:XenoGutActionEvent
+    range: 2
+    useDelay: 900
+
+- type: entity
+  id: ActionXenoStomp
+  parent: ActionXenoBase
+  name: Stomp (20)
+  description: Slam the ground with a 5x5 AOE slow down that affects all hostiles in range.
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: _CM14/Actions/xeno_actions.rsi
+      state: stomp
+    event: !type:XenoStompActionEvent
+    useDelay: 20
+
+- type: entity
+  id: ActionXenoCharge
+  parent: ActionXenoBase
+  name: Charge (20)
+  description: Click on a tile you want to charge at, after a brief non cancel-able windup time.
+  components:
+  - type: WorldTargetAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: _CM14/Actions/xeno_actions.rsi
+      state: ready_charge
+    event: !type:XenoChargeActionEvent
+    range: 15
+    useDelay: 15
+    checkCanAccess: false
