@@ -12,7 +12,6 @@
   icon: "CMJobIconOrdnanceTech"
   joinNotifyCrew: false
   supervisors: cm-job-supervisors-ce
-  canBeAntag: true
   accessGroups:
   - OT
   special:
@@ -21,6 +20,7 @@
     - type: Skills
       construction: 3
       engineer: 3
+      firearms: 1
       powerLoader: 2
 
 - type: startingGear

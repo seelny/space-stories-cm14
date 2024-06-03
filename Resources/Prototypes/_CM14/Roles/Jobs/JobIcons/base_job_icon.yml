@@ -4,3 +4,5 @@
   abstract: true
   icon:
     sprite: /Textures/_CM14/Interface/cm_job_icons.rsi
+  locationPreference: Left
+  offset: 3

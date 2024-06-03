@@ -15,10 +15,9 @@
     group: CMJobsMedical
     time: 18000 # 5 hours
   startingGear: CMGearSurvivor
-  icon: "CMJobIconSurvivor"
+  icon: "CMJobIconEmpty"
   joinNotifyCrew: false
   supervisors: cm-job-supervisors-nobody
-  canBeAntag: false
   accessGroups:
   - Colonist
   special:
@@ -27,6 +26,7 @@
     - type: Skills
       construction: 1
       endurance: 2
+      firearms: 1
   hasIcon: false
 
 - type: startingGear

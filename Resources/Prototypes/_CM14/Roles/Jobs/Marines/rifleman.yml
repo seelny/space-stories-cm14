@@ -5,16 +5,16 @@
   description: cm-job-description-rifleman
   playTimeTracker: CMJobRifleman
   startingGear: CMGearRifleman
-  icon: "CMJobIconRifleman"
+  icon: "CMJobIconEmpty"
   joinNotifyCrew: false
   supervisors: cm-job-supervisors-sl
-  canBeAntag: false
   accessGroups:
   - Rifleman
   special:
   - !type:AddComponentSpecial
     components:
     - type: Skills
+      firearms: 1
     - type: CMVendorUser
       points: 45
   hasIcon: false

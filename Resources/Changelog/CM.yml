@@ -924,5 +924,50 @@
   id: 121
   time: '2024-05-28T12:36:23.0000000+00:00'
   url: https://github.com/CM-14/CM-14/pull/2170
+- author: DrSmugleaf
+  changes:
+  - message: Added treatable wounds and passive healing when they are treated.
+    type: Add
+  - message: Implemented the trauma kit, burn kit, gauze, ointment, surgical line
+      and synthgraft.
+    type: Add
+  id: 122
+  time: '2024-05-31T22:37:48.0000000+00:00'
+  url: https://github.com/CM-14/CM-14/pull/2174
+- author: DrSmugleaf
+  changes:
+  - message: Added xeno roles and playtime trackers.
+    type: Add
+  id: 123
+  time: '2024-06-01T05:07:56.0000000+00:00'
+  url: https://github.com/CM-14/CM-14/pull/2182
+- author: Errant
+  changes:
+  - message: Walking on resin/weeds now speeds up xenos and slows down everyone else.
+    type: Add
+  id: 124
+  time: '2024-06-02T09:41:01.0000000+00:00'
+  url: https://github.com/CM-14/CM-14/pull/2201
+- author: Whisper
+  changes:
+  - message: Added mre box
+    type: Add
+  id: 125
+  time: '2024-06-02T08:37:57.0000000+00:00'
+  url: https://github.com/CM-14/CM-14/pull/2186
+- author: DrSmugleaf
+  changes:
+  - message: The hive core now slowly produces lesser drones.
+    type: Add
+  id: 126
+  time: '2024-06-02T11:05:36.0000000+00:00'
+  url: https://github.com/CM-14/CM-14/pull/2199
+- author: Whisper
+  changes:
+  - message: Added portable fire extinguisher
+    type: Add
+  id: 127
+  time: '2024-06-03T11:14:35.0000000+00:00'
+  url: https://github.com/CM-14/CM-14/pull/2219
 Name: CM
 Order: -1

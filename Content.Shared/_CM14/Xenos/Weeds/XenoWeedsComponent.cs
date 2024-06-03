@@ -10,6 +10,12 @@ public sealed partial class XenoWeedsComponent : Component
     [DataField]
     public int Range = 5;
 
+    [DataField]
+    public float SpeedMultiplierXeno = 1.05f;
+
+    [DataField]
+    public float SpeedMultiplierOutsider = 0.5f;
+
     [DataField, AutoNetworkedField]
     public bool IsSource = true;
 
@@ -18,4 +24,13 @@ public sealed partial class XenoWeedsComponent : Component
 
     [DataField]
     public EntProtoId Spawns = "XenoWeeds";
+
+    [DataField, AutoNetworkedField]
+    public List<EntityUid> Spread = new();
+
+    [DataField, AutoNetworkedField]
+    public TimeSpan MinRandomDelete = TimeSpan.FromSeconds(9);
+
+    [DataField, AutoNetworkedField]
+    public TimeSpan MaxRandomDelete = TimeSpan.FromSeconds(10);
 }

@@ -23,7 +23,6 @@
   requireAdminNotify: true
   joinNotifyCrew: true
   supervisors: cm-job-supervisors-co
-  canBeAntag: false
   accessGroups:
   - ASO
   special:
@@ -32,6 +31,7 @@
     - type: Skills
       construction: 2
       engineer: 2
+      firearms: 1
       fireman: 1
       intel: 2
       jtac: 3

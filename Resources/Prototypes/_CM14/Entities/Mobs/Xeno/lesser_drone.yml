@@ -18,6 +18,7 @@
       0: Alive
       160: Dead # TODO CM14 gib on death
   - type: Xeno
+    role: CMXenoLesserDrone
     actionIds:
     - ActionXenoRest
     - ActionXenoRegurgitate
@@ -68,3 +69,4 @@
     damage:
       types:
         Blunt: 2.5
+  - type: XenoHiveCoreRole

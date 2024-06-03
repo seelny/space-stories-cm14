@@ -22901,8 +22901,8 @@ entities:
     components:
     - type: Transform
       pos: 113.5,15.5
-      parent: 1
-- proto: CMLightBulb
+      parent: 2
+- proto: CMLightFixtureSmall
   entities:
   - uid: 3911
     components:
@@ -56187,8 +56187,8 @@ entities:
     components:
     - type: Transform
       pos: 109.5,-8.5
-      parent: 1
-- proto: SpawnMobMouse
+      parent: 2
+- proto: CMSpawnMobMouse
   entities:
   - uid: 8966
     components:

@@ -12,13 +12,13 @@
   icon: "CMJobIconSmartgunner"
   joinNotifyCrew: false
   supervisors: cm-job-supervisors-sl
-  canBeAntag: false
   accessGroups:
   - Smartgunner
   special:
   - !type:AddComponentSpecial
     components:
     - type: Skills
+      firearms: 1
       jtac: 1
       smartgun: 1
     - type: CMVendorUser

@@ -11,6 +11,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Rejuvenate;
 using Content.Shared.Standing;
 using Content.Shared.Stunnable;
 using Robust.Shared.Audio.Systems;
@@ -40,8 +41,7 @@ public abstract class SharedXenoHuggerSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<HuggableComponent, InteractHandEvent>(OnHuggableInteractHand);
-        SubscribeLocalEvent<HuggableComponent, InteractedNoHandEvent>(OnHuggableInteractNoHand);
+        SubscribeLocalEvent<HuggableComponent, ActivateInWorldEvent>(OnHuggableActivate);
 
         SubscribeLocalEvent<XenoHuggerComponent, XenoLeapHitEvent>(OnHuggerLeapHit);
         SubscribeLocalEvent<XenoHuggerComponent, AfterInteractEvent>(OnHuggerAfterInteract);
@@ -55,21 +55,13 @@ public abstract class SharedXenoHuggerSystem : EntitySystem
         SubscribeLocalEvent<VictimHuggedComponent, ComponentRemove>(OnVictimHuggedRemoved);
         SubscribeLocalEvent<VictimHuggedComponent, CanSeeAttemptEvent>(OnVictimHuggedCancel);
         SubscribeLocalEvent<VictimHuggedComponent, ExaminedEvent>(OnVictimHuggedExamined);
+        SubscribeLocalEvent<VictimHuggedComponent, RejuvenateEvent>(OnVictimHuggedRejuvenate);
 
         SubscribeLocalEvent<VictimBurstComponent, MapInitEvent>(OnVictimBurstMapInit);
         SubscribeLocalEvent<VictimBurstComponent, UpdateMobStateEvent>(OnVictimUpdateMobState);
     }
 
-    private void OnHuggableInteractHand(Entity<HuggableComponent> ent, ref InteractHandEvent args)
-    {
-        if (TryComp(args.User, out XenoHuggerComponent? hugger) &&
-            StartHug((args.User, hugger), args.Target, args.User))
-        {
-            args.Handled = true;
-        }
-    }
-
-    private void OnHuggableInteractNoHand(Entity<HuggableComponent> ent, ref InteractedNoHandEvent args)
+    private void OnHuggableActivate(Entity<HuggableComponent> ent, ref ActivateInWorldEvent args)
     {
         if (TryComp(args.User, out XenoHuggerComponent? hugger) &&
             StartHug((args.User, hugger), args.Target, args.User))
@@ -81,7 +73,7 @@ public abstract class SharedXenoHuggerSystem : EntitySystem
     private void OnHuggerLeapHit(Entity<XenoHuggerComponent> hugger, ref XenoLeapHitEvent args)
     {
         var coordinates = _transform.GetMoverCoordinates(hugger);
-        if (coordinates.InRange(EntityManager, _transform, args.Leaping.Origin, hugger.Comp.HugRange))
+        if (_transform.InRange(coordinates, args.Leaping.Origin, hugger.Comp.HugRange))
             Hug(hugger, args.Hit, false);
     }
 
@@ -154,6 +146,11 @@ public abstract class SharedXenoHuggerSystem : EntitySystem
     {
         if (HasComp<XenoComponent>(args.Examiner) || (CompOrNull<GhostComponent>(args.Examiner)?.CanGhostInteract ?? false))
             args.PushMarkup("This creature is impregnated.");
+    }
+
+    private void OnVictimHuggedRejuvenate(Entity<VictimHuggedComponent> victim, ref RejuvenateEvent args)
+    {
+        RemCompDeferred<VictimHuggedComponent>(victim);
     }
 
     private void OnVictimBurstMapInit(Entity<VictimBurstComponent> burst, ref MapInitEvent args)
@@ -243,19 +240,13 @@ public abstract class SharedXenoHuggerSystem : EntitySystem
             }
         }
 
-        if (TryComp(victim, out HuggableComponent? huggable) &&
+        if (_net.IsServer &&
+            TryComp(victim, out HuggableComponent? huggable) &&
             TryComp(victim, out HumanoidAppearanceComponent? appearance) &&
             huggable.Sound.TryGetValue(appearance.Sex, out var sound))
         {
-            if (_net.IsClient)
-            {
-                _audio.PlayPredicted(sound, victim, hugger);
-            }
-            else
-            {
-                var filter = Filter.Pvs(victim);
-                _audio.PlayEntity(sound, filter, victim, true);
-            }
+            var filter = Filter.Pvs(victim);
+            _audio.PlayEntity(sound, filter, victim, true);
         }
 
         var time = _timing.CurTime;

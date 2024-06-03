@@ -13,7 +13,6 @@
   icon: "CMJobIconMilitaryWarden"
   joinNotifyCrew: false
   supervisors: cm-job-supervisors-cmp
-  canBeAntag: false
   accessGroups:
   - CMWarden
   special:
@@ -24,6 +23,7 @@
       cqc: 2
       endurance: 2
       engineer: 2
+      firearms: 1
       fireman: 1
       leadership: 1
       medical: 1
@@ -38,7 +38,7 @@
     back: CMSatchelSecurity
     shoes: CMBootsBlackFilled
     head: CMHeadCapWarden
-    eyes: ClothingEyesGlassesSecurity # todo cm14 replace with cm ones
+    eyes: CMGlassesSecurity
     gloves: CMHandsBlackMarine
     id: CMIDCardMilitaryWarden
     outerClothing: CMArmorM3Warden

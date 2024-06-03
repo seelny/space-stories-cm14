@@ -1,11 +1,17 @@
 ﻿using System.Numerics;
+using Content.Shared._CM14.Marines.Skills;
 using Content.Shared._CM14.Weapons.Ranged.Whitelist;
+using Content.Shared.Hands;
+using Content.Shared.Hands.Components;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Timing;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Whitelist;
+using Content.Shared.Wieldable;
+using Robust.Shared.Containers;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
@@ -17,8 +23,12 @@ namespace Content.Shared._CM14.Weapons.Ranged;
 public sealed class CMGunSystem : EntitySystem
 {
     [Dependency] private readonly SharedBroadphaseSystem _broadphase = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly SharedGunSystem _gun = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SkillsSystem _skills = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
@@ -37,8 +47,12 @@ public sealed class CMGunSystem : EntitySystem
         SubscribeLocalEvent<ProjectileFixedDistanceComponent, PhysicsSleepEvent>(OnProjectileStop);
 
         SubscribeLocalEvent<GunShowUseDelayComponent, GunShotEvent>(OnShowUseDelayShot);
+        SubscribeLocalEvent<GunShowUseDelayComponent, ItemWieldedEvent>(OnShowUseDelayWielded);
 
         SubscribeLocalEvent<GunUserWhitelistComponent, AttemptShootEvent>(OnGunUserWhitelistAttemptShoot);
+
+        SubscribeLocalEvent<GunUnskilledPenaltyComponent, GotEquippedHandEvent>(OnGunUnskilledPenaltyEquippedHand);
+        SubscribeLocalEvent<GunUnskilledPenaltyComponent, GunRefreshModifiersEvent>(OnGunUnskilledPenaltyRefresh);
     }
 
     private void OnAmmoFixedDistanceShot(Entity<AmmoFixedDistanceComponent> ent, ref AmmoShotEvent args)
@@ -50,7 +64,7 @@ public sealed class CMGunSystem : EntitySystem
         }
 
         var from = _transform.GetMapCoordinates(ent);
-        var to = target.ToMap(EntityManager, _transform);
+        var to = _transform.ToMapCoordinates(target);
         if (from.MapId != to.MapId)
             return;
 
@@ -82,16 +96,12 @@ public sealed class CMGunSystem : EntitySystem
 
     private void OnShowUseDelayShot(Entity<GunShowUseDelayComponent> ent, ref GunShotEvent args)
     {
-        if (!TryComp(ent, out GunComponent? gun))
-            return;
+        UpdateDelay(ent);
+    }
 
-        var remaining = gun.NextFire - _timing.CurTime;
-        if (remaining <= TimeSpan.Zero)
-            return;
-
-        var useDelay = EnsureComp<UseDelayComponent>(ent);
-        _useDelay.SetLength((ent, useDelay), remaining, ent.Comp.DelayId);
-        _useDelay.TryResetDelay((ent, useDelay), false, ent.Comp.DelayId);
+    private void OnShowUseDelayWielded(Entity<GunShowUseDelayComponent> ent, ref ItemWieldedEvent args)
+    {
+        UpdateDelay(ent);
     }
 
     private void OnGunUserWhitelistAttemptShoot(Entity<GunUserWhitelistComponent> ent, ref AttemptShootEvent args)
@@ -107,6 +117,30 @@ public sealed class CMGunSystem : EntitySystem
         _popup.PopupClient($"You don't seem to know how to use {gun}", args.User, args.User);
     }
 
+    private void OnGunUnskilledPenaltyEquippedHand(Entity<GunUnskilledPenaltyComponent> ent, ref GotEquippedHandEvent args)
+    {
+        if (TryComp(ent, out GunComponent? gun))
+            _gun.RefreshModifiers((ent, gun));
+    }
+
+    private void OnGunUnskilledPenaltyRefresh(Entity<GunUnskilledPenaltyComponent> ent, ref GunRefreshModifiersEvent args)
+    {
+        if (!_container.TryGetContainingContainer((ent, null), out var container) ||
+            !HasComp<HandsComponent>(container.Owner))
+        {
+            return;
+        }
+
+        if (TryComp(container.Owner, out SkillsComponent? skills) &&
+            skills.Skills.Firearms >= ent.Comp.Firearms)
+        {
+            return;
+        }
+
+        args.MinAngle += ent.Comp.AngleIncrease;
+        args.MaxAngle += ent.Comp.AngleIncrease;
+    }
+
     private void StopProjectile(Entity<ProjectileFixedDistanceComponent> projectile)
     {
         if (!_physicsQuery.TryGetComponent(projectile, out var physics))
@@ -117,6 +151,20 @@ public sealed class CMGunSystem : EntitySystem
 
         if (physics.Awake)
             _broadphase.RegenerateContacts(projectile, physics);
+    }
+
+    private void UpdateDelay(Entity<GunShowUseDelayComponent> ent)
+    {
+        if (!TryComp(ent, out GunComponent? gun))
+            return;
+
+        var remaining = gun.NextFire - _timing.CurTime;
+        if (remaining <= TimeSpan.Zero)
+            return;
+
+        var useDelay = EnsureComp<UseDelayComponent>(ent);
+        _useDelay.SetLength((ent, useDelay), remaining, ent.Comp.DelayId);
+        _useDelay.TryResetDelay((ent, useDelay), false, ent.Comp.DelayId);
     }
 
     public override void Update(float frameTime)

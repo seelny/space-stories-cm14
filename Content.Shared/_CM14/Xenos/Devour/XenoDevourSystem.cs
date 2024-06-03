@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using Content.Shared._CM14.Inventory;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Buckle.Components;
 using Content.Shared.DoAfter;
@@ -9,7 +8,6 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory.Events;
-using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Item;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
@@ -40,9 +38,7 @@ public sealed class XenoDevourSystem : EntitySystem
     {
         SubscribeLocalEvent<DevourableComponent, CanDropDraggedEvent>(OnDevourableCanDropDragged);
         SubscribeLocalEvent<DevourableComponent, DragDropDraggedEvent>(OnDevourableDragDropDragged);
-
-        SubscribeLocalEvent<CMVirtualItemComponent, BeforeRangedInteractEvent>(OnXenoInteractBeforeRangedInteract,
-            before: [typeof(SharedVirtualItemSystem)]);
+        SubscribeLocalEvent<DevourableComponent, BeforeRangedInteractEvent>(OnDevourableBeforeRangedInteract);
 
         SubscribeLocalEvent<DevouredComponent, ComponentStartup>(OnDevouredStartup);
         SubscribeLocalEvent<DevouredComponent, ComponentRemove>(OnDevouredRemove);
@@ -58,8 +54,7 @@ public sealed class XenoDevourSystem : EntitySystem
         SubscribeLocalEvent<DevouredComponent, AttackAttemptEvent>(OnDevouredAttackAttempt);
 
         SubscribeLocalEvent<XenoDevourComponent, CanDropTargetEvent>(OnXenoCanDropTarget);
-        SubscribeLocalEvent<XenoDevourComponent, InteractHandEvent>(OnXenoInteractHand);
-        SubscribeLocalEvent<XenoDevourComponent, InteractedNoHandEvent>(OnXenoInteractNoHand);
+        SubscribeLocalEvent<XenoDevourComponent, ActivateInWorldEvent>(OnXenoActivate);
         SubscribeLocalEvent<XenoDevourComponent, DoAfterAttemptEvent<XenoDevourDoAfterEvent>>(OnXenoDevourDoAfterAttempt);
         SubscribeLocalEvent<XenoDevourComponent, XenoDevourDoAfterEvent>(OnXenoDevourDoAfter);
         SubscribeLocalEvent<XenoDevourComponent, XenoRegurgitateActionEvent>(OnXenoRegurgitateAction);
@@ -85,7 +80,7 @@ public sealed class XenoDevourSystem : EntitySystem
             args.Handled = true;
     }
 
-    private void OnXenoInteractBeforeRangedInteract(Entity<CMVirtualItemComponent> devourable, ref BeforeRangedInteractEvent args)
+    private void OnDevourableBeforeRangedInteract(Entity<DevourableComponent> ent, ref BeforeRangedInteractEvent args)
     {
         if (args.User != args.Target)
             return;
@@ -106,7 +101,7 @@ public sealed class XenoDevourSystem : EntitySystem
         if (_timing.ApplyingState)
             return;
 
-        if (_container.TryGetContainingContainer(devoured, out var container) &&
+        if (_container.TryGetContainingContainer((devoured, null), out var container) &&
             TryComp(container.Owner, out XenoDevourComponent? devour) &&
             container.ID != devour.DevourContainerId)
         {
@@ -157,16 +152,7 @@ public sealed class XenoDevourSystem : EntitySystem
         args.Handled = true;
     }
 
-    private void OnXenoInteractHand(Entity<XenoDevourComponent> xeno, ref InteractHandEvent args)
-    {
-        if (args.User != args.Target)
-            return;
-
-        if (StartDevourPulled(args.User))
-            args.Handled = true;
-    }
-
-    private void OnXenoInteractNoHand(Entity<XenoDevourComponent> xeno, ref InteractedNoHandEvent args)
+    private void OnXenoActivate(Entity<XenoDevourComponent> xeno, ref ActivateInWorldEvent args)
     {
         if (args.User != args.Target)
             return;
@@ -412,10 +398,10 @@ public sealed class XenoDevourSystem : EntitySystem
     public override void Update(float frameTime)
     {
         var time = _timing.CurTime;
-        var devoured = EntityQueryEnumerator<DevouredComponent>();
-        while (devoured.MoveNext(out var uid, out var comp))
+        var devoured = EntityQueryEnumerator<DevouredComponent, TransformComponent>();
+        while (devoured.MoveNext(out var uid, out var comp, out var xform))
         {
-            if (!_container.TryGetContainingContainer(uid, out var container) ||
+            if (!_container.TryGetContainingContainer((uid, xform), out var container) ||
                 !TryComp(container.Owner, out XenoDevourComponent? devour) ||
                 container.ID != devour.DevourContainerId)
             {

@@ -12,13 +12,13 @@
   icon: "CMJobIconPilotDropship"
   joinNotifyCrew: false
   supervisors: cm-job-supervisors-aso
-  canBeAntag: false
   accessGroups:
   - Pilot
   special:
   - !type:AddComponentSpecial
     components:
     - type: Skills
+      firearms: 1
       intel: 1
       jtac: 2
       leadership: 1

@@ -9,16 +9,17 @@
     group: CMDepartmentsHuman
     time: 36000 # 10 hours
   startingGear: CMGearCorrespondent
-  icon: "CMJobIconCorrespondent"
+  icon: "CMJobIconEmpty"
   joinNotifyCrew: false
   supervisors: cm-job-supervisors-co
-  canBeAntag: true
   accessGroups:
   - CMCorrespondent
   special:
   - !type:AddComponentSpecial
     components:
     - type: Skills
+      firearms: 0
+      vehicles: 1
   hasIcon: false
 
 - type: startingGear

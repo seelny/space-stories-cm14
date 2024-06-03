@@ -12,13 +12,13 @@
   icon: "CMJobIconDoctor"
   joinNotifyCrew: false
   supervisors: cm-job-supervisors-cmo
-  canBeAntag: true
   accessGroups:
   - CMMedbay
   special:
   - !type:AddComponentSpecial
     components:
     - type: Skills
+      firearms: 0
       medical: 3
       surgery: 2
 
