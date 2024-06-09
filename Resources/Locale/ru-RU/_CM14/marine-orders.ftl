@@ -1,6 +1,6 @@
 move-order-callout-1 = Шевелись!!!
 move-order-callout-2 = Двигайся!!!
-move-order-callout-3 = Ускорятесь!!!
+move-order-callout-3 = Ускоряйтесь!!!
 hold-order-callout-1 = Обороняйтесь!!!
 hold-order-callout-2 = Держать линию!!!
 hold-order-callout-3 = Защищайтесь!!!
