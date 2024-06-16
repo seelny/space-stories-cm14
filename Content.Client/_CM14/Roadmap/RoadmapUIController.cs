@@ -4,7 +4,7 @@ using Robust.Client.UserInterface.Controllers;
 
 namespace Content.Client._CM14.Roadmap;
 
-public sealed class RoadmapUIController : UIController, IOnStateEntered<LobbyState>
+public sealed class RoadmapUIController : UIController
 {
     [Dependency] private readonly InfoUIController _infoUIController = default!;
 
@@ -17,16 +17,16 @@ public sealed class RoadmapUIController : UIController, IOnStateEntered<LobbySta
         _infoUIController.Accepted += OnAccepted;
     }
 
-    public void OnStateEntered(LobbyState state)
-    {
-        if (_shown || _window != null)
-            return;
+    // public void OnStateEntered(LobbyState state)
+    // {
+    //     if (_shown || _window != null)
+    //         return;
 
-        if (_infoUIController.RulesPopup != null)
-            return;
+    //     if (_infoUIController.RulesPopup != null)
+    //         return;
 
-        ToggleRoadmap();
-    }
+    //     ToggleRoadmap();
+    // }
 
     private void OnAccepted()
     {
