@@ -33,7 +33,8 @@
       "directions": 4
     },
     {
-      "name": "equipped-SUITSTORAGE"
+      "name": "equipped-SUITSTORAGE",
+      "directions": 4
     },
     {
       "name": "equipped-BACKPACK",

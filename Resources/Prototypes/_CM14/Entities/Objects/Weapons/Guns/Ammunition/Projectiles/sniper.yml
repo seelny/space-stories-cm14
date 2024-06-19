@@ -30,6 +30,8 @@
         Heat: 10
   - type: CMArmorPiercing
     amount: 20
+  - type: IgniteOnCollide
+    fireStacks: 1
 
 # TODO CM14 slow
 - type: entity
@@ -44,6 +46,9 @@
         Piercing: 55
   - type: CMArmorPiercing
     amount: 0
+  - type: XenoSlowingSpitProjectile
+    slow: 2
+    paralyze: 0
 
 - type: entity
   parent: CMBulletSniper10x28mm
