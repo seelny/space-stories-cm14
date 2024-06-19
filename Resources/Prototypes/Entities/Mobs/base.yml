@@ -86,12 +86,14 @@
       0: Alive
       100: Critical
       200: Dead
-  - type: MobStateActions
-    actions:
-      Critical:
-      - ActionCritSuccumb
-      - ActionCritFakeDeath
-      - ActionCritLastWords
+  # Stories-CriticalActionsOff-Start
+  # - type: MobStateActions
+  #   actions:
+  #     Critical:
+  #     - ActionCritSuccumb
+  #     - ActionCritFakeDeath
+  #     - ActionCritLastWords
+  # Stories-CriticalActionsOff-End
   - type: Deathgasp
   - type: HealthExaminable
     examinableTypes:

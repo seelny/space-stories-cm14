@@ -64,12 +64,14 @@
       Alive: XenoHealth
       Critical: XenoCrit
       Dead: XenoDead
-  - type: MobStateActions
-    actions:
-      Critical:
-      - ActionCritSuccumb
-      - ActionCritFakeDeath
-      - ActionCritLastWords
+  # Stories-CriticalActionsOff-Start
+  # - type: MobStateActions
+  #   actions:
+  #     Critical:
+  #     - ActionCritSuccumb
+  #     - ActionCritFakeDeath
+  #     - ActionCritLastWords
+  # Stories-CriticalActionsOff-End
   - type: Deathgasp
     prototype: CMXenoDeathGasp
   - type: SoundOnDeath
