@@ -9,3 +9,187 @@
       SquadBravo: CMHeadsetBravo
       SquadCharlie: CMHeadsetCharlie
       SquadDelta: CMHeadsetDelta
+
+- type: entity
+  id: CMVendorHeadsetSquadLeader
+  categories:
+  - HideSpawnMenu
+  components:
+  - type: CMVendorMapToSquad
+    map:
+      SquadAlpha: CMHeadsetAlphaLeader
+      SquadBravo: CMHeadsetBravoLeader
+      SquadCharlie: CMHeadsetCharlieLeader
+      SquadDelta: CMHeadsetDeltaLeader
+
+- type: entity
+  id: CMVendorHeadsetSquadTeamLeader
+  categories:
+  - HideSpawnMenu
+  components:
+  - type: CMVendorMapToSquad
+    map:
+      SquadAlpha: CMHeadsetAlphaTeamLeader
+      SquadBravo: CMHeadsetBravoTeamLeader
+      SquadCharlie: CMHeadsetCharlieTeamLeader
+      SquadDelta: CMHeadsetDeltaTeamLeader
+
+- type: entity
+  id: CMVendorHeadsetSquadEngineer
+  categories:
+  - HideSpawnMenu
+  components:
+  - type: CMVendorMapToSquad
+    map:
+      SquadAlpha: CMHeadsetAlphaEngineer
+      SquadBravo: CMHeadsetBravoEngineer
+      SquadCharlie: CMHeadsetCharlieEngineer
+      SquadDelta: CMHeadsetDeltaEngineer
+
+- type: entity
+  id: CMVendorHeadsetSquadMedic
+  categories:
+  - HideSpawnMenu
+  components:
+  - type: CMVendorMapToSquad
+    map:
+      SquadAlpha: CMHeadsetAlphaMedic
+      SquadBravo: CMHeadsetBravoMedic
+      SquadCharlie: CMHeadsetCharlieMedic
+      SquadDelta: CMHeadsetDeltaMedic
+
+# Helmet
+
+- type: entity
+  id: CMVendorHelmetM10
+  categories:
+  - HideSpawnMenu
+  components:
+  - type: CMVendorMapToSquad
+    map:
+      SquadAlpha: CMArmorHelmetM10Alpha
+      SquadBravo: CMArmorHelmetM10Bravo
+      SquadCharlie: CMArmorHelmetM10Charlie
+      SquadDelta: CMArmorHelmetM10Delta
+
+- type: entity
+  id: CMVendorHelmetM10Medic
+  categories:
+  - HideSpawnMenu
+  components:
+  - type: CMVendorMapToSquad
+    map:
+      SquadAlpha: CMArmorHelmetM10AlphaMedic
+      SquadBravo: CMArmorHelmetM10BravoMedic
+      SquadCharlie: CMArmorHelmetM10CharlieMedic
+      SquadDelta: CMArmorHelmetM10DeltaMedic
+
+- type: entity
+  id: CMVendorHelmetM10Tech
+  categories:
+  - HideSpawnMenu
+  components:
+  - type: CMVendorMapToSquad
+    map:
+      SquadAlpha: CMArmorHelmetM10AlphaTech
+      SquadBravo: CMArmorHelmetM10BravoTech
+      SquadCharlie: CMArmorHelmetM10CharlieTech
+      SquadDelta: CMArmorHelmetM10DeltaTech
+
+- type: entity
+  id: CMVendorHelmetM11
+  categories:
+  - HideSpawnMenu
+  components:
+  - type: CMVendorMapToSquad
+    map:
+      SquadAlpha: CMArmorHelmetM11Alpha
+      SquadBravo: CMArmorHelmetM11Bravo
+      SquadCharlie: CMArmorHelmetM11Charlie
+      SquadDelta: CMArmorHelmetM11Delta
+
+- type: entity
+  id: CMVendorHelmetM12
+  categories:
+  - HideSpawnMenu
+  components:
+  - type: CMVendorMapToSquad
+    map:
+      SquadAlpha: CMArmorHelmetM12Alpha
+      SquadBravo: CMArmorHelmetM12Bravo
+      SquadCharlie: CMArmorHelmetM12Charlie
+      SquadDelta: CMArmorHelmetM12Delta
+
+# Armor
+
+- type: entity
+  id: CMVendorArmorM3Medium
+  categories:
+  - HideSpawnMenu
+  components:
+  - type: CMVendorMapToSquad
+    map:
+      SquadAlpha: CMArmorM3MediumAlpha
+      SquadBravo: CMArmorM3MediumBravo
+      SquadCharlie: CMArmorM3MediumCharlie
+      SquadDelta: CMArmorM3MediumDelta
+
+- type: entity
+  id: CMVendorArmorM3Light
+  categories:
+  - HideSpawnMenu
+  components:
+  - type: CMVendorMapToSquad
+    map:
+      SquadAlpha: CMArmorM3LightAlpha
+      SquadBravo: CMArmorM3LightBravo
+      SquadCharlie: CMArmorM3LightCharlie
+      SquadDelta: CMArmorM3LightDelta
+
+- type: entity
+  id: CMVendorArmorM3T
+  categories:
+  - HideSpawnMenu
+  components:
+  - type: CMVendorMapToSquad
+    map:
+      SquadAlpha: CMArmorM3TAlpha
+      SquadBravo: CMArmorM3TBravo
+      SquadCharlie: CMArmorM3TCharlie
+      SquadDelta: CMArmorM3TDelta
+
+- type: entity
+  id: CMVendorArmorM3Heavy
+  categories:
+  - HideSpawnMenu
+  components:
+  - type: CMVendorMapToSquad
+    map:
+      SquadAlpha: CMArmorM3HeavyAlpha
+      SquadBravo: CMArmorM3HeavyBravo
+      SquadCharlie: CMArmorM3HeavyCharlie
+      SquadDelta: CMArmorM3HeavyDelta
+
+- type: entity
+  id: CMVendorArmorB12
+  categories:
+  - HideSpawnMenu
+  components:
+  - type: CMVendorMapToSquad
+    map:
+      SquadAlpha: CMArmorB12Alpha
+      SquadBravo: CMArmorB12Bravo
+      SquadCharlie: CMArmorB12Charlie
+      SquadDelta: CMArmorB12Delta
+
+- type: entity
+  id: CMVendorArmorM4
+  categories:
+  - HideSpawnMenu
+  components:
+  - type: CMVendorMapToSquad
+    map:
+      SquadAlpha: CMArmorM4Alpha
+      SquadBravo: CMArmorM4Bravo
+      SquadCharlie: CMArmorM4Charlie
+      SquadDelta: CMArmorM4Delta

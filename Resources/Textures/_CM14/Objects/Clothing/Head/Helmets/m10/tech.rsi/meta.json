@@ -10,17 +10,21 @@
     {
       "name": "icon"
     },
-	{
-	  "name": "inhand-left",
+    {
+      "name": "color",
       "directions": 4
-	},
-	{
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
       "name": "inhand-right",
       "directions": 4
-	},
-	{
+    },
+    {
       "name": "equipped-HELMET",
       "directions": 4
-	}
+    }
   ]
 }

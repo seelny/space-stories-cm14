@@ -9,7 +9,7 @@
     state: icon
   - type: CMVendorBundle
     bundle:
-    - ArmorHelmetM10
+    - CMVendorHelmetM10
     - CMVendorHeadsetSquad
     - CMHandsBlackMarine
     - CMBootsBlackFilled
@@ -21,8 +21,8 @@
   components:
   - type: CMVendorBundle
     bundle:
-    - ArmorHelmetM10 # TODO CM14 M4
-    - CMVendorHeadsetSquad
+    - CMVendorHelmetM12 # TODO CM14 M4
+    - CMVendorHeadsetSquadTeamLeader
     - CMHandsBlackMarine
     - CMBootsBlackFilled
 
@@ -33,8 +33,8 @@
   components:
   - type: CMVendorBundle
     bundle:
-    - CMArmorHelmetM10Medic # TODO CM14 M4
-    - CMVendorHeadsetSquad
+    - CMVendorHelmetM10Medic # TODO CM14 M4
+    - CMVendorHeadsetSquadMedic
     - CMHandsBlackMarine
     - CMBootsBlackFilled
 
@@ -67,8 +67,8 @@
   components:
   - type: CMVendorBundle
     bundle:
-    - CMArmorHelmetM10Tech # TODO CM14 M4
-    - CMVendorHeadsetSquad
+    - CMVendorHelmetM10Tech # TODO CM14 M4
+    - CMVendorHeadsetSquadEngineer
     - CMHandsInsulated
     - CMBootsBlackFilled
 
@@ -98,8 +98,8 @@
   components:
   - type: CMVendorBundle
     bundle:
-    - CMArmorHelmetM11 # TODO CM14 M4
-    - CMVendorHeadsetSquad
+    - CMVendorHelmetM11 # TODO CM14 M4
+    - CMVendorHeadsetSquadLeader
     - CMHandsBlackMarine
     - CMBootsBlackFilled
 
@@ -110,6 +110,76 @@
   components:
   - type: CMVendorBundle
     bundle:
+    - CMVendorHelmetM10
     - CMVendorHeadsetSquad
     - CMHandsBlackMarine
     - CMBootsBlackFilled
+
+- type: entity
+  id: CMVendorBundleArmorM3Medium
+  name: medium armor
+  components:
+  - type: Sprite
+    sprite: _CM14/Objects/Clothing/OuterClothing/Armor/m3/standard.rsi
+    state: icon
+  - type: CMVendorBundle
+    bundle:
+    - CMVendorArmorM3Medium
+
+- type: entity
+  id: CMVendorBundleArmorM3Light
+  name: light armor
+  components:
+  - type: Sprite
+    sprite: _CM14/Objects/Clothing/OuterClothing/Armor/m3/light.rsi
+    state: icon
+  - type: CMVendorBundle
+    bundle:
+    - CMVendorArmorM3Light
+
+
+- type: entity
+  id: CMVendorBundleArmorM3T
+  name: light armor
+  components:
+  - type: Sprite
+    sprite: _CM14/Objects/Clothing/OuterClothing/Armor/m3/t.rsi
+    state: icon
+  - type: CMVendorBundle
+    bundle:
+    - CMVendorArmorM3T
+
+- type: entity
+  id: CMVendorBundleArmorM3Heavy
+  name: heavy armor
+  components:
+  - type: Sprite
+    sprite: _CM14/Objects/Clothing/OuterClothing/Armor/m3/eod.rsi
+    state: icon
+  - type: CMVendorBundle
+    bundle:
+    - CMVendorArmorM3Heavy
+
+
+- type: entity
+  id: CMVendorBundleArmorB12
+  name: medium armor
+  components:
+  - type: Sprite
+    sprite: _CM14/Objects/Clothing/OuterClothing/Armor/m3/b12.rsi
+    state: icon
+  - type: CMVendorBundle
+    bundle:
+    - CMVendorArmorB12
+
+
+- type: entity
+  id: CMVendorBundleArmorM4
+  name: medium armor
+  components:
+  - type: Sprite
+    sprite: _CM14/Objects/Clothing/OuterClothing/Armor/m4.rsi
+    state: icon
+  - type: CMVendorBundle
+    bundle:
+    - CMVendorArmorM4
