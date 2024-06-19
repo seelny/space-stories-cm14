@@ -154,6 +154,38 @@
     checkCanAccess: false
 
 - type: entity
+  id: ActionXenoSpit
+  parent: ActionXenoBase
+  name: Acid Spit (25) # TODO CM14 proper plasma costs
+  description: Your acid spit has an accurate range of 6 tiles, but can hit out to 7 with a lower probability, dealing 20 damage to any marines hit.
+  components:
+  - type: WorldTargetAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: _CM14/Actions/xeno_actions.rsi
+      state: xeno_spit
+    event: !type:XenoSpitActionEvent
+    useDelay: 2
+    range: 15
+    checkCanAccess: false
+
+- type: entity
+  id: ActionXenoBombard
+  parent: ActionXenoBase
+  name: Bombard (200) # TODO CM14 proper plasma costs
+  description: You dig in for 5 seconds and prepare to fire, firing either an acidic glob or neurotoxic glob. Your acidic globs will deal continual damage to anything caught in its radius, while neurotoxin will cause targets to suffocate, be slowed down and blinded, alongside eventually knocking them unconscious to be kidnapped.
+  components:
+  - type: WorldTargetAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: _CM14/Actions/xeno_actions.rsi
+      state: bombard
+    event: !type:XenoSpitActionEvent
+    useDelay: 30
+    range: 15
+    checkCanAccess: false
+
+- type: entity
   id: ActionXenoParalyzingSlash
   parent: ActionXenoBase
   name: Paralyzing Slash (50) # TODO CM14 proper plasma costs
@@ -284,4 +316,20 @@
     event: !type:XenoChargeActionEvent
     range: 15
     useDelay: 15
+    checkCanAccess: false
+
+- type: entity
+  id: ActionXenoDash
+  parent: ActionXenoBase
+  name: Dash (40)
+  description: Dash a short distance at a desired location of your choice.
+  components:
+  - type: WorldTargetAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: _CM14/Actions/xeno_actions.rsi
+      state: prae_dash
+    event: !type:XenoDashActionEvent
+    range: 15
+    useDelay: 10
     checkCanAccess: false

@@ -36,3 +36,6 @@ reagent-desc-cmleporazine = A drug used to treat hypothermia and hyperthermia. S
 
 reagent-name-cmtricordrazine = Tricordrazine
 reagent-desc-cmtricordrazine = Tricordrazine is a highly potent stimulant, originally derived from cordrazine. Can be used to treat a wide range of injuries.
+
+reagent-name-cmacid = Acid
+reagent-desc-cmacid = Acid

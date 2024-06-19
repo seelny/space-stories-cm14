@@ -27,7 +27,7 @@
     - ActionXenoWatch
     - ActionXenoTailStab
     - ActionXenoAcidStrong
-    #    - ActionXenoBombard
+    - ActionXenoBombard
     #    - ActionXenoToggleGasType
     #    - ActionXenoSprayAcid
     #    - ActionXenoLongSight
@@ -35,6 +35,9 @@
     tier: 3
     hudOffset: 0,0.35
     unlockAt: 900 # 15 minutes
+  - type: XenoSpit
+    plasmaCost: 200
+    projectileId: XenoBombardSpitProjectile
   - type: XenoPlasma
     plasma: 400
     maxPlasma: 400

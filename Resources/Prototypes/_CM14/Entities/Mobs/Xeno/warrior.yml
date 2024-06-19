@@ -46,7 +46,7 @@
     max: 540
     evolvesTo:
     - CMXenoCrusher
-    # - CMXenoPraetorian
+    - CMXenoPraetorian
   - type: CMArmor
     armor: 20
     explosionArmor: 40

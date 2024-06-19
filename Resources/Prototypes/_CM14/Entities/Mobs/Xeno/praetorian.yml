@@ -27,13 +27,16 @@
     - ActionXenoWatch
     - ActionXenoTailStab
     - ActionXenoAcidNormal
-    #    - ActionXenoSpit
-    #    - ActionXenoDash
+    - ActionXenoSpit
+    - ActionXenoDash
     #    - ActionXenoAcidBall
     #    - ActionXenoSprayAcid
     tier: 3
     hudOffset: 0,0.16
     unlockAt: 900 # 15 minutes
+  - type: XenoSpit
+    projectileId: XenoIchorSpitProjectile
+  - type: XenoDash
   - type: XenoAcid
   - type: XenoDevour
   - type: XenoPlasma

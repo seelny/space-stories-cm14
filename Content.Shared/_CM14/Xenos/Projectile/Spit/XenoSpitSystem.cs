@@ -1,5 +1,6 @@
 using Content.Shared._CM14.Xenos.Projectile.Spit.Scattered;
 using Content.Shared._CM14.Xenos.Projectile.Spit.Slowing;
+using Content.Shared._CM14.Xenos.Projectile.Spit.Spit;
 using Content.Shared.Armor;
 using Content.Shared.Effects;
 using Content.Shared.Inventory;
@@ -26,6 +27,7 @@ public sealed class XenoSpitSystem : EntitySystem
     {
         SubscribeLocalEvent<XenoSlowingSpitComponent, XenoSlowingSpitActionEvent>(OnXenoSlowingSpitAction);
         SubscribeLocalEvent<XenoScatteredSpitComponent, XenoScatteredSpitActionEvent>(OnXenoScatteredSpitAction);
+        SubscribeLocalEvent<XenoSpitComponent, XenoSpitActionEvent>(OnXenoSpitAction);
 
         SubscribeLocalEvent<XenoSlowingSpitProjectileComponent, ProjectileHitEvent>(OnXenoSlowingSpitHit);
 
@@ -34,6 +36,23 @@ public sealed class XenoSpitSystem : EntitySystem
         SubscribeLocalEvent<ArmorComponent, InventoryRelayedEvent<HitBySlowingSpitEvent>>(OnArmorHitBySlowingSpit);
 
         SubscribeLocalEvent<InventoryComponent, HitBySlowingSpitEvent>(_inventory.RelayEvent);
+    }
+
+    private void OnXenoSpitAction(Entity<XenoSpitComponent> xeno, ref XenoSpitActionEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        args.Handled = _xenoProjectile.TryShoot(
+            xeno,
+            args.Target,
+            xeno.Comp.PlasmaCost,
+            xeno.Comp.ProjectileId,
+            xeno.Comp.Sound,
+            1,
+            Angle.Zero,
+            xeno.Comp.Speed
+        );
     }
 
     private void OnXenoSlowingSpitAction(Entity<XenoSlowingSpitComponent> xeno, ref XenoSlowingSpitActionEvent args)

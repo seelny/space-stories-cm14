@@ -27,12 +27,13 @@
     - ActionXenoWatch
     - ActionXenoTailStab
     - ActionXenoAcidNormal
-    #    - ActionXenoSpit
+    - ActionXenoSpit
     #    - ActionXenoChargeSpit
     #    - ActionXenoSprayAcid
     tier: 2
     hudOffset: 0,0.16
     unlockAt: 540 # 9 minutes
+  - type: XenoSpit
   - type: XenoAcid
   - type: XenoDevour
   - type: XenoPlasma
@@ -41,9 +42,9 @@
     plasmaRegenOnWeeds: 4
   - type: XenoEvolution
     max: 540
-#    evolvesTo:
-#    - CMXenoPraetorian
-#    - CMXenoBoiler
+    evolvesTo:
+    - CMXenoPraetorian
+    - CMXenoBoiler
   - type: CMArmor
     armor: 15
     explosionArmor: 20
