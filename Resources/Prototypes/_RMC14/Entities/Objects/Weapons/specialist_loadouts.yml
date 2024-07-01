@@ -1,4 +1,5 @@
-﻿- type: entity
+﻿# Sniper
+- type: entity
   parent: BaseStorageItem
   id: CMSniperEquipmentCase
   name: sniper equipment case
@@ -30,22 +31,253 @@
   - type: Storage
     maxItemSize: Huge
     grid:
-    - 0,0,27,1
+    - 0,0,33,1
   - type: StorageFill
     contents:
     - id: CMArmorM45
     - id: CMArmorHelmetM45
     - id: CMGlassesM42ScoutSight
     - id: CMMagazineSniperM96S
+    - id: CMMagazineSniperM96S
     - id: CMMagazineSniperM96SIncendiary
     - id: CMMagazineSniperM96SIncendiary
+    - id: CMMagazineSniperM96SFlak
     - id: CMMagazineSniperM96SFlak
     - id: CMBackpackSniper
     - id: CMWeaponPistolMK80
     - id: CMMagazinePistolMK80
+    - id: CMMagazinePistolMK80
+    - id: CMMagazinePistolMK80
     - id: CMM96SSniperRifle
 #    - id: CMFacepaintSniper
-#    - id: CMSpotter
+    - id: CMSpotterKit
+  - type: CMChangeUserOnVend
+    addComponents:
+    - type: SniperWhitelist
+  - type: RemoveOnlyStorage
+  - type: FixedItemSizeStorage
+
+# Sniper Anti Materiel
+- type: entity
+  parent: BaseStorageItem
+  id: CMSniperAntiMaterielEquipmentCase
+  name: sniper equipment case
+  description: "A large case containing your very own long-range M96S sniper rifle, M45 ghillie armor and helmet, M42 scout sight, ammunition, spotter equipment, and additional pieces of equipment.\n\nNOTE: You cannot put items back inside this case."
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _RMC14/Objects/loadout_kits.rsi
+    layers:
+    - state: closed
+      map: [ base ]
+    - state: sniper
+      map: [ sniper ]
+  - type: Icon
+    sprite: _RMC14/Objects/loadout_kits.rsi
+    state: closed
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        base:
+          True: { state: open }
+          False: { state: closed }
+        sniper:
+          True: { visible: false }
+          False: { visible: true }
+  - type: Item
+    size: Huge
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,33,1
+  - type: StorageFill
+    contents:
+    - id: CMArmorM45
+    - id: CMArmorHelmetM45
+    - id: CMGlassesM42ScoutSight
+    - id: CMMagazineSniperXM43E1AntiMateriel
+    - id: CMMagazineSniperXM43E1AntiMateriel
+    - id: CMMagazineSniperXM43E1AntiMateriel
+    - id: CMMagazineSniperXM43E1AntiMateriel
+    - id: CMMagazineSniperXM43E1AntiMateriel
+    - id: CMMagazineSniperXM43E1AntiMateriel
+    - id: CMBackpackSniper
+    - id: CMWeaponPistolMK80
+    - id: CMMagazinePistolMK80
+    - id: CMMagazinePistolMK80
+    - id: CMMagazinePistolMK80
+    - id: CMXM43E1SniperRifle
+#    - id: CMFacepaintSniper
+    - id: CMSpotterKit
+  - type: CMChangeUserOnVend
+    addComponents:
+    - type: SniperWhitelist
+  - type: RemoveOnlyStorage
+  - type: FixedItemSizeStorage
+
+- type: entity
+  parent: BaseStorageItem
+  id: CMSpotterKit
+  name: spotter kit
+  description: It's just an ordinary box.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _RMC14/Objects/loadout_kits.rsi
+    layers:
+    - state: closed
+      map: [ base ]
+    - state: sniper
+      map: [ sniper ]
+  - type: Icon
+    sprite: _RMC14/Objects/loadout_kits.rsi
+    state: closed
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        base:
+          True: { state: open }
+          False: { state: closed }
+        sniper:
+          True: { visible: false }
+          False: { visible: true }
+  - type: Item
+    size: Huge
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,11,1
+  - type: StorageFill
+    contents:
+    - id: CMArmorM45
+    - id: CMArmorHelmetM45
+    - id: CMGlassesM42ScoutSight
+    - id: CMBackpackSniper
+    # - id: CMSpotterLaserDesignator
+    - id: CMPamphletSpotter
+  - type: FixedItemSizeStorage
+  - type: RemoveOnlyStorage
+
+# Demolitionist
+- type: entity
+  parent: BaseStorageItem
+  id: CMDemolitionistEquipmentCase
+  name: demolitionist equipment case
+  description: "A large case containing a heavy-caliber anti-tank M5 RPG rocket launcher, M3-T light armor, five 84mm rockets and additional pieces of equipment.\n\nNOTE: You cannot put items back inside this case."
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _RMC14/Objects/loadout_kits.rsi
+    layers:
+    - state: closed
+      map: [ base ]
+    - state: demo
+      map: [ demo ]
+  - type: Icon
+    sprite: _RMC14/Objects/loadout_kits.rsi
+    state: closed
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        base:
+          True: { state: open }
+          False: { state: closed }
+        demo:
+          True: { visible: false }
+          False: { visible: true }
+  - type: Item
+    size: Huge
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,33,1
+  - type: StorageFill
+    contents:
+    # - id: M5 RPG
+    # - id: M3-T light armor.
+    # - id: M3-T bombardier helmet.
+    # - id: M3-T bombardier helmet.
+    # - id: USCM IMP M22 rocket bags
+    # - id: USCM IMP M22 rocket bags
+    # - id: 84mm high explosive rocket
+    # - id: 84mm high explosive rocket
+    # - id: 84mm anti-armor rocket
+    # - id: 84mm anti-armor rocket
+    # - id: 84mm white-phosphorus rocket
+    - id: CMWeaponPistolMK80
+    - id: CMMagazinePistolMK80
+    - id: CMMagazinePistolMK80
+    - id: CMMagazinePistolMK80
+    # - id: plastic explosives
+    # - id: plastic explosives
+    # - id: binoculars
+  - type: CMChangeUserOnVend
+    addComponents:
+    - type: SniperWhitelist
+  - type: RemoveOnlyStorage
+  - type: FixedItemSizeStorage
+
+# Scout
+- type: entity
+  parent: BaseStorageItem
+  id: CMScoutEquipmentCase
+  name: scout equipment case
+  description: "A large case containing an M4RA battle rifle, M3-S light armor and helmet, M4RA battle sight, M68 thermal cloak, V3 reactive thermal tarp, improved scout laser designator, ammunition and additional pieces of equipment.\n\nNOTE: You cannot put items back inside this case."
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _RMC14/Objects/loadout_kits.rsi
+    layers:
+    - state: closed
+      map: [ base ]
+    - state: scout
+      map: [ scout ]
+  - type: Icon
+    sprite: _RMC14/Objects/loadout_kits.rsi
+    state: closed
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        base:
+          True: { state: open }
+          False: { state: closed }
+        sniper:
+          True: { visible: false }
+          False: { visible: true }
+  - type: Item
+    size: Huge
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,33,1
+  - type: StorageFill
+    contents:
+    # - id: M3-S light armor
+    # - id: M3-S light helmet
+    # - id: M4RA Battle sight
+    # - id: A19 HV magazine (10x24mm)
+    # - id: A19 HV magazine (10x24mm)
+    # - id: A19 HV magazine (10x24mm)
+    # - id: A19 HV magazine (10x24mm)
+    # - id: A19 HV incendiary magazine (10x24mm)
+    # - id: A19 HV incendiary magazine (10x24mm)
+    # - id: A19 HV high impact magazine (10x24mm)
+    # - id: A19 HV high impact magazine (10x24mm)
+    # - id: M68 Thermal Cloak
+    - id: CMWeaponPistolMK80
+    - id: CMMagazinePistolMK80
+    - id: CMMagazinePistolMK80
+    - id: CMMagazinePistolMK80
+    # - id: M4RA custom battle rifle
+    # - id: V3 reactive thermal tarp (folded)
+    # - id: plastic explosives
+    # - id: plastic explosives
+    # - id: JTAC Radio Encryption Key
+    # - id: scout laser designator
   - type: CMChangeUserOnVend
     addComponents:
     - type: SniperWhitelist

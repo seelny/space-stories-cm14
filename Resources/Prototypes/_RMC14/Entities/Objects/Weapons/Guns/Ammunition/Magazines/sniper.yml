@@ -69,13 +69,14 @@
 
 - type: entity
   parent: CMMagazineSniperM96S
-  id: CMMagazineSniperM96SAntiMateriel
+  id: CMMagazineSniperXM43E1AntiMateriel
   name: "XM43E1 marksman magazine (10x99mm)"
   description: A magazine of 10x99mm anti-materiel rounds.
   components:
   - type: Tag
     tags:
     - CMMagazineSniper
+    - CMMagazineSniperXM43E1
   - type: BallisticAmmoProvider
     mayTransfer: True
     whitelist:
@@ -98,6 +99,9 @@
 
 - type: Tag
   id: CMMagazineSniperM96S
+
+- type: Tag
+  id: CMMagazineSniperXM43E1
 
 - type: Tag
   id: CMCartridgeSniper10x28mm

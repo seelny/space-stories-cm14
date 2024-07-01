@@ -1,0 +1,50 @@
+- type: entity
+  name: M56B smartgun
+  parent: WeaponRifleM54C
+  id: CMWeaponSmartGun
+  description: The actual firearm in the 4-piece M56B Smartgun System. Essentially a heavy, mobile machinegun.
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/SmartGun/smartgun.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - sprite: _RMC14/Objects/Weapons/Guns/Attachments/barrel.rsi
+      state: smartbarrel
+      offset: 0.5, 0
+    - state: mag-0
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: Clothing
+    sprite: _RMC14/Objects/Weapons/Guns/SmartGun/smartgun.rsi
+  - type: Gun
+    minAngle: 20
+    maxAngle: 70
+    fireRate: 6
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      collection: CMM54CShoot
+  - type: GunWieldBonus
+    minAngle: -20
+    maxAngle: -65
+    angleIncrease: -8
+    angleDecay: 0
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - CMM56SmartGunDrum
+  - type: GunUserWhitelist
+    whitelist:
+      components:
+      - SmartGunWhitelist
+  - type: GunRequiresWield
+  - type: Corrodible
+    isCorrodible: false
+  - type: GunIFF

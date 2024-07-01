@@ -843,6 +843,7 @@
       - id: CMWebbing
     #- id: CMDropPouch
     - name: Маска
+      choices: { CMMask: 1 }
       entries:
       - id: CMMaskGas
       - id: CMMaskCoif
@@ -873,6 +874,7 @@
       #  points: 0
       #- id: ScoutSet
       - id: CMSniperEquipmentCase
+      - id: CMSniperAntiMaterielEquipmentCase
     - name: Дополнительные боеприпасы для разведчика
       entries: [ ]
     #- id: A19HighVelocityImpactMagazine
@@ -888,6 +890,8 @@
       - id: CMMagazineSniperM96SIncendiary
         points: 40
       - id: CMMagazineSniperM96S
+        points: 40
+      - id: CMMagazineSniperXM43E1AntiMateriel
         points: 40
     - name: Дополнительные боеприпасы для разрушителей
       entries: [ ]
@@ -987,6 +991,7 @@
       - id: CMWebbing
     #- id: CMDropPouch
     - name: Маска
+      choices: { CMMask: 1 }
       entries:
       - id: CMMaskGas
       - id: CMMaskCoif
@@ -1272,6 +1277,7 @@
       - id: CMWebbing
     #- id: CMDropPouch
     - name: Маска
+      choices: { CMMask: 1 }
       entries:
       - id: CMMaskGas
       - id: CMMaskCoif
@@ -1607,21 +1613,23 @@
     job: CMSmartGunOperator
     sections:
     - name: Набор умного пулемётчика (обязательно)
-      entries: [ ]
-    #- id: CMEssentialSmartGunOperatorSet
-    #  points: 0
+      choices: { SmargGunKit: 1 }
+      entries:
+      - id: CMEssentialSmartGunOperatorSet
+        points: 0
     - name: Боеприпасы смартгана
-      entries: [ ]
-    #- id: CMM56SmartGunDrum
-    #  points: 15
+      entries:
+      - id: CMM56SmartGunDrum
+        points: 15
     - name: Обвесы
-      entries: [ ]
-    #- id: CMLaserSight
-    #  points: 0
-    #- id: CMRedDotSight
-    #  points: 0
-    #- id: CMReflexSight
-    #  points: 0
+      choices: { SmargGunAttachment: 1 }
+      entries:
+      - id: CMAttachmentLaserSight
+        points: 0
+      - id: CMAttachmentS5RedDotSight
+        points: 0
+      - id: CMAttachmentS6ReflexSight
+        points: 0
     - name: Взрывчатка
       entries:
       - id: CMPacketGrenadeHighExplosiveFilled
@@ -1644,8 +1652,8 @@
     #  points: 20
     - name: Предметы одежды
       entries:
-    #- id: CMScabbardMacheteFull
-    #  points: 6
+      - id: CMPouchMacheteFilled
+        points: 6
     #- id: CMFuelTankStrapPouch
     #  points: 5
       - id: CMPouchGeneralLarge
@@ -1716,9 +1724,10 @@
       - id: CMMRE
       #- id: CMMap # TODO: Make a map
     - name: Пояс
-      entries: [ ]
-    #- id: CMM802SmartGunOperatorSidearmBelt
-    #- id: CMM280SmartGunOperatorDrumBelt
+      choices: { CMBelt: 1 }
+      entries:
+      - id: CMBeltSmartGunOperatorFull
+      - id: CMBeltSmartGunOperatorAmmoFull
     - name: Подсумки
       choices: { CMPouch: 2 }
       entries:
@@ -1747,6 +1756,7 @@
       - id: CMWebbing
     #- id: CMDropPouch
     - name: Маска
+      choices: { CMMask: 1 }
       entries:
       - id: CMMaskGas
       - id: CMMaskCoif
@@ -1935,6 +1945,7 @@
       - id: CMWebbing
     #- id: CMDropPouch
     - name: Маска
+      choices: { CMMask: 1 }
       entries:
       - id: CMMaskGas
       - id: CMMaskCoif

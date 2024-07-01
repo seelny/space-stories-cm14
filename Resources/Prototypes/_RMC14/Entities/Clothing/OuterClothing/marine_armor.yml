@@ -649,3 +649,49 @@
       - state: equipped-OUTERCLOTHING
       - state: color
         color: "#4148C888"
+
+# M56
+
+- type: entity
+  parent: CMArmorM56CombatHarness
+  id: CMArmorM56CombatHarnessAlpha
+  components:
+  - type: Clothing
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      - state: color
+        color: "#E6191988"
+
+- type: entity
+  parent: CMArmorM56CombatHarness
+  id: CMArmorM56CombatHarnessBravo
+  components:
+  - type: Clothing
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      - state: color
+        color: "#FFC32D88"
+
+- type: entity
+  parent: CMArmorM56CombatHarness
+  id: CMArmorM56CombatHarnessCharlie
+  components:
+  - type: Clothing
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      - state: color
+        color: "#C864C888"
+
+- type: entity
+  parent: CMArmorM56CombatHarness
+  id: CMArmorM56CombatHarnessDelta
+  components:
+  - type: Clothing
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      - state: color
+        color: "#4148C888"

@@ -1,0 +1,31 @@
+- type: entity
+  parent: CMBaseCartridgeRifle
+  id: CMCartridge10x28mm
+  name: cartridge (10x28mm)
+  description: A 10x28mm cartridge. Fits in 10x28mm magazines.
+  components:
+  - type: Tag
+    tags:
+      - Cartridge
+      - CMCartridge10x28mm
+  - type: CartridgeAmmo
+    proto: Bullet10x28mm
+
+- type: Tag
+  id: CMCartridge10x28mm
+
+- type: entity
+  parent: CMCartridge10x28mm
+  id: CMCartridge10x28mmAP
+  name: AP cartridge (10x28mm)
+  description: An armor piercing 10x28mm cartridge. Fits in 10x28mm AP magazines.
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - CMCartridge10x28mmAP
+  - type: CartridgeAmmo
+    proto: Bullet10x28mmAP
+
+- type: Tag
+  id: CMCartridge10x28mmAP
