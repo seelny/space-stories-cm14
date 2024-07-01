@@ -133,8 +133,8 @@
 - type: entity
   parent: CMMagazineRifleBase
   id: CMMagazineRifleM4SPR
-  name: "M4SPR magazine (10x24mm)"
-  description: "A magazine of standard 10x24mm rounds for use in the M4SPR battle rifle."
+  name: "M4SPR magazine (10x25mm)"
+  description: "A magazine of standard 10x25mm rounds for use in the M4SPR battle rifle."
   components:
   - type: Tag
     tags:
@@ -144,8 +144,8 @@
     mayTransfer: True
     whitelist:
       tags:
-      - CMCartridgeRifle10x24mm
-    proto: CMCartridgeRifle10x24mm
+      - CMCartridgeRifle10x25mm
+    proto: CMCartridgeRifle10x25mm
     capacity: 25
   - type: Sprite
     sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Magazines/m4spr.rsi
@@ -157,8 +157,8 @@
 - type: entity
   parent: CMMagazineRifleM4SPR
   id: CMMagazineRifleM4SPRAP
-  name: M4SPR AP magazine (10x24mm)
-  description: "A magazine of armor-piercing 10x24mm rounds for use in the M4SPR battle rifle."
+  name: M4SPR AP magazine (10x25mm)
+  description: "A magazine of armor-piercing 10x25mm rounds for use in the M4SPR battle rifle."
   suffix: AP
   components:
   - type: Tag
@@ -177,8 +177,8 @@
   - type: BallisticAmmoProvider
     whitelist:
       tags:
-      - CMCartridgeRifle10x24mmAP
-    proto: CMCartridgeRifle10x24mmAP
+      - CMCartridgeRifle10x25mmAP
+    proto: CMCartridgeRifle10x25mmAP
 
 - type: Tag
   id: CMMagazineRifleM4SPRExt
@@ -187,7 +187,7 @@
 - type: entity
   parent: CMMagazineRifleM4SPR
   id: CMMagazineRifleM4SPRExt
-  name: "M4SPR extended magazine (10x24mm)"
+  name: "M4SPR extended magazine (10x25mm)"
   components:
   - type: BallisticAmmoProvider
     capacity: 35

@@ -24,6 +24,7 @@
   - type: AttachableVisuals
   - type: AttachableWeaponRangedMods
     modifiers:
+      fireRate: 1.2
       projectileSpeedFlat: 10
 
 - type: entity

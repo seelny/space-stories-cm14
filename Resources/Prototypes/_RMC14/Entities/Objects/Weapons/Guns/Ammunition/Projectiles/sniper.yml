@@ -31,7 +31,7 @@
   - type: CMArmorPiercing
     amount: 20
   - type: IgniteOnCollide
-    fireStacks: 1
+    fireStacks: 3
 
 # TODO RMC14 slow
 - type: entity
@@ -47,7 +47,7 @@
   - type: CMArmorPiercing
     amount: 0
   - type: XenoSlowingSpitProjectile
-    slow: 2
+    slow: 5
     slowMultiplier: 0.75
     paralyze: 0
 

@@ -11,15 +11,15 @@
     maxAngle: 75
     angleIncrease: 25
     angleDecay: 45
-    fireRate: 7
+    fireRate: 6
     selectedMode: FullAuto
     availableModes:
     - SemiAuto
     - Burst
     - FullAuto
   - type: GunWieldBonus
-    minAngle: -20
-    maxAngle: -50
+    minAngle: -10
+    maxAngle: -55
     angleIncrease: -5
     angleDecay: 10
   - type: RMCNameItemOnVend

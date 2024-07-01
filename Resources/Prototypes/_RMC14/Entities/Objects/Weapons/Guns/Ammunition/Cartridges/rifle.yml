@@ -36,3 +36,31 @@
   - type: CartridgeAmmo
     proto: BulletRifle10x24mmAP
 
+- type: entity
+  parent: CMBaseCartridgeRifle
+  id: CMCartridgeRifle10x25mm
+  name: cartridge (10x25mm)
+  description: A 10x25mm cartridge. Fits in 10x25mm magazines.
+  components:
+  - type: Tag
+    tags:
+      - Cartridge
+      - CMCartridgeRifle10x25mm
+  - type: CartridgeAmmo
+    proto: BulletRifle10x25mm
+
+- type: Tag
+  id: CMCartridgeRifle10x25mmAP
+
+- type: entity
+  parent: CMCartridgeRifle10x25mm
+  id: CMCartridgeRifle10x25mmAP
+  name: AP cartridge (10x25mm)
+  description: An armor piercing 10x25mm cartridge. Fits in 10x25mm AP magazines.
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - CMCartridgeRifle10x25mmAP
+  - type: CartridgeAmmo
+    proto: BulletRifle10x25mmAP
