@@ -116,7 +116,6 @@
     - CMBootsBlackFilled
 
 - type: entity
-  id: CMVendorBundleArmorM3Medium
   parent: CMVendorBundleRiflemanApparel
   id: RMCVendorBundleMilitaryPoliceApparel
   name: Essential Police Set
