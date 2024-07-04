@@ -24,12 +24,14 @@
     availableModes:
     - FullAuto
     soundGunshot:
-      collection: CMM54CShoot
+      collection: CMM56BShoot
   - type: GunWieldBonus
     minAngle: -20
-    maxAngle: -65
-    angleIncrease: -8
+    maxAngle: -60
+    angleIncrease: -9.5
     angleDecay: 0
+  - type: MagazineAmmoProvider
+    autoEject: false
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -40,6 +42,15 @@
         whitelist:
           tags:
           - CMM56SmartGunDrum
+  - type: AttachableHolder
+    slots:
+      cm-aslot-rail:
+        whitelist:
+          tags:
+          - CMAttachmentFlashlight
+  - type: AttachableHolderVisuals
+    offsets:
+      cm-aslot-rail: 0.245, 0.030
   - type: GunUserWhitelist
     whitelist:
       components:
