@@ -141,10 +141,6 @@
     {
       "name": "wire_rail",
       "directions": 4
-    },
-    {
-      "name": "wooden",
-      "directions": 4
     }
   ]
 }

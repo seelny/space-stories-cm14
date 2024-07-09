@@ -11,7 +11,7 @@
     sprite: _RMC14/Structures/Windows/solaris_window.rsi
     state: solaris_window0
   - type: IconSmooth
-    key: walls
+    key: window
     base: solaris_window
     mode: CardinalFlags
   # TODO RMC14 40 hp
@@ -29,7 +29,7 @@
     sprite: _RMC14/Structures/Windows/solaris_rwindow.rsi
     state: solaris_rwindow0
   - type: IconSmooth
-    key: walls
+    key: window
     base: solaris_rwindow
     mode: CardinalFlags
   # TODO RMC14 100 hp

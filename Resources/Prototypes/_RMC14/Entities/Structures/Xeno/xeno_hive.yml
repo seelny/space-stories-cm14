@@ -31,10 +31,6 @@
     prototype: CMXenoLesserDrone
   - type: HiveConstructionUnique
     id: HiveCoreXeno
-  - type: MeleeReceivedMultiplier
-    xenoDamage:
-      types:
-        Slash: 225
 
 - type: entity
   id: HiveCoreXenoConstructionNode
@@ -67,10 +63,6 @@
     spawn: HiveCoreXeno
   - type: HiveConstructionUnique
     id: HiveCoreXeno
-  - type: MeleeReceivedMultiplier
-    xenoDamage:
-      types:
-        Slash: 225
 
 - type: entity
   id: HiveClusterXeno
@@ -100,10 +92,6 @@
     minimumLesserDrones: 0
   - type: HiveConstructionUnique
     id: HiveClusterXeno
-  - type: MeleeReceivedMultiplier
-    xenoDamage:
-      types:
-        Slash: 225
 
 - type: entity
   id: HiveClusterXenoConstructionNode
@@ -136,7 +124,3 @@
     spawn: HiveClusterXeno
   - type: HiveConstructionUnique
     id: HiveClusterXeno
-  - type: MeleeReceivedMultiplier
-    xenoDamage:
-      types:
-        Slash: 225
