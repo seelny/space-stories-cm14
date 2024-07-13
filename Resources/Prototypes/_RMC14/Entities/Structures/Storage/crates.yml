@@ -685,6 +685,8 @@
       map: ["enum.PaperLabelVisuals.Layer"]
   - type: Icon
     sprite: _RMC14/Structures/Storage/Crates/secure_medical.rsi
+  - type: AccessReader
+    access: [["CMAccessMedical"]]
 
 - type: entity
   parent: CMCrateSecure

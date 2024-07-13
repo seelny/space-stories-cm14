@@ -46,7 +46,6 @@
     head: CMHeadCap
     id: CMIDCardStaffOfficer
     ears: CMHeadsetLeader
-    pocket1: CMCommandTablet
 
 - type: entity
   parent: CMSpawnPointJobBase
