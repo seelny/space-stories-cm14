@@ -101,7 +101,7 @@
   id: CMM96SSniperRifle
 
 - type: entity
-  parent: CMBaseWeaponRifle
+  parent: RMCBaseWeaponSniperRifle
   id: CMXM43E1SniperRifle
   name: XM43E1 experimental anti-materiel rifle
   description: "An experimental anti-materiel rifle produced by Armat Systems, recently reacquired from the deep storage of an abandoned prototyping facility. This one in particular is currently undergoing field testing. Chambered in 10x99mm Caseless."
@@ -117,6 +117,10 @@
     size: Large
   - type: Clothing
     sprite: _RMC14/Objects/Weapons/Guns/Snipers/xm43e1.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 12
   - type: Gun
     minAngle: 50
     maxAngle: 50
@@ -126,15 +130,18 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/_RMC14/Weapons/Guns/Gunshots/gun_sniper.ogg
-  - type: GunWieldBonus
-    minAngle: -50
-    maxAngle: -50
+  - type: RMCSelectiveFire
+    recoilWielded: 1
+    scatterWielded: 3
+    baseFireRate: 0.5
+  - type: WieldDelay
+    baseDelay: 1.2
   - type: ItemSlots
     slots:
       gun_magazine:
         name: Magazine
-        insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
-        ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
+        insertSound: /Audio/_RMC14/Weapons/Guns/Reload/gun_mar40_reload.ogg
+        ejectSound: /Audio/_RMC14/Weapons/Guns/Reload/gun_mar40_unload.ogg
         priority: 2
         whitelist:
           tags:
@@ -147,6 +154,8 @@
   - type: Corrodible
     isCorrodible: false
   - type: GunIFF
+  - type: RMCNameItemOnVend
+    item: PrimaryGun
   - type: Scope
     zoom: 1.25 # TODO RMC14 2x and 4x zoom
     requireWielding: true

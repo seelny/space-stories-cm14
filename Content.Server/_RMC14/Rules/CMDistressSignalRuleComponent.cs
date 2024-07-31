@@ -50,7 +50,7 @@ public sealed partial class CMDistressSignalRuleComponent : Component
     public TimeSpan? QueenDiedCheck;
 
     [DataField]
-    public TimeSpan QueenDiedDelay = TimeSpan.FromMinutes(15);
+    public TimeSpan QueenDiedDelay = TimeSpan.FromMinutes(10);
 
     [DataField]
     public DistressSignalRuleResult Result;

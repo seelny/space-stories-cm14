@@ -70,8 +70,12 @@ namespace Content.Server._RMC14.Rules;
 public sealed class CMDistressSignalRuleSystem : GameRuleSystem<CMDistressSignalRuleComponent>
 {
     private int xenosCount { get; set; }
+    private int xenosOnShipCount { get; set; }
+    private int xenosOnPlanetCount { get; set; }
     private int xenosAliveCount { get; set; }
     private int marinesCount { get; set; }
+    private int marinesOnShipCount { get; set; }
+    private int marinesOnPlanetCount { get; set; }
     private int marinesAliveCount { get; set; }
 
     [Dependency] private readonly AudioSystem _audio = default!;
@@ -852,9 +856,9 @@ public sealed class CMDistressSignalRuleSystem : GameRuleSystem<CMDistressSignal
         SelectedPlanetMapName = SelectedPlanetMapName switch
         {
             "lv624" => "LV-624",
-            "solaris" => "Solaris Ridge",
-            "prison" => "Fiorina Science Annex",
-            "shiva" => "Shivas Snowball",
+            "solaris" => "Солярис Ридж",
+            "prison" => "Научный центр Фиорины",
+            "shiva" => "Снежная Шива",
             _ => SelectedPlanetMapName,
         };
 
@@ -1028,14 +1032,15 @@ public sealed class CMDistressSignalRuleSystem : GameRuleSystem<CMDistressSignal
         xenosCount = 0; // Stories-Statistic-Start
         xenosAliveCount = 0;
         var xenos = EntityQueryEnumerator<XenoComponent, MobStateComponent>();
-        while (xenos.MoveNext(out var xenoId, out _, out var mobState))
+        while (xenos.MoveNext(out var xenoId, out var xenoComp, out var mobState))
         {
+            if (xenoComp.Tier == 0)
+                continue;
+
             xenosCount++;
 
             if (_mobState.IsAlive(xenoId, mobState))
-            {
                 xenosAliveCount++;
-            }
         }
 
         marinesCount = 0;
@@ -1158,23 +1163,51 @@ public sealed class CMDistressSignalRuleSystem : GameRuleSystem<CMDistressSignal
     
     public void BioscanAnnounce()
     {
+        _almayerMaps.Clear();
+        var almayerQuery = EntityQueryEnumerator<AlmayerComponent, TransformComponent>();
+        while (almayerQuery.MoveNext(out _, out var xform))
+            _almayerMaps.Add(xform.MapID);
+
         xenosAliveCount = 0;
-        var xenos = EntityQueryEnumerator<XenoComponent, MobStateComponent>();
-        while (xenos.MoveNext(out var xenoId, out _, out var mobState))
+        xenosOnPlanetCount = 0;
+        xenosOnShipCount = 0;
+        var xenos = EntityQueryEnumerator<XenoComponent, MobStateComponent, TransformComponent>();
+        while (xenos.MoveNext(out var xenoId, out var xenoComp, out var mobState, out var xform))
         {
-            if (_mobState.IsAlive(xenoId, mobState))
-                xenosAliveCount++;
+            if (xenoComp.Tier == 0 ||
+                !_mobState.IsAlive(xenoId, mobState))
+            {
+                continue;
+            }
+            
+            xenosAliveCount++;
+
+            if (_almayerMaps.Contains(xform.MapID))
+                xenosOnShipCount++;
+
+            if (!_almayerMaps.Contains(xform.MapID))
+                xenosOnPlanetCount++;
         }
 
         marinesAliveCount = 0;
-        var marines = EntityQueryEnumerator<MarineComponent, MobStateComponent>();
-        while (marines.MoveNext(out var marineId, out _, out var mobState))
+        marinesOnPlanetCount = 0;
+        marinesOnShipCount = 0;
+        var marines = EntityQueryEnumerator<MarineComponent, MobStateComponent, TransformComponent>();
+        while (marines.MoveNext(out var marineId, out _, out var mobState, out var xform))
         {
-            if (_mobState.IsAlive(marineId, mobState))
-                marinesAliveCount++;
+            if (!_mobState.IsAlive(marineId, mobState))
+                continue;
+
+            marinesAliveCount++;
+
+            if (_almayerMaps.Contains(xform.MapID))
+                marinesOnShipCount++;
+
+            if (!_almayerMaps.Contains(xform.MapID))
+                marinesOnPlanetCount++;
         }
 
-        var wrappedMessage = Loc.GetString("ai-announcement-bioscan-xeno", ("marinesCount", marinesAliveCount));
+        var wrappedMessage = Loc.GetString("ai-announcement-bioscan-xeno", ("marineCount", marinesAliveCount));
         var filter = Filter.Empty()
             .AddWhereAttachedEntity(e =>
                 HasComp<XenoComponent>(e)
@@ -1183,15 +1216,21 @@ public sealed class CMDistressSignalRuleSystem : GameRuleSystem<CMDistressSignal
         _chatManager.ChatMessageToManyFiltered(filter, ChatChannel.Radio, wrappedMessage, wrappedMessage, default, false, true, null);
         _audio.PlayGlobal(sound, filter, true, AudioParams.Default.WithVolume(-2f));
 
-        wrappedMessage = Loc.GetString("ai-announcement-bioscan-marine", ("xenoCount", xenosAliveCount), ("marinesCount", marinesAliveCount));
+        wrappedMessage = Loc.GetString("ai-announcement-bioscan-marine", ("xenoCount", xenosAliveCount), ("marineCount", marinesAliveCount));
         filter = Filter.Empty()
             .AddWhereAttachedEntity(e =>
-                HasComp<MarineComponent>(e) ||
-                HasComp<GhostComponent>(e)
+                HasComp<MarineComponent>(e)
             );
         sound = new SoundPathSpecifier("/Audio/_Stories/AI/bioscan.ogg");
         _chatManager.ChatMessageToManyFiltered(filter, ChatChannel.Radio, wrappedMessage, wrappedMessage, default, false, true, null);
         _audio.PlayGlobal(sound, filter, true, AudioParams.Default.WithVolume(-2f));
+
+        wrappedMessage = Loc.GetString("ai-announcement-bioscan-ghost", ("xenoOnPlanetCount", xenosOnPlanetCount), ("xenoOnShipCount", xenosOnShipCount), ("marineOnPlanetCount", marinesOnPlanetCount), ("marineOnShipCount", marinesOnShipCount));
+        filter = Filter.Empty()
+            .AddWhereAttachedEntity(e =>
+                HasComp<GhostComponent>(e)
+            );
+        _chatManager.ChatMessageToManyFiltered(filter, ChatChannel.Radio, wrappedMessage, wrappedMessage, default, false, true, null);
     }
 
     private void EndRound(CMDistressSignalRuleComponent comp)
