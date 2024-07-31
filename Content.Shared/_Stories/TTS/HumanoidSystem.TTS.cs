@@ -1,3 +1,3 @@
-﻿using Content.Shared.Stories.TTS;
+﻿using Content.Shared._Stories.TTS;
 
 namespace Content.Shared.Humanoid;

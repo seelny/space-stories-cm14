@@ -1,6 +1,6 @@
 using Content.Shared.Chat;
-using Content.Shared.Stories.SCCVars;
-using Content.Shared.Stories.TTS;
+using Content.Shared._Stories.SCCVars;
+using Content.Shared._Stories.TTS;
 using Robust.Client.Audio;
 using Robust.Client.ResourceManagement;
 using Robust.Shared.Audio;
@@ -9,7 +9,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Utility;
 
-namespace Content.Client.Stories.TTS;
+namespace Content.Client._Stories.TTS;
 
 /// <summary>
 /// Plays TTS audio in world

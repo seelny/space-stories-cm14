@@ -1,7 +1,7 @@
 ﻿using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
-namespace Content.Shared.Stories.TTS;
+namespace Content.Shared._Stories.TTS;
 
 /// <summary>
 /// Apply TTS for entity chat say messages

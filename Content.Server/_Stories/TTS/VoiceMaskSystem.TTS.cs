@@ -1,4 +1,4 @@
-﻿using Content.Server.Stories.TTS;
+﻿using Content.Server._Stories.TTS;
 using Content.Shared.VoiceMask;
 
 namespace Content.Server.VoiceMask;

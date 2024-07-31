@@ -8,7 +8,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Console;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.Stories.GameTicking.Commands
+namespace Content.Server._Stories.GameTicking.Commands
 {
     [AdminCommand(AdminFlags.Round)]
     sealed class ResetMapCommand : IConsoleCommand

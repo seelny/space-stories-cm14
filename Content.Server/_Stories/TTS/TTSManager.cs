@@ -6,13 +6,13 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
-using Content.Shared.Stories.SCCVars;
+using Content.Shared._Stories.SCCVars;
 using Prometheus;
 using Robust.Shared.Configuration;
 using System.Collections.Specialized;
 using System.Web;
 
-namespace Content.Server.Stories.TTS;
+namespace Content.Server._Stories.TTS;
 
 // ReSharper disable once InconsistentNaming
 public sealed class TTSManager

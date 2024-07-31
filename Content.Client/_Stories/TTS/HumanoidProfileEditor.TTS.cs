@@ -1,7 +1,7 @@
 ﻿using System.Linq;
-using Content.Client.Stories.TTS;
+using Content.Client._Stories.TTS;
 using Content.Client.Lobby;
-using Content.Shared.Stories.TTS;
+using Content.Shared._Stories.TTS;
 using Content.Shared.Preferences;
 
 namespace Content.Client.Lobby.UI;

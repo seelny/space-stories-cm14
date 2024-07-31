@@ -1,7 +1,7 @@
 ﻿using Content.Shared.Humanoid;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.Stories.TTS;
+namespace Content.Shared._Stories.TTS;
 
 /// <summary>
 /// Prototype represent available TTS voices

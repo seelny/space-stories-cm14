@@ -1,4 +1,4 @@
-﻿namespace Content.Server.Stories.TTS;
+﻿namespace Content.Server._Stories.TTS;
 
 // ReSharper disable once InconsistentNaming
 public sealed partial class TTSSystem

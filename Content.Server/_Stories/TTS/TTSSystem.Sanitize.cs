@@ -2,7 +2,7 @@
 using System.Text.RegularExpressions;
 using Content.Server.Chat.Systems;
 
-namespace Content.Server.Stories.TTS;
+namespace Content.Server._Stories.TTS;
 
 // ReSharper disable once InconsistentNaming
 public sealed partial class TTSSystem
