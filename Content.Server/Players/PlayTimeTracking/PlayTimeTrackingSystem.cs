@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Server._Stories.Sponsors;
 using Content.Server._RMC14.PlayTimeTracking;
 using Content.Server.Administration;
 using Content.Server.Administration.Managers;
@@ -38,6 +39,7 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
     [Dependency] private readonly IAdminManager _adminManager = default!;
     [Dependency] private readonly SharedRoleSystem _role = default!;
     [Dependency] private readonly RMCPlayTimeManager _rmcPlayTime = default!;
+    [Dependency] private readonly SponsorsManager _sponsors = default!; // Stories-Sponsor
 
     public override void Initialize()
     {
@@ -199,8 +201,11 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
 
     public bool IsAllowed(ICommonSession player, string role)
     {
+        _sponsors.TryGetInfo(player.UserId, out var sponsorData); // Stories-Sponsor
+
         if (!_prototypes.TryIndex<JobPrototype>(role, out var job) ||
-            !_cfg.GetCVar(CCVars.GameRoleTimers))
+            !_cfg.GetCVar(CCVars.GameRoleTimers) ||
+            sponsorData?.RoleTimeBypass == true) // Stories-Sponsor
             return true;
 
         if (_rmcPlayTime.IsExcluded(player, role))
@@ -217,8 +222,11 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
 
     public HashSet<ProtoId<JobPrototype>> GetDisallowedJobs(ICommonSession player)
     {
+        _sponsors.TryGetInfo(player.UserId, out var sponsorData); // Stories-Sponsor
+
         var roles = new HashSet<ProtoId<JobPrototype>>();
-        if (!_cfg.GetCVar(CCVars.GameRoleTimers))
+        if (!_cfg.GetCVar(CCVars.GameRoleTimers) ||
+            sponsorData?.RoleTimeBypass == true) // Stories-Sponsor
             return roles;
 
         if (!_tracking.TryGetTrackerTimes(player, out var playTimes))
@@ -239,7 +247,10 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
 
     public void RemoveDisallowedJobs(NetUserId userId, List<ProtoId<JobPrototype>> jobs)
     {
-        if (!_cfg.GetCVar(CCVars.GameRoleTimers))
+        _sponsors.TryGetInfo(userId, out var sponsorData); // Stories-Sponsor
+
+        if (!_cfg.GetCVar(CCVars.GameRoleTimers) ||
+            sponsorData?.RoleTimeBypass == true) // Stories-Sponsor
             return;
 
         var player = _playerManager.GetSessionById(userId);

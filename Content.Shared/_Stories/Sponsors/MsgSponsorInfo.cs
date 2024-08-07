@@ -28,6 +28,9 @@ public sealed class SponsorInfo
 
     [JsonPropertyName("roleTimeBypass")]
     public bool RoleTimeBypass { get; set; } = false;
+
+    [JsonPropertyName("whitelistRoleTimeBypass")]
+    public bool WhitelistRoleTimeBypass { get; set; } = false;
 }
 
 

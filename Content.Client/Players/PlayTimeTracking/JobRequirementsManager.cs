@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using Content.Client._Stories.Sponsors;
 using Content.Client._RMC14.PlayTimeTracking;
 using Content.Shared.CCVar;
 using Content.Shared.Players;
@@ -24,6 +25,7 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly RMCPlayTimeManager _rmcPlayTime = default!;
+    [Dependency] private readonly SponsorsManager _sponsors = default!; // Stories-Sponsor
 
     private readonly Dictionary<string, TimeSpan> _roles = new();
     private readonly List<string> _roleBans = new();
@@ -125,8 +127,10 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
     public bool CheckRoleTime(HashSet<JobRequirement>? requirements, [NotNullWhen(false)] out FormattedMessage? reason)
     {
         reason = null;
-
-        if (requirements == null || !_cfg.GetCVar(CCVars.GameRoleTimers))
+        _sponsors.TryGetInfo(out var sponsorData); // Stories-Sponsor
+        if (requirements == null ||
+            !_cfg.GetCVar(CCVars.GameRoleTimers) ||
+            sponsorData?.RoleTimeBypass == true) // Stories-Sponsor
             return true;
 
         var reasons = new List<string>();
@@ -145,7 +149,9 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
     public bool CheckWhitelist(JobPrototype job, [NotNullWhen(false)] out FormattedMessage? reason)
     {
         reason = default;
-        if (!_cfg.GetCVar(CCVars.GameRoleWhitelist))
+        _sponsors.TryGetInfo(out var sponsorData); // Stories-Sponsor
+        if (!_cfg.GetCVar(CCVars.GameRoleWhitelist) ||
+            sponsorData?.WhitelistRoleTimeBypass == true) // Stories-Sponsor
             return true;
 
         if (job.Whitelisted && !_jobWhitelists.Contains(job.ID))
