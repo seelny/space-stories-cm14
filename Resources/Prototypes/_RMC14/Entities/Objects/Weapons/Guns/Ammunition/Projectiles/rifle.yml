@@ -45,3 +45,15 @@
         Piercing: 50
   - type: CMArmorPiercing
     amount: 40
+
+- type: entity
+  parent: BaseBullet
+  id: BulletRifleM4SPRA19
+  noSpawn: true
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 58
+  - type: CMArmorPiercing
+    amount: 35
