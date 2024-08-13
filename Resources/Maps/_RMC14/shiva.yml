@@ -10806,7 +10806,7 @@ entities:
   - uid: 5558
     components:
     - type: MetaData
-      name: 'ЗП2: Посадочная зона "Лабаратория"'
+      name: 'ЗП2: Посадочная зона "Лаборатория"'
     - type: Transform
       pos: 22.5,139.5
       parent: 1
