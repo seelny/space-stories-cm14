@@ -1,0 +1,13 @@
+ent-RMCASRSAccount = Счет АСПХ
+    .desc = { "" }
+ent-CMASRSConsole = консоль АСПХ
+    .desc = Консоль автоматизированной системы поиска в хранилище.
+    .suffix = Заявки
+ent-CMCargoElevator = грузовой лифт
+    .suffix = Опущен, Реквизиты
+    .desc = { "" }
+ent-CMRailing = выдвижные перила
+    .desc = Выглядит так, будто его нелегко открыть.
+    .suffix = Поднято
+ent-CMGear = шестеренка
+    .desc = { "" }

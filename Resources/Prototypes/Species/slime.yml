@@ -1,7 +1,7 @@
 - type: species
   id: SlimePerson
   name: species-name-slime
-  roundStart: true
+  roundStart: false
   prototype: CMMobSlimePerson
   sprites: MobSlimeSprites
   defaultSkinTone: "#b8b8b8"
@@ -38,6 +38,14 @@
     Chest:
       points: 1
       required: false
+    Underwear:
+      points: 1
+      required: true
+      defaultMarkings: [ RMCUnderwearBoxers ]
+    Undershirt:
+      points: 1
+      required: true
+      defaultMarkings: [ RMCUndershirtStandard ]
     Legs:
       points: 4
       required: false

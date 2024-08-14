@@ -1,0 +1,25 @@
+- type: entity
+  parent: CMBaseCartridgeRifle
+  id: RMCCartridgeRifleM4SPRA19Impact
+  name: cartridge (A19 impact)
+  description: A impact A19 cartridge. Fits in M4SPR custom magazines.
+  components:
+  - type: Tag
+    tags:
+      - Cartridge
+      - RMCCartridgeRifleM4SPRA19
+  - type: CartridgeAmmo
+    proto: BulletRifleM4SPRA19Impact
+
+- type: entity
+  parent: CMBaseCartridgeRifle
+  id: RMCCartridgeRifleM4SPRA19Incendiary
+  name: cartridge (A19 incendiary)
+  description: A incendiary A19 cartridge. Fits in M4SPR custom magazines.
+  components:
+  - type: Tag
+    tags:
+      - Cartridge
+      - RMCCartridgeRifleM4SPRA19
+  - type: CartridgeAmmo
+    proto: BulletRifleM4SPRA19Incendiary

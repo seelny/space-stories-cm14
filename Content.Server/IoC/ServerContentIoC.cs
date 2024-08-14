@@ -1,4 +1,11 @@
-using Content.Server._CM14.Mapping;
+using Content.Server._RMC14.Discord;
+using Content.Server._RMC14.LinkAccount;
+using Content.Server._RMC14.Mapping;
+using Content.Server._RMC14.PlayTimeTracking;
+using Content.Server._Stories.DiscordAuth;
+using Content.Server._Stories.JoinQueue;
+using Content.Server._Stories.Sponsors;
+using Content.Server._Stories.TTS;
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
@@ -14,7 +21,9 @@ using Content.Server.Info;
 using Content.Server.Maps;
 using Content.Server.MoMMI;
 using Content.Server.NodeContainer.NodeGroups;
+using Content.Server.Players.JobWhitelist;
 using Content.Server.Players.PlayTimeTracking;
+using Content.Server.Players.RateLimiting;
 using Content.Server.Preferences.Managers;
 using Content.Server.ServerInfo;
 using Content.Server.ServerUpdates;
@@ -56,15 +65,24 @@ namespace Content.Server.IoC
             IoCManager.Register<IAdminLogManager, AdminLogManager>();
             IoCManager.Register<PlayTimeTrackingManager>();
             IoCManager.Register<UserDbDataManager>();
+            IoCManager.Register<SponsorsManager>(); // Stories-Sponsors
+            IoCManager.Register<JoinQueueManager>(); // Stories-Queue
+            IoCManager.Register<DiscordAuthManager>(); // Stories-DiscordAuth
+            IoCManager.Register<TTSManager>(); // Stories-TTS
             IoCManager.Register<ServerInfoManager>();
             IoCManager.Register<PoissonDiskSampler>();
             IoCManager.Register<DiscordWebhook>();
             IoCManager.Register<ServerDbEntryManager>();
             IoCManager.Register<ISharedPlaytimeManager, PlayTimeTrackingManager>();
             IoCManager.Register<ServerApi>();
+            IoCManager.Register<JobWhitelistManager>();
+            IoCManager.Register<PlayerRateLimitManager>();
 
-            // CM14
+            // RMC14
             IoCManager.Register<MappingManager>();
+            IoCManager.Register<LinkAccountManager>();
+            IoCManager.Register<RMCPlayTimeManager>();
+            IoCManager.Register<RMCDiscordManager>();
         }
     }
 }

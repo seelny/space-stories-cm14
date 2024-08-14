@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 64,
+    "y": 64
+  },
+  "states": [
+    {
+      "name": "laz_sign"
+    },
+    {
+      "name": "red_sign"
+    },
+    {
+      "name": "prison_sign",
+      "delays": [
+        [
+          2,
+          0.1,
+          0.05,
+          0.05,
+          0.1,
+          0.1,
+          0.05,
+          0.05,
+          0.1,
+          1,
+          0.1,
+          0.05,
+          0.05,
+          2,
+          0.05
+        ]
+      ]
+    },
+    {
+      "name": "ice_sign"
+    },
+    {
+      "name": "dam_sign"
+    },
+    {
+      "name": "dam_sign_d"
+    },
+    {
+      "name": "sorokyne_sign_1"
+    },
+    {
+      "name": "sorokyne_sign_2"
+    },
+    {
+      "name": "fort_biceps"
+    },
+    {
+      "name": "new_varadero"
+    }
+  ]
+}

@@ -109,7 +109,7 @@ public sealed class BluespaceLockerSystem : EntitySystem
             // Move contained air
             if (component.BehaviorProperties.TransportGas)
             {
-                entityStorageComponent.Air.CopyFromMutable(target.Value.storageComponent.Air);
+                entityStorageComponent.Air.CopyFrom(target.Value.storageComponent.Air);
                 target.Value.storageComponent.Air.Clear();
             }
 
@@ -326,7 +326,7 @@ public sealed class BluespaceLockerSystem : EntitySystem
         // Move contained air
         if (component.BehaviorProperties.TransportGas)
         {
-            target.Value.storageComponent.Air.CopyFromMutable(entityStorageComponent.Air);
+            target.Value.storageComponent.Air.CopyFrom(entityStorageComponent.Air);
             entityStorageComponent.Air.Clear();
         }
 
@@ -390,7 +390,7 @@ public sealed class BluespaceLockerSystem : EntitySystem
         {
             case BluespaceLockerDestroyType.Explode:
                 _explosionSystem.QueueExplosion(uid.ToCoordinates().ToMap(EntityManager, _transformSystem),
-                    ExplosionSystem.DefaultExplosionPrototypeId, 4, 1, 2, maxTileBreak: 0);
+                    ExplosionSystem.DefaultExplosionPrototypeId, 4, 1, 2, uid, maxTileBreak: 0);
                 goto case BluespaceLockerDestroyType.Delete;
             case BluespaceLockerDestroyType.Delete:
                 QueueDel(uid);

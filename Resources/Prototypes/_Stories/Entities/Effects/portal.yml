@@ -1,0 +1,59 @@
+- type: entity
+  id: StoriesZPortalHorizontal
+  name: Z-Portal
+  parent: MarkerBase
+  components:
+  - type: Transform
+    anchored: True
+  - type: InteractionOutline
+  - type: Clickable
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      portalFixture:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.01,0.5,0.01"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        hard: false
+  - type: Portal
+    arrivalSound: /Audio/_Stories/silent.ogg
+    departureSound: /Audio/_Stories/silent.ogg
+    canTeleportToOtherMaps: true
+    randomTeleport: false
+  - type: Sprite
+    state: pink
+
+- type: entity
+  id: StoriesZPortalVertical
+  name: Z-Portal
+  parent: MarkerBase
+  components:
+  - type: Transform
+    anchored: True
+  - type: InteractionOutline
+  - type: Clickable
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      portalFixture:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.01,-0.5,0.01,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        hard: false
+  - type: Portal
+    arrivalSound: /Audio/_Stories/silent.ogg
+    departureSound: /Audio/_Stories/silent.ogg
+    canTeleportToOtherMaps: true
+    randomTeleport: false
+  - type: Sprite
+    state: pink

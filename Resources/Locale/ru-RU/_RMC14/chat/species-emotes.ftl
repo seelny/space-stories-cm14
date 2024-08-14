@@ -1,0 +1,10 @@
+rmc-emote-name-hiss = Хисс
+rmc-emote-name-meow = Мяу
+rmc-emote-name-mew = Мяу
+rmc-emote-name-growl = Рычать
+rmc-emote-name-purr = Мурлыкать
+rmc-emote-hiss = шипит.
+rmc-emote-meow = мяукает.
+rmc-emote-mew = мяукает.
+rmc-emote-growl = рычит.
+rmc-emote-purr = мурлычет.

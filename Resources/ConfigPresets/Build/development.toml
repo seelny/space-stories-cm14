@@ -11,6 +11,7 @@ generator_enabled = false
 [physics]
 # Makes mapping annoying
 grid_splitting = false
+maxlinvelocity = 62 # TODO RMC14 62 when we don't get tunneling, change in GunComponent too
 
 [procgen]
 preload = false

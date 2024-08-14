@@ -1,0 +1,15 @@
+- type: entity
+  name: match box
+  parent: Matchbox
+  id: CMMatchbox
+  components:
+  - type: Storage
+    grid:
+    - 0,0,2,1
+    whitelist:
+      tags:
+      - Matchstick
+  - type: InteractedBlacklist
+    blacklist:
+      components:
+      - Xeno

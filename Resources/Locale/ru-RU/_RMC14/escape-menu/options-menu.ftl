@@ -1,0 +1,17 @@
+ui-options-header-rmc = RMC14
+ui-options-function-rmc-activate-attachable-barrel = Активируйте ствол
+ui-options-function-rmc-activate-attachable-rail = Активируйте рельс
+ui-options-function-rmc-activate-attachable-stock = Активировать приклад
+ui-options-function-rmc-activate-attachable-underbarrel = Активируйте подствольное
+ui-options-function-rmc-field-strip-held-item = Полевая лента, удерживаемая элементом
+ui-options-function-rmc-cycle-fire-mode = Цикл режима огня
+ui-options-header-cm = Колониальные Морпехи 14
+ui-options-function-cm-activate-attachable-barrel = Активировать крепление ствола
+ui-options-function-cm-activate-attachable-rail = Активировать крепление рельса
+ui-options-function-cm-activate-attachable-stock = Активировать крепление приклада
+ui-options-function-cm-activate-attachable-underbarrel = Активировать крепление под стволом
+ui-options-function-cm-unique-action = Уникальное действие
+ui-options-function-cm-holster-primary = Снять с хранения
+ui-options-function-cm-holster-secondary = Снять с хранения вторичный
+ui-options-function-cm-holster-tertiary = Снять с хранения третичный
+ui-options-function-cm-holster-quaternary = Снять с хранения четвертичный

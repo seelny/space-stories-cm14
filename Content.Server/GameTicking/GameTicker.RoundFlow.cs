@@ -1,15 +1,20 @@
 using System.Linq;
+using Content.Server._RMC14.Rules;
 using Content.Server.Announcements;
 using Content.Server.Discord;
 using Content.Server.GameTicking.Events;
 using Content.Server.Ghost;
 using Content.Server.Maps;
+using Content.Shared._RMC14.Prototypes;
+using Content.Server.Voting.Managers;
 using Content.Shared.CCVar;
+using Content.Shared._Stories.SCCVars;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
 using Content.Shared.Mind;
 using Content.Shared.Players;
 using Content.Shared.Preferences;
+using Content.Shared.Voting;
 using JetBrains.Annotations;
 using Prometheus;
 using Robust.Server.Maps;
@@ -27,6 +32,7 @@ namespace Content.Server.GameTicking
     {
         [Dependency] private readonly DiscordWebhook _discord = default!;
         [Dependency] private readonly ITaskManager _taskManager = default!;
+        [Dependency] private readonly IVoteManager _vote = default!; // Stories-AutoVote
 
         private static readonly Counter RoundNumberMetric = Metrics.CreateCounter(
             "ss14_round_number",
@@ -73,8 +79,7 @@ namespace Content.Server.GameTicking
         /// <returns></returns>
         public bool CanUpdateMap()
         {
-            return RunLevel == GameRunLevel.PreRoundLobby &&
-                   _roundStartTime - RoundPreloadTime > _gameTiming.CurTime;
+            return (RunLevel == GameRunLevel.PreRoundLobby || RunLevel == GameRunLevel.PostRound); // Stories-AutoVote
         }
 
         /// <summary>
@@ -160,6 +165,12 @@ namespace Content.Server.GameTicking
             // whereas the command can also be used on an existing map.
             var loadOpts = loadOptions ?? new MapLoadOptions();
 
+            if (map.MaxRandomOffset != 0f)
+                loadOpts.Offset = _robustRandom.NextVector2(map.MaxRandomOffset);
+
+            if (map.RandomRotation)
+                loadOpts.Rotation = _robustRandom.NextAngle();
+
             var ev = new PreGameMapLoad(targetMapId, map, loadOpts);
             RaiseLocalEvent(ev);
 
@@ -239,7 +250,7 @@ namespace Content.Server.GameTicking
                 HumanoidCharacterProfile profile;
                 if (_prefsManager.TryGetCachedPreferences(userId, out var preferences))
                 {
-                    profile = (HumanoidCharacterProfile) preferences.GetProfile(preferences.SelectedCharacterIndex);
+                    profile = (HumanoidCharacterProfile) preferences.SelectedCharacter;
                 }
                 else
                 {
@@ -335,6 +346,16 @@ namespace Content.Server.GameTicking
 
             ShowRoundEndScoreboard(text);
             SendRoundEndDiscordMessage();
+
+            // Stories-AutoVote-Start
+            _gameMapManager.ClearSelectedMap();
+            var autoVote = _cfg.GetCVar(SCCVars.AutoVoteEnabled);
+            if (autoVote)
+            {
+                _vote.CreateStandardVote(null, StandardVoteType.Map);
+                _vote.CreateStandardVote(null, StandardVoteType.Preset);
+            }
+            // Stories-AutoVote-End
         }
 
         public void ShowRoundEndScoreboard(string text = "")
@@ -358,6 +379,7 @@ namespace Content.Server.GameTicking
             var listOfPlayerInfo = new List<RoundEndMessageEvent.RoundEndPlayerInfo>();
             // Grab the great big book of all the Minds, we'll need them for this.
             var allMinds = EntityQueryEnumerator<MindComponent>();
+            var pvsOverride = _configurationManager.GetCVar(CCVars.RoundEndPVSOverrides);
             while (allMinds.MoveNext(out var mindId, out var mind))
             {
                 // TODO don't list redundant observer roles?
@@ -388,7 +410,7 @@ namespace Content.Server.GameTicking
                 else if (mind.CurrentEntity != null && TryName(mind.CurrentEntity.Value, out var icName))
                     playerIcName = icName;
 
-                if (TryGetEntity(mind.OriginalOwnedEntity, out var entity))
+                if (TryGetEntity(mind.OriginalOwnedEntity, out var entity) && pvsOverride)
                 {
                     _pvsOverride.AddGlobalOverride(GetNetEntity(entity.Value), recursive: true);
                 }
@@ -443,12 +465,39 @@ namespace Content.Server.GameTicking
                 if (_webhookIdentifier == null)
                     return;
 
+                // Stories-Discord-Start
+                string result = "Неизвестно";
+                var query = EntityQueryEnumerator<CMDistressSignalRuleComponent>();
+                while (query.MoveNext(out var uid, out var component))
+                {
+                    result = Loc.GetString($"cm-distress-signal-discord-{component.Result.ToString().ToLower()}");
+                }
+                // Stories-Discord-End
+
                 var duration = RoundDuration();
                 var content = Loc.GetString("discord-round-notifications-end",
                     ("id", RoundId),
                     ("hours", Math.Truncate(duration.TotalHours)),
                     ("minutes", duration.Minutes),
-                    ("seconds", duration.Seconds));
+                    ("seconds", duration.Seconds),
+                    ("result", result)); // Stories-Discord
+
+                if (_distressSignal.SelectedPlanetMapName is { } planet &&
+                    _distressSignal.OperationName is { } operation)
+                {
+                    var mapName = _gameMapManager.GetSelectedMap()?.MapName;
+                    mapName ??= Loc.GetString("discord-round-notifications-unknown-map");
+                    content = Loc.GetString("rmc-discord-round-notifications-end",
+                        ("id", RoundId),
+                        ("operation", operation),
+                        ("planet", planet),
+                        ("ship", mapName),
+                        ("hours", Math.Truncate(duration.TotalHours)),
+                        ("minutes", duration.Minutes),
+                        ("seconds", duration.Seconds),
+                        ("result", result)); // Stories-Discord
+                }
+
                 var payload = new WebhookPayload { Content = content };
 
                 await _discord.CreateMessage(_webhookIdentifier.Value, payload);
@@ -556,7 +605,7 @@ namespace Content.Server.GameTicking
 
             _banManager.Restart();
 
-            _gameMapManager.ClearSelectedMap();
+            // _gameMapManager.ClearSelectedMap(); // Stories-AutoVote 
 
             // Clear up any game rules.
             ClearGameRules();
@@ -615,16 +664,11 @@ namespace Content.Server.GameTicking
             }
         }
 
-        public TimeSpan RoundDuration()
-        {
-            return _gameTiming.CurTime.Subtract(RoundStartTimeSpan);
-        }
-
         private void AnnounceRound()
         {
             if (CurrentPreset == null) return;
 
-            var options = _prototypeManager.EnumeratePrototypes<RoundAnnouncementPrototype>().ToList();
+            var options = _prototypeManager.EnumerateCM<RoundAnnouncementPrototype>().ToList();
 
             if (options.Count == 0)
                 return;
@@ -647,6 +691,16 @@ namespace Content.Server.GameTicking
 
                 var mapName = _gameMapManager.GetSelectedMap()?.MapName ?? Loc.GetString("discord-round-notifications-unknown-map");
                 var content = Loc.GetString("discord-round-notifications-started", ("id", RoundId), ("map", mapName));
+
+                if (_distressSignal.SelectedPlanetMapName is { } planet &&
+                    _distressSignal.OperationName is { } operation)
+                {
+                    content = Loc.GetString("rmc-discord-round-notifications-started",
+                        ("id", RoundId),
+                        ("operation", operation),
+                        ("planet", planet),
+                        ("ship", mapName));
+                }
 
                 var payload = new WebhookPayload { Content = content };
 
@@ -795,7 +849,7 @@ namespace Content.Server.GameTicking
     }
 
     /// <summary>
-    ///     Event raised after players were assigned jobs by the GameTicker.
+    ///     Event raised after players were assigned jobs by the GameTicker and have been spawned in.
     ///     You can give on-station people special roles by listening to this event.
     /// </summary>
     public sealed class RulePlayerJobsAssignedEvent

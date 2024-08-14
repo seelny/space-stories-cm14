@@ -1,7 +1,9 @@
 ﻿using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
 using Content.Shared.DoAfter;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
@@ -10,16 +12,11 @@ namespace Content.Shared.Medical;
 /// <summary>
 /// This is used for defibrillators; a machine that shocks a dead
 /// person back into the world of the living.
+/// Uses <c>ItemToggleComponent</c>
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentPause]
 public sealed partial class DefibrillatorComponent : Component
 {
-    /// <summary>
-    /// Whether or not it's turned on and able to be used.
-    /// </summary>
-    [DataField("enabled"), ViewVariables(VVAccess.ReadWrite)]
-    public bool Enabled;
-
     /// <summary>
     /// The time at which the zap cooldown will be completed
     /// </summary>
@@ -38,6 +35,12 @@ public sealed partial class DefibrillatorComponent : Component
     /// </summary>
     [DataField("zapHeal", required: true), ViewVariables(VVAccess.ReadWrite)]
     public DamageSpecifier ZapHeal = default!;
+
+    /// <summary>
+    /// How much damage is healed from getting zapped.
+    /// </summary>
+    [DataField("cmZapHeal"), ViewVariables(VVAccess.ReadWrite)]
+    public List<(ProtoId<DamageGroupPrototype> Group, int Amount)>? CMZapDamage;
 
     /// <summary>
     /// The electrical damage from getting zapped.
@@ -60,20 +63,17 @@ public sealed partial class DefibrillatorComponent : Component
     [DataField("doAfterDuration"), ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan DoAfterDuration = TimeSpan.FromSeconds(3);
 
+    [DataField]
+    public bool AllowDoAfterMovement = true;
+
+    [DataField]
+    public bool CanDefibCrit = true;
+
     /// <summary>
     /// The sound when someone is zapped.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField("zapSound")]
     public SoundSpecifier? ZapSound = new SoundPathSpecifier("/Audio/Items/Defib/defib_zap.ogg");
-
-    /// <summary>
-    /// The sound when the defib is powered on.
-    /// </summary>
-    [ViewVariables(VVAccess.ReadWrite), DataField("powerOnSound")]
-    public SoundSpecifier? PowerOnSound = new SoundPathSpecifier("/Audio/Items/Defib/defib_safety_on.ogg");
-
-    [ViewVariables(VVAccess.ReadWrite), DataField("powerOffSound")]
-    public SoundSpecifier? PowerOffSound = new SoundPathSpecifier("/Audio/Items/Defib/defib_safety_off.ogg");
 
     [ViewVariables(VVAccess.ReadWrite), DataField("chargeSound")]
     public SoundSpecifier? ChargeSound = new SoundPathSpecifier("/Audio/Items/Defib/defib_charge.ogg");
@@ -86,6 +86,9 @@ public sealed partial class DefibrillatorComponent : Component
 
     [ViewVariables(VVAccess.ReadWrite), DataField("readySound")]
     public SoundSpecifier? ReadySound = new SoundPathSpecifier("/Audio/Items/Defib/defib_ready.ogg");
+
+    [DataField]
+    public EntityUid? ChargeSoundEntity;
 }
 
 [Serializable, NetSerializable]

@@ -1,5 +1,4 @@
 using System.Diagnostics.CodeAnalysis;
-using Content.Shared._CM14.Webbing;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Storage;
 using Robust.Shared.Containers;
@@ -12,7 +11,6 @@ public partial class InventorySystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IViewVariablesManager _vvm = default!;
-    [Dependency] private readonly SharedWebbingSystem _webbing = default!;
 
     private void InitializeSlots()
     {
@@ -77,10 +75,8 @@ public partial class InventorySystem : EntitySystem
 
         if (TryGetSlotEntity(uid, ev.Slot, out var entityUid) && TryComp<StorageComponent>(entityUid, out var storageComponent))
         {
-            _storageSystem.OpenStorageUI(entityUid.Value, uid, storageComponent);
+            _storageSystem.OpenStorageUI(entityUid.Value, uid, storageComponent, false);
         }
-        else if (TryComp<WebbingClothingComponent>(entityUid, out var webbingClothing))
-            _webbing.OpenStorage((entityUid.Value, webbingClothing), uid);
     }
 
     public bool TryGetSlotContainer(EntityUid uid, string slot, [NotNullWhen(true)] out ContainerSlot? containerSlot, [NotNullWhen(true)] out SlotDefinition? slotDefinition,

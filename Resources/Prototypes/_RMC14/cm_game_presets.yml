@@ -1,0 +1,19 @@
+﻿- type: gamePreset
+  id: CMDistressSignal
+  alias:
+  - distresssignal
+  - cmdistresssignal
+  - cmds
+  name: Сигнал Бедствия
+  description: Ответьте на сигнал бедствия, посланный соседней планетой.
+  showInVote: true
+  rules:
+  - CMDistressSignal
+
+- type: gamePreset
+  id: CMGreenshift
+  alias:
+  - cmgreenshift
+  name: Гриншифт
+  showInVote: false
+  description: Пресет без событий, чтобы мероприятия админов проходили без помех.

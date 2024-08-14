@@ -1,0 +1,13 @@
+cm-xeno-egg-clear = Мы очищаем вылупившееся яйцо.
+cm-xeno-egg-not-developed = Яйцо еще не развилось.
+cm-xeno-egg-failed-must-weeds = Яйцо должно быть посажено на сорняки.
+cm-xeno-egg-failed-plant-outside = Лучше не сажать его за пределами защитной клетки.
+cm-xeno-egg-failed-already-there = Там уже есть яйцо.
+cm-xeno-egg-blocked = Здесь уже что-то построено.
+rmc-xeno-egg-dead-child = Этот ребенок мертв.
+rmc-xeno-egg-has-child = Этот занят ребенком.
+rmc-xeno-egg-awake-child = { CAPITALIZE($parasite) } не хочет возвращаться обратно!
+rmc-xeno-egg-fail-return = Это яйцо не может вместить этого ребенка.
+rmc-xeno-egg-return-user = Мы помещаем ребенка обратно в яйцо.
+rmc-xeno-egg-return-self = { CAPITALIZE($parasite) } заползает обратно в яйцо.
+rmc-xeno-egg-return = { CAPITALIZE($user) } задвигает { $parasite } обратно в яйцо.

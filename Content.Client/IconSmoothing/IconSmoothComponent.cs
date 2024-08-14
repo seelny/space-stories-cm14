@@ -27,6 +27,12 @@ namespace Content.Client.IconSmoothing
         public string? SmoothKey { get; private set; }
 
         /// <summary>
+        ///     We will smooth with other objects with the same key.
+        /// </summary>
+        [ViewVariables(VVAccess.ReadWrite), DataField("keyTwo")]
+        public string? SmoothKeyTwo { get; private set; }
+
+        /// <summary>
         ///     Prepended to the RSI state.
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite), DataField("base")]

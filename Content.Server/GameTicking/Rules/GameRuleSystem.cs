@@ -1,6 +1,6 @@
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Managers;
-using Content.Server.GameTicking.Components;
+using Content.Shared.GameTicking.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -35,17 +35,27 @@ public abstract partial class GameRuleSystem<T> : EntitySystem where T : ICompon
             return;
 
         var query = QueryAllRules();
-        while (query.MoveNext(out var uid, out _, out var gameRule))
+        while (query.MoveNext(out var uid, out var rule, out var gameRule))
         {
             var minPlayers = gameRule.MinPlayers;
             if (args.Players.Length >= minPlayers)
+            {
+                OnStartAttempt((uid, rule, gameRule), args);
                 continue;
+            }
 
-            ChatManager.SendAdminAnnouncement(Loc.GetString("preset-not-enough-ready-players",
-                ("readyPlayersCount", args.Players.Length),
-                ("minimumPlayers", minPlayers),
-                ("presetName", ToPrettyString(uid))));
-            args.Cancel();
+            if (gameRule.CancelPresetOnTooFewPlayers)
+            {
+                ChatManager.SendAdminAnnouncement(Loc.GetString("preset-not-enough-ready-players",
+                    ("readyPlayersCount", args.Players.Length),
+                    ("minimumPlayers", minPlayers),
+                    ("presetName", ToPrettyString(uid))));
+                args.Cancel();
+            }
+            else
+            {
+                ForceEndSelf(uid, gameRule);
+            }
         }
     }
 
@@ -80,6 +90,11 @@ public abstract partial class GameRuleSystem<T> : EntitySystem where T : ICompon
 
             AppendRoundEndText(uid, comp, ruleData, ref ev);
         }
+    }
+
+    protected virtual void OnStartAttempt(Entity<T, GameRuleComponent> gameRule, RoundStartAttemptEvent ev)
+    {
+
     }
 
     /// <summary>

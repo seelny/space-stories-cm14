@@ -1,0 +1,11 @@
+- type: department
+  parent: CMDepartmentBase
+  id: CMAuxiliarySupport
+  description: cm-department-AuxiliarySupport-description
+  color: "#C38312"
+  roles:
+  - CMAuxiliarySupportOfficer
+  - CMPilotDropship
+  - CMPilotGunship
+  - CMDropshipCrewChief
+  - CMIntelOfficer

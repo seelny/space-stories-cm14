@@ -3,7 +3,7 @@ using System.Numerics;
 using Content.Server.Chat.Systems;
 using Content.Server.CombatMode.Disarm;
 using Content.Server.Movement.Systems;
-using Content.Shared._CM14.Tackle;
+using Content.Shared._RMC14.Tackle;
 using Content.Shared.Actions.Events;
 using Content.Shared.Administration.Components;
 using Content.Shared.CombatMode;
@@ -92,10 +92,13 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         }
 
         var target = GetEntity(ev.Target!.Value);
-        var cmDisarmEvent = new CMDisarmEvent(user);
-        RaiseLocalEvent(target, ref cmDisarmEvent);
-        if (cmDisarmEvent.Handled)
-            return true;
+        if (InRange(user, target, component.Range, session))
+        {
+            var cmDisarmEvent = new CMDisarmEvent(user);
+            RaiseLocalEvent(target, ref cmDisarmEvent);
+            if (cmDisarmEvent.Handled)
+                return true;
+        }
 
         if (_mobState.IsIncapacitated(target))
         {
@@ -192,15 +195,10 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         if (session is { } pSession)
         {
             (targetCoordinates, targetLocalAngle) = _lag.GetCoordinatesAngle(target, pSession);
-        }
-        else
-        {
-            var xform = Transform(target);
-            targetCoordinates = xform.Coordinates;
-            targetLocalAngle = xform.LocalRotation;
+            return Interaction.InRangeUnobstructed(user, target, targetCoordinates, targetLocalAngle, range);
         }
 
-        return Interaction.InRangeUnobstructed(user, target, targetCoordinates, targetLocalAngle, range);
+        return Interaction.InRangeUnobstructed(user, target, range);
     }
 
     protected override void DoDamageEffect(List<EntityUid> targets, EntityUid? user, TransformComponent targetXform)

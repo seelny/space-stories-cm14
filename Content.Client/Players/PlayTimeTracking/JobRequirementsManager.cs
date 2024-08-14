@@ -1,6 +1,9 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using Content.Client._Stories.Sponsors;
+using Content.Client._RMC14.PlayTimeTracking;
 using Content.Shared.CCVar;
 using Content.Shared.Players;
+using Content.Shared.Players.JobWhitelist;
 using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Roles;
 using Robust.Client;
@@ -21,9 +24,12 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
     [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
+    [Dependency] private readonly RMCPlayTimeManager _rmcPlayTime = default!;
+    [Dependency] private readonly SponsorsManager _sponsors = default!; // Stories-Sponsor
 
     private readonly Dictionary<string, TimeSpan> _roles = new();
     private readonly List<string> _roleBans = new();
+    private readonly List<string> _jobWhitelists = new();
 
     private ISawmill _sawmill = default!;
 
@@ -36,8 +42,10 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
         // Yeah the client manager handles role bans and playtime but the server ones are separate DEAL.
         _net.RegisterNetMessage<MsgRoleBans>(RxRoleBans);
         _net.RegisterNetMessage<MsgPlayTime>(RxPlayTime);
+        _net.RegisterNetMessage<MsgJobWhitelist>(RxJobWhitelist);
 
         _client.RunLevelChanged += ClientOnRunLevelChanged;
+        _rmcPlayTime.Updated += () => Updated?.Invoke();
     }
 
     private void ClientOnRunLevelChanged(object? sender, RunLevelChangedEventArgs e)
@@ -79,6 +87,13 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
         Updated?.Invoke();
     }
 
+    private void RxJobWhitelist(MsgJobWhitelist message)
+    {
+        _jobWhitelists.Clear();
+        _jobWhitelists.AddRange(message.Whitelist);
+        Updated?.Invoke();
+    }
+
     public bool IsAllowed(JobPrototype job, [NotNullWhen(false)] out FormattedMessage? reason)
     {
         reason = null;
@@ -89,18 +104,33 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
             return false;
         }
 
+        if (!CheckWhitelist(job, out reason))
+            return false;
+
         var player = _playerManager.LocalSession;
         if (player == null)
             return true;
 
-        return CheckRoleTime(job.Requirements, out reason);
+        return CheckRoleTime(job, out reason);
+    }
+
+    public bool CheckRoleTime(JobPrototype job, [NotNullWhen(false)] out FormattedMessage? reason)
+    {
+        reason = null;
+        if (_rmcPlayTime.IsExcluded(job.ID))
+            return true;
+
+        var reqs = _entManager.System<SharedRoleSystem>().GetJobRequirement(job);
+        return CheckRoleTime(reqs, out reason);
     }
 
     public bool CheckRoleTime(HashSet<JobRequirement>? requirements, [NotNullWhen(false)] out FormattedMessage? reason)
     {
         reason = null;
-
-        if (requirements == null || !_cfg.GetCVar(CCVars.GameRoleTimers))
+        _sponsors.TryGetInfo(out var sponsorData); // Stories-Sponsor
+        if (requirements == null ||
+            !_cfg.GetCVar(CCVars.GameRoleTimers) ||
+            sponsorData?.RoleTimeBypass == true) // Stories-Sponsor
             return true;
 
         var reasons = new List<string>();
@@ -114,6 +144,23 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
 
         reason = reasons.Count == 0 ? null : FormattedMessage.FromMarkup(string.Join('\n', reasons));
         return reason == null;
+    }
+
+    public bool CheckWhitelist(JobPrototype job, [NotNullWhen(false)] out FormattedMessage? reason)
+    {
+        reason = default;
+        _sponsors.TryGetInfo(out var sponsorData); // Stories-Sponsor
+        if (!_cfg.GetCVar(CCVars.GameRoleWhitelist) ||
+            sponsorData?.WhitelistRoleTimeBypass == true) // Stories-Sponsor
+            return true;
+
+        if (job.Whitelisted && !_jobWhitelists.Contains(job.ID))
+        {
+            reason = FormattedMessage.FromUnformatted(Loc.GetString("role-not-whitelisted"));
+            return false;
+        }
+
+        return true;
     }
 
     public TimeSpan FetchOverallPlaytime()

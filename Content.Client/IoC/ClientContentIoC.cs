@@ -1,11 +1,16 @@
-using Content.Client._CM14.Mapping;
+using Content.Client._RMC14.LinkAccount;
+using Content.Client._RMC14.Mapping;
+using Content.Client._RMC14.PlayTimeTracking;
+using Content.Client._Stories.DiscordAuth;
+using Content.Client._Stories.JoinQueue;
+using Content.Client._Stories.Sponsors;
 using Content.Client.Administration.Managers;
 using Content.Client.Changelog;
 using Content.Client.Chat.Managers;
 using Content.Client.Clickable;
+using Content.Client.DebugMon;
 using Content.Client.Eui;
 using Content.Client.GhostKick;
-using Content.Client.Info;
 using Content.Client.Launcher;
 using Content.Client.Parallax.Managers;
 using Content.Client.Players.PlayTimeTracking;
@@ -42,16 +47,23 @@ namespace Content.Client.IoC
             collection.Register<EuiManager, EuiManager>();
             collection.Register<IVoteManager, VoteManager>();
             collection.Register<ChangelogManager, ChangelogManager>();
-            collection.Register<RulesManager, RulesManager>();
             collection.Register<ViewportManager, ViewportManager>();
             collection.Register<ISharedAdminLogManager, SharedAdminLogManager>();
             collection.Register<GhostKickManager>();
             collection.Register<ExtendedDisconnectInformationManager>();
             collection.Register<JobRequirementsManager>();
+            collection.Register<SponsorsManager>(); // Stories-Sponsors
+            collection.Register<JoinQueueManager>(); // Stories-Queue
+            collection.Register<DiscordAuthManager>(); // Stories-DiscordAuth
             collection.Register<DocumentParsingManager>();
             collection.Register<ContentReplayPlaybackManager, ContentReplayPlaybackManager>();
             collection.Register<ISharedPlaytimeManager, JobRequirementsManager>();
+            collection.Register<DebugMonitorManager>();
+
+            // RMC14
             collection.Register<MappingManager>();
+            collection.Register<LinkAccountManager>();
+            collection.Register<RMCPlayTimeManager>();
         }
     }
 }

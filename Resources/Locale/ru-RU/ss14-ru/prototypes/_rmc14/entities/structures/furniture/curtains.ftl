@@ -1,0 +1,10 @@
+ent-RMCCurtainBase = штора
+    .desc = { ent-BaseCurtains.desc }
+ent-RMCCurtainGreen = { ent-RMCCurtainBase }
+    .desc = { ent-RMCCurtainBase.desc }
+ent-RMCCurtainMedical = пластиковая занавеска
+    .desc = { ent-RMCCurtainBase.desc }
+ent-RMCCurtainShower = душевая занавеска
+    .desc = { ent-RMCCurtainBase.desc }
+ent-RMCCurtainRed = красная занавеска
+    .desc = { ent-RMCCurtainBase.desc }

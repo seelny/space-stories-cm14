@@ -1,0 +1,29 @@
+- type: entity
+  id: StoriesTeleporterHorizontal
+  parent: BaseItem
+  name: admin teleport creator
+  suffix: Horizontal
+  components:
+  - type: Sprite
+    sprite: /Textures/Objects/Devices/hand_teleporter.rsi
+    layers:
+    - state: icon
+  - type: HandTeleporter
+    allowPortalsOnDifferentGrids: true
+    firstPortalPrototype: StoriesZPortalHorizontal
+    secondPortalPrototype: StoriesZPortalHorizontal
+
+- type: entity
+  id: StoriesTeleporterVertical
+  parent: BaseItem
+  name: admin teleport creator
+  suffix: Vertical
+  components:
+  - type: Sprite
+    sprite: /Textures/Objects/Devices/hand_teleporter.rsi
+    layers:
+    - state: icon
+  - type: HandTeleporter
+    allowPortalsOnDifferentGrids: true
+    firstPortalPrototype: StoriesZPortalVertical
+    secondPortalPrototype: StoriesZPortalVertical

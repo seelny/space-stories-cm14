@@ -1,6 +1,7 @@
 using System.Collections.Frozen;
-using Content.Shared._CM14.Chat;
-using Content.Shared._CM14.Xenos;
+using Content.Shared._RMC14.Chat;
+using Content.Shared._RMC14.Xenonids;
+using Content.Shared._RMC14.Xenonids.Evolution;
 using Content.Shared.Popups;
 using Content.Shared.Radio;
 using Content.Shared.Speech;
@@ -38,6 +39,7 @@ public abstract class SharedChatSystem : EntitySystem
 
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly XenoEvolutionSystem _xenoEvolution = default!;
 
     /// <summary>
     /// Cache of the keycodes for faster lookup.
@@ -111,13 +113,24 @@ public abstract class SharedChatSystem : EntitySystem
         if (input.Length == 0)
             return false;
 
-        // TODO CM14 replace all of this with something else when chat code isnt a joke
+        // TODO RMC14 replace all of this with something else when chat code isnt a joke
         if (input.StartsWith(RadioCommonPrefix))
         {
             output = SanitizeMessageCapital(input[1..].TrimStart());
             channel = HasComp<XenoComponent>(source)
                 ? _prototypeManager.Index<RadioChannelPrototype>(HivemindChannel)
                 : _prototypeManager.Index<RadioChannelPrototype>(CommonChannel);
+
+            if (channel.ID == HivemindChannel &&
+                !_xenoEvolution.HasLiving<XenoEvolutionGranterComponent>(1))
+            {
+                if (!quiet)
+                    _popup.PopupEntity(Loc.GetString("rmc-no-queen-hivemind-chat"), source, source, PopupType.LargeCaution);
+
+                output = SanitizeMessageCapital(input[1..].TrimStart());
+                return false;
+            }
+
             return true;
         }
 
@@ -143,6 +156,16 @@ public abstract class SharedChatSystem : EntitySystem
         {
             var ev = new GetDefaultRadioChannelEvent();
             RaiseLocalEvent(source, ev);
+
+            if (ev.Channel == HivemindChannel &&
+                !_xenoEvolution.HasLiving<XenoEvolutionGranterComponent>(1))
+            {
+                if (!quiet)
+                    _popup.PopupEntity(Loc.GetString("rmc-no-queen-hivemind-chat"), source, source, PopupType.LargeCaution);
+
+                output = SanitizeMessageCapital(input[1..].TrimStart());
+                return false;
+            }
 
             if (ev.Channel != null)
                 _prototypeManager.TryIndex(ev.Channel, out channel);

@@ -1,8 +1,0 @@
-﻿- type: entity
-  id: CMDistressSignal
-  parent: BaseGameRule
-  noSpawn: true
-  components:
-  - type: GameRule
-    minPlayers: 1
-  - type: CMRule

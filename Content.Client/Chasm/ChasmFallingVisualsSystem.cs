@@ -24,8 +24,11 @@ public sealed class ChasmFallingVisualsSystem : EntitySystem
 
     private void OnComponentInit(EntityUid uid, ChasmFallingComponent component, ComponentInit args)
     {
-        if (!TryComp<SpriteComponent>(uid, out var sprite))
+        if (!TryComp<SpriteComponent>(uid, out var sprite) ||
+            TerminatingOrDeleted(uid))
+        {
             return;
+        }
 
         component.OriginalScale = sprite.Scale;
 
@@ -38,8 +41,11 @@ public sealed class ChasmFallingVisualsSystem : EntitySystem
 
     private void OnComponentRemove(EntityUid uid, ChasmFallingComponent component, ComponentRemove args)
     {
-        if (!TryComp<SpriteComponent>(uid, out var sprite))
+        if (!TryComp<SpriteComponent>(uid, out var sprite) ||
+            TerminatingOrDeleted(uid))
+        {
             return;
+        }
 
         var player = EnsureComp<AnimationPlayerComponent>(uid);
         if (_anim.HasRunningAnimation(player, _chasmFallAnimationKey))

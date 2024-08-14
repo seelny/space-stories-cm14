@@ -1,5 +1,7 @@
-﻿using Content.Shared.Ghost;
+﻿using Content.Shared._RMC14.IdentityManagement;
+using Content.Shared.Ghost;
 using Content.Shared.IdentityManagement.Components;
+using Content.Shared.Whitelist;
 
 namespace Content.Shared.IdentityManagement;
 
@@ -15,7 +17,23 @@ public static class Identity
     /// </summary>
     public static string Name(EntityUid uid, IEntityManager ent, EntityUid? viewer=null)
     {
-        var uidName = ent.GetComponent<MetaDataComponent>(uid).EntityName;
+        if (!uid.IsValid())
+            return string.Empty;
+
+        var meta = ent.GetComponent<MetaDataComponent>(uid);
+        if (meta.EntityLifeStage <= EntityLifeStage.Initializing)
+            return meta.EntityName; // Identity component and such will not yet have initialized and may throw NREs
+
+        var uidName = meta.EntityName;
+
+        var whitelistSystem = ent.System<EntityWhitelistSystem>();
+        if (viewer != null &&
+            ent.TryGetComponent(uid, out FixedIdentityComponent? fixedIdentity) &&
+            fixedIdentity.Name is { } name &&
+            whitelistSystem.IsWhitelistPass(fixedIdentity.Whitelist, viewer.Value))
+        {
+            return name;
+        }
 
         if (!ent.TryGetComponent<IdentityComponent>(uid, out var identity))
             return uidName;
@@ -34,7 +52,7 @@ public static class Identity
             return uidName;
         }
 
-        return uidName + $" ({identName})";
+        return $"{uidName} ({identName})";
     }
 
     /// <summary>

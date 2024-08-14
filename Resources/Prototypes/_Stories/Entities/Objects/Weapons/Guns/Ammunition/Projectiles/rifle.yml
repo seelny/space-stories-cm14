@@ -1,0 +1,30 @@
+- type: entity
+  parent: BaseBullet
+  id: BulletRifleM4SPRA19Incendiary
+  noSpawn: true
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 40
+        Heat: 10
+  - type: CMArmorPiercing
+    amount: 20
+  - type: IgniteOnCollide
+    fireStacks: 5
+
+- type: entity
+  parent: BaseBullet
+  id: BulletRifleM4SPRA19Impact
+  noSpawn: true
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 40
+  - type: CMArmorPiercing
+    amount: 0
+  - type: XenoSlowingSpitProjectile
+    slow: 0
+    slowMultiplier: 1
+    paralyze: 0.4

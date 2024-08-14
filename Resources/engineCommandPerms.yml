@@ -90,27 +90,30 @@
 
 - Flags: ADMIN
   Commands:
-  - delete
-  - kick
   - listplayers
   - tp
   - tpto
-  - respawn
+
+- Flags: FUN
+  Commands:
   - tippy
   - tip
 
 - Flags: SERVER
   Commands:
   - delete
-  - pausemap
   - unpausemap
-  - restart
-  - shutdown
 
 - Flags: SPAWN
   Commands:
   - spawn
   - cspawn
+  - delete
+
+- Flags: MODERATOR
+  Commands:
+  - kick
+  - respawn
 
 - Flags: HOST
   Commands:
@@ -128,6 +131,9 @@
   - fuck
   - replay_recording_start
   - replay_recording_stop
+  - restart
+  - shutdown
+  - pausemap
 
 - Flags: QUERY
   Commands:
