@@ -1,25 +1,23 @@
 ﻿<Document>
 
-  #Your first day as a rifleman!
+  # Ваш первый день в качестве кадета!
 
-  - Just woke up from cryosleep? Well you're probably hungry, so you should head to the food vendor and get something to eat.
-  - Make sure to also take a canteen with you so you have water.
+  - Только что очнулись от криосна? Вы наверняка проголодались, так что вам стоит отправиться к торговцу едой и перекусить.
+  - Не забудьте также взять с собой флягу, чтобы у вас была вода.
 
   <Box>
     <GuideEntityEmbed Entity="ColMarTechFood"/>
   </Box>\n
 
-
-  - Next head to the standard equipment rack to get your armor and storage!
+  - Далее отправляйтесь в свою комнату подготовки  чтобы получить броню и оружие, найти её можно пройдя чуть левее от комнаты криосна комната выделяется тем что вход в шлюз ведущий в неё зелёный.
 
   <Box>
     <GuideEntityEmbed Entity="ColMarTechEquipment"/>
   </Box>\n
 
-
-  - And finally, visit the automated weapons rack to pick a weapon and mags to go with it!
-  We recommend the M54C Assault Rifle for beginners.
-  - Also make sure to grab a few armor piercing (AP) mags for the heavier xenonids! They'll be impossible to kill otherwise.
+  - И наконец, посетите автоматическую оружейную стойку, чтобы выбрать оружие и патроны к нему!
+  Новичкам мы рекомендуем штурмовую винтовку M54C.
+  - Также не забудьте прихватить несколько бронебойных (AP) патронов для более тяжелых ксенонидов! Иначе их будет невозможно убить.
 
   <Box>
     <GuideEntityEmbed Entity="ColMarTechGuns"/>
@@ -30,10 +28,10 @@
   <GuideEntityEmbed Entity="CMMagazineRifleM54CAP"/>
 </Box>\n
 
-  - Now you're ready to kill xenonids! Try to find the meeting room with your squadmates if the operation hasn't started yet.
-  - Otherwise, ask around for help finding the dropship and get in there!
+  - Теперь вы готовы мочить ксеносов! Если операция еще не началась, постарайтесь найти комнату для брифинга вместе со своими товарищами по отряду.
+  - В противном случае попросите помощи в поиске шаттла и отправляйтесь туда!
 
-  - If you need any help, try to find your local mentor, the SEA. You can also ahelp by pressing F1.
+  - Если вам нужна помощь, попробуйте найти местного наставника, ССС. Вы также можете получить помощь, нажав F1.
   <Box>
     <GuideEntityEmbed Entity="CMGuidebookRoleSEA"/>
   </Box>

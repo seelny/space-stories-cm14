@@ -1,18 +1,18 @@
 ﻿<Document>
-  # Mutinies require admin permission.
-  All players, including hostile forces, must obtain admin permission before engaging riots, mutinies or similar activity.
-  - Strikes, revolutions, riots, cults, and any other type of similar largely disruptive behavior are strictly forbidden without permission.
-  - Staff reserve the right to grant or deny mutinies, and to decide if the reason given is sufficient.
-  - MPs are not able to mutiny and will always side with the acting CO.
-  - Mutiny cannot occur during hijack, and any ongoing mutiny must be ended upon hijack.
-  - Only the Acting Commander can be mutinied against. They must be given a chance to stand down peacefully.
-  - During the mutiny, attacking any uninvolved, medical, or surrendered personnel is forbidden, as is perma-killing anyone involved.
-  - If you have surrendered during a mutiny, you must remain as such.
-  - You may not change sides unless you are surrendering.
-  - Once concluded, all sides must be given medical treatment. CO or higher are able to deny treatment or battlefield execute mutineers.
-  - Mutinies must have 5 members minimum.
-  - Examples of mutiny reasons:
-  - Commander incompetence, where the next in line would lead better.
-  - Commander takes no actions in leading.
-  - Commander refuses to allow evacuation.
+  # Мятежи требуют разрешения администратора.
+  Все игроки, включая враждебные силы, должны получить разрешение администратора, прежде чем устраивать бунты, мятежи или подобные действия.
+  - Забастовки, революции, бунты, культы и любые другие виды подобного, в значительной степени разрушительного поведения строго запрещены без разрешения.
+  - Персонал оставляет за собой право разрешать или отклонять мятежи, а также решать, является ли указанная причина достаточной.
+  - Члены парламента не могут поднимать мятеж и всегда будут на стороне действующего командира.
+  - Мятеж не может произойти во время захвата, и любой продолжающийся мятеж должен быть прекращен после захвата.
+  - Мятеж может быть подан только против исполняющего обязанности командира. Ему должен быть предоставлен шанс мирно уйти в отставку.
+  - Во время мятежа запрещено нападать на непричастный, медицинский или сдавшийся персонал, а также перма-убийство всех участников.
+  - Если вы сдались во время мятежа, вы должны оставаться таковым.
+  - Вы не можете менять сторону, если только не сдаетесь.
+  - После завершения мятежа все стороны должны получить медицинскую помощь. Командир или вышестоящий командир может отказать в лечении или казнить мятежников на поле боя.
+  - В мятеже должно участвовать не менее 5 человек.
+  Примеры причин мятежа:
+  - Некомпетентность командира, когда следующий в строю руководит лучше.
+  - Командир не предпринимает никаких действий по руководству.
+  - Командир отказывается разрешить эвакуацию.
 </Document>

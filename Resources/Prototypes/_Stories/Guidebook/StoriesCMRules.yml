@@ -8,40 +8,48 @@
 
 - type: guideEntry
   parent: RMC
-  id: CMRule1
+  id: StoriesGrief
   name: Правило 1. Гриф
   priority: 3
   ruleEntry: true
-  text: "/ServerInfo/Guidebook/_Stories/Rules/Core/CMRule1.xml"
+  text: "/ServerInfo/Guidebook/_Stories/Rules/Core/StoriesGrief.xml"
 
 - type: guideEntry
   parent: RMC
-  id: CMRule2
+  id: StoriesGameAtmosphere
   name: Правило 2. Нарушение игровой атмосферы
   priority: 4
   ruleEntry: true
-  text: "/ServerInfo/Guidebook/_Stories/Rules/Core/CMRule2.xml"
+  text: "/ServerInfo/Guidebook/_Stories/Rules/Core/StoriesGameAtmosphere.xml"
 
 - type: guideEntry
   parent: RMC
-  id: CMRule3
+  id: StoriesMetagame
   name: Правило 3. Метагейм
   priority: 5
   ruleEntry: true
-  text: "/ServerInfo/Guidebook/_Stories/Rules/Core/CMRule3.xml"
+  text: "/ServerInfo/Guidebook/_Stories/Rules/Core/StoriesMetagame.xml"
 
 - type: guideEntry
   parent: RMC
-  id: CMRule4
+  id: StoriesERP
   name: Правило 4. ERP
   priority: 6
   ruleEntry: true
-  text: "/ServerInfo/Guidebook/_Stories/Rules/Core/CMRule4.xml"
+  text: "/ServerInfo/Guidebook/_Stories/Rules/Core/StoriesERP.xml"
 
 - type: guideEntry
   parent: RMC
-  id: CMRule5
+  id: StoriesFoulPlay
   name: Правило 5. Нечестная игра
   priority: 7
   ruleEntry: true
-  text: "/ServerInfo/Guidebook/_Stories/Rules/Core/CMRule5.xml"
+  text: "/ServerInfo/Guidebook/_Stories/Rules/Core/StoriesFoulPlay.xml"
+
+- type: guideEntry
+  parent: RMC
+  id: StoriesGameConventions
+  name: Правило 6. Условности игрового режима
+  priority: 8
+  ruleEntry: true
+  text: "/ServerInfo/Guidebook/_Stories/Rules/Core/StoriesGameConventions.xml"

@@ -1,22 +1,22 @@
-﻿<Document>
-  #RMC-14 Guidebook
+﻿<Документ>
+  #Stories - Colonial Marines Руководство
 
-  Welcome to RMC-14.
+  Добро пожаловать на Stories - Colonial Marines.
 
-  This is a MRP server inspired by CM13, in the new SS14 engine!
+  Это MRP-сервер, вдохновленный CM13, на новом движке SS14!
 
-  The guidebook, roadmap and rules for the game can be found on the lobby screen, and at any point in the escape menu.
+  Руководство, дорожную карту и правила игры можно найти на экране лобби, а также в одном из пунктов меню ESC.
 
-  Click any of the tabs on the left to learn about RMC14 and it's unique content.
+  Перейдите на любую из вкладок слева, чтобы узнать о Stories - Colonial Marines и ее уникальном содержании.
 
-  Be sure to read the rules if you haven't already.
-  - [textlink="The rules" link="CMOverview"]
+  Обязательно прочитайте правила, если вы еще этого не сделали.
+  - [textlink="Правила" link="CMOverview"]
 
-  New to RMC-14 or have no CM13 experience? Be careful! A lot of mechanics and values are not the same as SS14.
-  (It's recomended to read the guidebook and learn basic controls from another server if this is your first time in SS14.)
-  - [textlink="New player guide!" link="RMCGuideNewPlayer"]
+  Вы новичок в Stories - Colonial Marines или не имеете опыта игры в CM13? Будьте осторожны! Многие механики и ценности не такие, как в SS14.
+  (Рекомендуется прочитать руководство и изучить основные элементы управления на другом сервере, если вы впервые в SS14).
+  - [textlink="Руководство для нового игрока!" link="RMCGuideNewPlayer"]
 
-  Have some experience? Check out these guidebook pages!
-  - [textlink="Medical" link="RMCMedical"]
-  - [textlink="Medicines" link="CMMedicine"]
-</Document>
+  У вас есть опыт? Загляните на страницы этого руководства!
+  - [textlink="Медицина" link="RMCMedical"]
+  - [textlink="Лекарства" link="CMMedicine"]
+</Document

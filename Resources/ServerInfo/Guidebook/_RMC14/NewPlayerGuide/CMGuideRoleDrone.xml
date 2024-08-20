@@ -1,21 +1,21 @@
 ﻿<Document>
 
-  #So you've just been born into the hive!
-  #Now what?
+  # Так ты только что родился в улье!
+  # Что теперь?
 
-  - Rejoice! We've just joined our hive as a larva. We can't do very much right now, but our potential is limitless!
+  - Радуйтесь! Мы только что присоединились к нашему улью в качестве личинки. Сейчас мы мало что можем, но наш потенциал безграничен!
   <Box>
     <GuideEntityEmbed Entity="CMXenoLarva"/>
   </Box>\n
-  - It's time to get to work! As soon as we can, we should try to evolve. This will require us to gain some age by waiting however.
-  - For beginners, becoming a drone is recommended. Drones are responsible for building the hive defenses.
+  - Пора приступать к работе! Как только мы сможем, мы должны попытаться эволюционировать. Однако для этого придется немного подождать.
+  - Новичкам рекомендуется стать трутнем. Дроны отвечают за создание защитных сооружений улья.
 
   <Box>
     <GuideEntityEmbed Entity="CMGuidebookActionXenoEvolve"/>
     <GuideEntityEmbed Entity="CMXenoDrone"/>
   </Box>\n
 
-  - Here are a few of the things we can construct!
+  - Вот несколько вещей, которые мы можем построить!
 
   <Box>
     <GuideEntityEmbed Entity="WallXenoResin"/>
@@ -23,9 +23,9 @@
     <GuideEntityEmbed Entity="DoorXenoResin"/>
   </Box>\n
 
-  - Another important job of the Drone is to plant weeds.
-  - Weeds allow us to rest to regain our health and energy!
-  - We can also only construct the hive on weeds.
+  - Еще одна важная работа дрона - сажать сорняки.
+  - Сорняки позволяют нам отдохнуть, чтобы восстановить здоровье и энергию!
+  - Мы также можем построить улей только на сорняках.
   <GuideEntityEmbed Entity="CMGuidebookActionXenoRest"/>
   <Box>
     <GuideEntityEmbed Entity="XenoWeeds"/>
@@ -33,9 +33,9 @@
     <GuideEntityEmbed Entity="XenoWeeds"/>
   </Box>\n
 
-  - Our final goal is to protect the Queen and plant her eggs so our hive may grow!
-  - Eggs can be placed on weeds, and contain parasites.
-  - Parasites can be extracted from the eggs, but be wary that parasites have short lifespans away from the weeds!
+  - Наша последняя цель - защитить королеву и посадить ее яйца, чтобы наш улей мог расти!
+  - Яйца могут быть помещены на сорняки и содержать паразитов.
+  - Паразитов можно извлечь из яиц, но будьте осторожны: вдали от сорняков паразиты живут недолго!
 
   <Box>
     <GuideEntityEmbed Entity="CMXenoQueen"/>
@@ -44,8 +44,8 @@
     <GuideEntityEmbed Entity="CMXenoParasite"/>
   </Box>\n
 
-  - When a parasite is placed on a living host, a new larva will be born! Rejoice!
-  - Hosts that hold the growing larva are very precious, and should be secured to a resin wall as soon as possible.
+  - Когда паразит попадает на живого носителя, на свет появляется новая личинка! Радуйтесь!
+  - Носители, в которых живет растущая личинка, очень ценны, и их следует как можно скорее прикрепить к стенке из смолы.
   <Box>
     <GuideEntityEmbed Entity="SalvageHumanCorpse"/>
     <GuideEntityEmbed Entity="CMXenoLarva"/>

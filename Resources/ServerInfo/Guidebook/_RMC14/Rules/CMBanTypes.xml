@@ -1,11 +1,11 @@
 ﻿<Document>
-  # Ban Types
+  # Типы банов
 
-  Bans can be appealed on the discord in the ban appeals section.
+  Баны можно обжаловать в Дискорде в разделе «Обжалования».
 
-  ## Role Ban
-  Also called a "job ban", this ban prevents your character from joining or late-joining a round as one or more jobs or roles. These are often used in response to problematic behavior in particular departments or address gross inexperience in important roles such as heads of staff. These bans do not mechanically prevent you from switching to the role during a round or acting as that role, but doing so is considered ban evasion.
+  ## Ролевой бан
+  Этот запрет не позволяет вашему персонажу присоединиться или поздно присоединиться к раунду в качестве одной или нескольких работ или ролей. Такие запреты часто используются в ответ на проблемное поведение в определенных отделах или в связи с грубой неопытностью в важных ролях, таких как главы персонала. Эти запреты не мешают вам механически переключаться на роль во время раунда или действовать в этой роли, но это считается уклонением от запрета.
 
-  ## Game Ban
-  Also called a "server ban", this ban prevents you from connecting to all RMC14 servers.
+  ## Игровой бан
+  Этот запрет не позволяет вам подключаться ко всем серверам Stories - Colonial Marines.
 </Document>

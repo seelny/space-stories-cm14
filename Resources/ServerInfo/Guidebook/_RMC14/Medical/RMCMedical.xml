@@ -1,26 +1,26 @@
 ﻿<Document>
 
-  #Medical
+  # Медицина
 
-  ##CPR
-  - Remove their mask.
-  - Click on a patient to attempt CPR.
-  - Doing this once every 7 seconds will lower their oxygen damage.
-  - This will also slightly extend the period of which bodies can be revived each time.
+  ## СЛР
+  - Снимите с пациента маску.
+  - Нажмите на пациента, чтобы попытаться сделать искусственное дыхание.
+  - Если делать это раз в 7 секунд, это снизит урон от кислорода.
+  - Это также немного продлит период, в течение которого тела можно оживлять каждый раз.
 
-  ##Treating {wounds}
-  - When a marine takes damage, they will recieve treatable wounds.
-  - Untreated wounds are indicated by [bold]"{  }"[/bold] around their damage numbers.
-  - When wounds are treated, the marine will begin to passively heal, very slowly.
-  - Treating wounds will also stop any bleeding.
-  - Using medicine will speed up damage healing.
-  - [textlink="Medicines" link="CMMedicine"]
+  ## Лечение {ранений}
+  - Когда морпех получает урон, он получает раны, которые можно лечить.
+  - Нелеченые раны обозначаются [bold]"{ }"[/bold] вокруг цифр урона.
+  - Когда раны обработаны, морпех начинает пассивно исцеляться, очень медленно.
+  - Лечение ран также остановит кровотечение.
+  - Использование лекарств ускорит исцеление повреждений.
+  - [textlink="Лекарства" link="CMMedicine"]
 
-  ##Items that treat {wounds}
-  - Trauma and burn kits will treat all wounds when used, and provide minor bonus healing.
-  - Surgical line and synth graft will treat some wounds each time used, with some healing each use.
-  - Gauze and ointment will treat all wounds when used, but only ointment provides minor bonus healing.
-  - Surgical line and synth graft can still be used after applying a trauma or burn kit.
+  ## Предметы, которые лечат {раны}
+  - Травматические и ожоговые наборы при использовании лечат все раны и дают небольшой бонус к исцелению.
+  - Хирургическая линия и синтетический трансплантат будут лечить некоторые раны при каждом использовании, с некоторым заживлением при каждом использовании.
+  - Марля и мазь лечат все раны при использовании, но только мазь дает небольшой бонус к исцелению.
+  - Хирургическая линия и синтетический трансплантат могут быть использованы после применения травматического или ожогового набора.
   <Box>
     <GuideEntityEmbed Entity="CMTraumaKit10"/>
     <GuideEntityEmbed Entity="CMBurnKit10"/>
@@ -34,34 +34,34 @@
     <GuideEntityEmbed Entity="CMOintment10"/>
   </Box>\n
 
-  ##Blood and bloodloss
-  - When a marine has a low blood level, they will begin to take oxygen damage.
-  - To replenish blood, use blood packs.
-  - They can be inserted into a patient by hand, or injected by an IV.
-  - To use a blood pack in hand, click it on the patient.
-  - Click the patient again to remove the injector.
-  - To use an IV, insert the bag, then drag the IV sprite over the patient.
-  - Click the IV to remove the IV from the patient.
+  ## Кровь и кровопотеря
+  - Если у морского пехотинца низкий уровень крови, он начинает испытывать недостаток кислорода.
+  - Чтобы восполнить запасы крови, используйте кровезаменители.
+  - Их можно вставить в пациента вручную или ввести с помощью капельницы.
+  - Чтобы использовать пакет с кровью вручную, нажмите на пациента.
+  - Нажмите на пациента еще раз, чтобы убрать инъектор.
+  - Чтобы использовать капельницу, вставьте пакет, а затем перетащите спрайт капельницы на пациента.
+  - Щелкните по капельнице, чтобы удалить ее из пациента.
 
   <Box>
     <GuideEntityEmbed Entity="CMBloodPackFull"/>
     <GuideEntityEmbed Entity="CMIV"/>
   </Box>\n
 
-  ##Defibs
-  - Defibs can be used to revive a marine below 200 damage.
-  - Epinephrine can be used to heal a marine when they are defibbed.
+  ## Дефибрилляторы
+  - Дефибрилляторы можно использовать, чтобы оживить морского пехотинца с уроном менее 200 единиц.
+  - Эпинефрин может быть использован для лечения морского пехотинца при дефибрилляции.
 
   <Box>
     <GuideEntityEmbed Entity="CMDefibrillator"/>
     <GuideEntityEmbed Entity="CMEpinephrineAutoInjector"/>
   </Box>\n
 
-  ##Surgery
-  - To begin surgery, use a surgical tool on the patient.
-  - Select a body part to work on, then follow the steps of your chosen surgery.
-  - For larva removal, ensure you are a trained doctor and not a nurse or corpsman.
-  - Place the patient on an operating table, then begin the operation.
+  ## Хирургия
+  - Чтобы начать операцию, используйте хирургический инструмент на пациенте.
+  - Выберите часть тела, которую нужно обработать, а затем выполните все шаги выбранной операции.
+  - Для удаления личинок убедитесь, что вы квалифицированный врач, а не интерн или санитар.
+  - Положите пациента на операционный стол и начните операцию.
 
   <Box>
     <GuideEntityEmbed Entity="CMCrateSecureSurgery"/>

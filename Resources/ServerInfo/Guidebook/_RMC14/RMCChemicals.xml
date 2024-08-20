@@ -1,10 +1,10 @@
-﻿<Document>
-  # Chemicals
+﻿<Документ>
+  # Химикаты
 
-  Chemicals are a powerful tool that can cause a variety of effects when consumed. Some can be obtained from vendors, purchased in requisitions, or be synthesized through combination with other chemicals.
+  Химикаты - это мощный инструмент, который может вызывать различные эффекты при употреблении. Некоторые из них можно получить у поставщиков, приобрести по заявкам или синтезировать путем сочетания с другими химическими веществами.
 
-  Knowing different types of chemicals and their effects is important for being able to manage injury and danger.
+  Знание различных типов химических веществ и их воздействия важно для того, чтобы уметь справляться с травмами и опасностями.
 
-  ## Medicine
+  ## Медицина
   <GuideReagentGroupEmbed Group="Medicine"/>
-</Document>
+</Document
