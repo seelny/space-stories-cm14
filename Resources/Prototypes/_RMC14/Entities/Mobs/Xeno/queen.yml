@@ -156,6 +156,8 @@
     - type: XenoScreech
     addActions:
     - ActionXenoScreech
+  - type: RMCSize
+    size: Immobile
   - type: RMCXenoDamageVisuals
     prefix: queen
   - type: PreventPulledWhileAlive

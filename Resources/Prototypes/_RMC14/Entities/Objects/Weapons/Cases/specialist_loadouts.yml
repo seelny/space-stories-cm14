@@ -18,7 +18,7 @@
     - id: CMBackpackSniper
     - id: CMWeaponPistolMK80
     - id: CMMagazinePistolMK80
-    - id: CMMagazinePistolMK80
+      amount: 2
     - id: CMM96SSniperRifle
 #    - id: CMFacepaintSniper
     - id: CMSpotterKit
@@ -55,7 +55,7 @@
     - id: RMCArmorHelmetM3G4 # hugger protection
     - id: CMWeaponPistolMK80
     - id: CMMagazinePistolMK80
-    - id: CMMagazinePistolMK80
+      amount: 2
     - id: RMCBinoculars
   - type: CMChangeUserOnVend
     addComponents:
@@ -133,7 +133,7 @@
     - id: RMCBackpackScout
     - id: CMWeaponPistolMK80
     - id: CMMagazinePistolMK80
-    - id: CMMagazinePistolMK80
+      amount: 2
     - id: WeaponRifleM4SPRCustom
     - id: RMCThermalTarpFolded
 #    - id: RMCPlasticExplosives
