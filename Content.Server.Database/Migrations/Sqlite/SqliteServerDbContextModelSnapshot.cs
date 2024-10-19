@@ -1031,6 +1031,10 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("player_id");
 
+                    b.Property<int?>("GhostColor")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("ghost_color");
+
                     b.Property<int>("TierId")
                         .HasColumnType("INTEGER")
                         .HasColumnName("tier_id");
@@ -1112,6 +1116,10 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Property<bool>("Figurines")
                         .HasColumnType("INTEGER")
                         .HasColumnName("figurines");
+
+                    b.Property<bool>("GhostColor")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("ghost_color");
 
                     b.Property<bool>("LobbyMessage")
                         .HasColumnType("INTEGER")

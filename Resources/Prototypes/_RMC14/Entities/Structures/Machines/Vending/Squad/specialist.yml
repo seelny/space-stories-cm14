@@ -121,7 +121,7 @@
       - id: RMCBeltUtilityGeneral
       - id: CMBeltMarine
     #- id: CMM276GeneralPistolHolsterRig
-    #- id: CMM276M63HolsterRig
+      - id: RMCBeltSmgMags
     #- id: CMM276M44HolsterRig
     #- id: CMM276M82FHolsterRig
       - id: RMCM276ShotgunShellLoadingRig
@@ -192,10 +192,12 @@
         points: 15
     - name: Утилиты
       entries:
-      - id: CMFireExtinguisherPortable
-        points: 5
       - id: CMRollerBedSpawnFolded
         points: 5
+      - id: CMFireExtinguisherPortable
+        points: 5
+      - id: RMCMotionDetector
+        points: 10
     #- id: CMFultonDeviceStack
     #- id: CMMotionDetector
       - id: RMCWhistle
