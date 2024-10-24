@@ -20,14 +20,13 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: TimedDespawn
-    lifetime: 0.299
+    lifetime: 1.6
   - type: Sprite
     sprite: _RMC14/Effects/attacks.rsi
-    state: slash
+    noRot: true
+    state: grab
     drawdepth: Effects
   - type: EffectVisuals
-  - type: WeaponArcVisuals
-    fadeOut: false
   - type: Tag
     tags:
     - HideContextMenu

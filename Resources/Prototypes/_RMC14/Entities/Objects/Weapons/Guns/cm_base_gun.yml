@@ -16,7 +16,7 @@
     skills:
       RMCSkillFirearms: 1
   - type: UseDelay
-    delay: 1
+    delay: 0
   - type: WieldDelay
   - type: AltFireMelee
   - type: MeleeWeapon
@@ -35,7 +35,7 @@
       collection: RMCRustleGun
   - type: Gun
     meleeCooldownOnShoot: false
-    resetOnHandSelected: false
+    resetOnHandSelected: true
 
 - type: entity
   parent: BaseBullet

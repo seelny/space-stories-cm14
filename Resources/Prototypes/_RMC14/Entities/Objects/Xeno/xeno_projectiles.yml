@@ -143,35 +143,6 @@
     deleteOnFriendlyXeno: true
 
 - type: entity
-  id: XenoBombardSpitProjectile
-  parent: XenoBaseProjectile
-  name: xeno bomb
-  categories:
-  - HideSpawnMenu
-  components:
-  - type: TriggerOnCollide
-    fixtureID: projectile
-  - type: SmokeOnTrigger
-    duration: 20
-    spreadAmount: 20
-    smokePrototype: CMAcidSmoke
-    solution:
-      reagents:
-      - ReagentId: CMAcidReagent
-        Quantity: 50
-  - type: SoundOnTrigger
-    sound: /Audio/Effects/smoke.ogg
-  - type: DeleteOnTrigger
-  - type: Sprite
-    sprite: _RMC14/Objects/Xeno/xeno_projectiles.rsi
-    layers:
-    - state: boiler_railgun
-  - type: TimedDespawn
-    lifetime: 1
-  - type: XenoProjectile
-    deleteOnFriendlyXeno: false
-
-- type: entity
   id: XenoBoneChipsProjectile
   parent: XenoBaseProjectile
   name: bone chips
