@@ -80,8 +80,8 @@
       entries:
       - id: CMMaskGas
       - id: CMMaskCoif
-    #    CMRebreather #TODO: Make this
-    - name: Инженерные принадлежности
+      - id: RMCMaskRebreather
+    - name: Engineering Supplies
       entries:
       - id: CMEntrenchingTool
         points: 5
@@ -162,8 +162,8 @@
         points: 15
       - id: RMCPouchMacheteFilled
         points: 15
-    #- id: CMMarineRadioTelephonePack
-    #  points: 15
+      - id: RMCBackpackRTO
+        points: 15
     #- id: CMFuelTankStrapPouch
     #  points: 5
     #- id: CMWeldingGoggles

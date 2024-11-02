@@ -97,6 +97,7 @@
   - type: FTLBeacon
   - type: DropshipDestination
   - type: FTLSmashImmune
+  - type: NoFTL
 
 - type: entity
   parent: MarkerBase
@@ -111,3 +112,4 @@
   - type: FTLBeacon
   - type: DropshipHijackDestination
   - type: FTLSmashImmune
+  - type: NoFTL

@@ -65,17 +65,22 @@
     - type: CMVendorUser
       points: 120
     - type: RMCPointing
+    - type: JobPrefix
+      prefix: "CO"
 
 - type: startingGear
   id: CMGearCommandingOfficer
   equipment:
-    jumpsuit: CMJumpsuitCO
+    jumpsuit: CMJumpsuitBO
     back: CMSatchel
+    belt: RMCMatebaBeltFilled
     shoes: CMShoesLaceupCommander
     head: CMHeadBeretCO
-    outerClothing: CMCoatOfficer
+    outerClothing: RMCCoatService
     id: CMIDCardCommandingOfficer
     ears: CMHeadsetSeniorCommand
+    pocket1: RMCPouchCommand
+    pocket2: RMCPouchGeneralLarge
 
 - type: entity
   parent: CMSpawnPointJobBase
@@ -92,3 +97,4 @@
 
 - type: playTimeTracker
   id: CMJobCommandingOfficer
+  isHumanoid: true

@@ -14,7 +14,6 @@ using Robust.Server.Player;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
-using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Server.Mind;
 
@@ -299,6 +298,15 @@ public sealed class MindSystem : SharedMindSystem
         Dirty(mindId, mind);
         var netMind = GetNetEntity(mindId);
         _pvsOverride.ClearOverride(netMind);
+
+        if (mind.Session != null)
+        {
+            foreach (var role in mind.MindRoles)
+            {
+                _pvsOverride.RemoveSessionOverride(role, mind.Session);
+            }
+        }
+
         if (userId != null && !_players.TryGetPlayerData(userId.Value, out _))
         {
             Log.Error($"Attempted to set mind user to invalid value {userId}");
@@ -346,6 +354,11 @@ public sealed class MindSystem : SharedMindSystem
         {
             mind.Session = ret;
             _pvsOverride.AddSessionOverride(netMind, ret);
+            foreach (var role in mind.MindRoles)
+            {
+                _pvsOverride.AddSessionOverride(role, ret);
+            }
+
             _players.SetAttachedEntity(ret, mind.CurrentEntity);
         }
     }
