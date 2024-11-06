@@ -9,3 +9,5 @@ ent-CMDoubleDoorNormandySolidRight = { ent-CMDoubleDoorBase }
 ent-CMDoubleDoorNormandySolidLeft = { ent-CMDoubleDoorBase }
     .suffix = Аламо, Левый
     .desc = { ent-CMDoubleDoorBase.desc }
+ent-RMCCargoAirlockNormandy = грузовая дверь Нормандии
+    .desc = Он открывается и закрывается.

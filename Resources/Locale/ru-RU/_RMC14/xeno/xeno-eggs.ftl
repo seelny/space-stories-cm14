@@ -14,6 +14,7 @@ rmc-xeno-egg-return-self = { CAPITALIZE($parasite) } заползает обра
 rmc-xeno-egg-return = { CAPITALIZE($user) } задвигает { $parasite } обратно в яйцо.
 rmc-xeno-egg-ghost-verb = Стать лицехватом
 rmc-xeno-egg-ghost-need-time = Вы стали призраком слишком недавно. Вы не можете стать лицехватом, пока не пройдет 3 минуты.
+rmc-xeno-egg-ghost-bypass-time = Вы успешно заразили свою цель. Вы можете снова стать паразитом.
 rmc-xeno-egg-ghost-confirm = Вы уверены, что хотите стать лицехватом?
 rmc-xeno-egg-throw-xeno = Если бросить яйцо, оно разобьется!
 rmc-xeno-egg-throw = Это плохая идея.

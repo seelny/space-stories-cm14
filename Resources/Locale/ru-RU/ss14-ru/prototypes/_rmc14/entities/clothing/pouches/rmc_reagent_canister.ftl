@@ -1,0 +1,14 @@
+ent-RMCPouchReagentCanister = чехол для канистры с реагентами под давлением
+    .desc = Канистра для реагентов под давлением. Используется для заправки пользовательских инжекторов, а также для хранения одного. Может быть заправлен с помощью резервуара для реагентов или химического диспенсера. Можно носить, прикрепив к карману.
+ent-RMCPouchReagentCanisterBicaridine = { ent-RMCPouchReagentCanister }
+    .suffix = Бикаридин
+    .desc = { ent-RMCPouchReagentCanister.desc }
+ent-RMCPouchReagentCanisterKelotane = { ent-RMCPouchReagentCanister }
+    .suffix = Келотан
+    .desc = { ent-RMCPouchReagentCanister.desc }
+ent-RMCPouchReagentCanisterTricordrazineRevival = { ent-RMCPouchReagentCanister }
+    .suffix = Трикордразин - Возрождение
+    .desc = { ent-RMCPouchReagentCanister.desc }
+ent-RMCPouchReagentCanisterTricordrazine = { ent-RMCPouchReagentCanister }
+    .suffix = Трикордразин
+    .desc = { ent-RMCPouchReagentCanister.desc }

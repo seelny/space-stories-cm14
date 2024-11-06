@@ -2,5 +2,7 @@ ent-RMCCrateGearBinoculars = ящик со смешанными биноклям
     .desc = { ent-RMCCrateAmmo.desc }
 ent-RMCCrateGearPackFlare = ящик с сигнальными ракетами (x20)
     .desc = { ent-RMCCrateAmmo.desc }
+ent-RMCCrateGearMotionDetector = ящик детектеров движения (x2)
+    .desc = { ent-RMCCrateAmmo.desc }
 ent-RMCCrateGearPackFlareCAS = ящик с сигнальными ракетами (x4)
     .desc = { ent-RMCCrateAmmo.desc }

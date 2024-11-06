@@ -17,3 +17,5 @@ ent-CMBaseWallXeno = { ent-BaseStructure }
 ent-RMCWallInvisibleBulletPassible = блокиратор стены
     .suffix = Пассивный снаряд
     .desc = { "" }
+ent-RMCBlockerAirtight = герметичный блокиратор
+    .desc = { ent-MarkerBase.desc }

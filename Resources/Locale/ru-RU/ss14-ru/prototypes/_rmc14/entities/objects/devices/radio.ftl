@@ -1,5 +1,8 @@
-ent-RMCRadioHandheldColony = портативное радио коротковолнового диапазона
+ent-RMCRadioHandheldColonyBase = коротковолновое радио
     .desc = { ent-RadioHandheld.desc }
-ent-RMCRadioHandheldColonyOff = портативное радио коротковолнового диапазона
+ent-RMCRadioHandheldColony = коротковолновое радио
+    .desc = { ent-RadioHandheld.desc }
+    .suffix = Вкл.
+ent-RMCRadioHandheldColonyOff = коротковолновое радио
     .suffix = Выкл.
     .desc = { ent-RMCRadioHandheldColony.desc }

@@ -2,3 +2,5 @@ ent-ActionToggleMarineHud = Переключить Иконки Морпехов
     .desc = Переключайте значки морпехов.
 ent-ActionToggleXenoHud = Переключить Иконки Ксеноморфов
     .desc = Отключите полосы здоровья и плазмы ксеносов.
+ent-ActionFindParasite = Найти Лицехвата
+    .desc = Найти призрачных паразитов

@@ -1,4 +1,10 @@
 cm-storage-unskilled = Должно быть, у него есть какой-то идентификационный замок...
 rmc-storage-limit-cant-fit = Это туда не влезет!
 rmc-storage-limit-one-gun = Он уже держит пистолет!
-rmc-storage-nothing-left = { CAPITALIZE(THE($storage)) } пуст. Нечего захватывать.
+rmc-storage-limit-two-mags = Он уже вмещает две обоймы!
+rmc-storage-limit-max-mags = В пояс не поместится больше журналов!
+rmc-storage-limit-max-shells = В пояс не поместится больше снарядов!
+rmc-storage-limit-one-binoculars = Здесь уже помещается пара биноклей!
+rmc-storage-limit-one-command-tablet = В него уже помещается планшет!
+rmc-storage-nothing-left = { CAPITALIZE(THE($storage)) } пустой. Запечатлеть нечего.
+rmc-holster-verb = Распаковка

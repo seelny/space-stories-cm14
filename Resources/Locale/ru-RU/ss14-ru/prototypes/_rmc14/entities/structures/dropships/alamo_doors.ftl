@@ -9,3 +9,5 @@ ent-CMDoubleDoorAlamoSolidRight = { ent-CMDoubleDoorBase }
 ent-CMDoubleDoorAlamoSolidLeft = { ent-CMDoubleDoorBase }
     .suffix = Аламо, Левый
     .desc = { ent-CMDoubleDoorBase.desc }
+ent-RMCCargoAirlockAlamo = грузовая дверь Аламо
+    .desc = Он открывается и закрывается.

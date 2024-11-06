@@ -1,5 +1,7 @@
 ent-CMDoubleDoorBase = { ent-CMBaseDoor }
     .desc = { ent-CMBaseDoor.desc }
+ent-CMDoubleDoorInvincible = { ent-RMCBaseDoorInvincible }
+    .desc = { ent-RMCBaseDoorInvincible.desc }
 ent-CMDoubleDoorAlmayerGlass = { ent-CMDoubleDoorBase }
     .suffix = Алмайер, Стеклянный
     .desc = { ent-CMDoubleDoorBase.desc }

@@ -1,14 +1,18 @@
 rmc-dropship-pre-flight-fueling = Шаттл все еще проходит предполетную заправку топливом и пока не может отправиться. Пожалуйста, подождите еще { $minutes } минут, прежде чем повторить попытку.
 rmc-dropship-weapons-title = Оружейная консоль
-rmc-dropship-weapons-main-screen-text = U.N.M.C.
+rmc-dropship-weapons-main-screen-text =
+    U.S.M.C.
     Система управления оружием корабля
     V 0.1
-rmc-dropship-weapons-weapon-selected = { $weapon }
+rmc-dropship-weapons-weapon-selected =
+    { $weapon }
     Нет боеприпасов
-rmc-dropship-weapons-weapon-selected-ammo = { $weapon }
+rmc-dropship-weapons-weapon-selected-ammo =
+    { $weapon }
     { $ammo }
     Боекомплект { $rounds } / { $maxRounds }
-rmc-dropship-weapons-target-strike = Приобретение цели
+rmc-dropship-weapons-target-strike =
+    Приобретение цели
     
     Ударный режим: { $mode }
     
@@ -17,7 +21,8 @@ rmc-dropship-weapons-target-strike = Приобретение цели
     Цель выбрана: { $target }
     
     Смещение { $xOffset },{ $yOffset }
-rmc-dropship-weapons-equip-weapon-ammo = { $weapon }
+rmc-dropship-weapons-equip-weapon-ammo =
+    { $weapon }
     { $rounds } снарядов
 rmc-dropship-weapons-equip = СНАРЯЖ
 rmc-dropship-weapons-fire-mission = Б-МИС

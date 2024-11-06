@@ -18,7 +18,7 @@ rmc-ui-link-discord-account-already-linked = [bold]Ваш аккаунт уже 
 rmc-ui-link-discord-account-open-channel = Открытый канал
 rmc-ui-named-items = Названные предметы
 rmc-ui-named-items-displayed-as =
-    Будет отображаться, например, как 'Ваше пользовательское имя' Штурмовая винтовка M54C.
+    Будет отображаться, например, как 'Ваше пользовательское имя' Штурмовая винтовка M41A.
     Убедитесь, что выбранное вами имя не нарушает правил.
     Если вы не уверены, спросите в AHelp! (F1)
 rmc-ui-named-primary-gun = Название основного оружия
@@ -49,9 +49,13 @@ rmc-ui-figurine-in-preferences =
     Вы можете экспортировать своего персонажа, чтобы сделать из него фигурку, в разделе "Настройка персонажа".
     Ограничение - одна активная фигурка на человека!
     Если вы хотите изменить свой, сообщите нам об этом в Discord.
+rmc-ui-ghost-color = Цвет призрака
+rmc-ui-ghost-color-clear = Очистить
+rmc-ui-ghost-color-save = Сохранить
 rmc-ui-shoutout-marine = [bold]Операция финансируется [color=green]{ $name }[/color]![/bold]
 rmc-ui-shoutout-xeno = [bold]Улей, основаный [color=purple]{ $name }[/color]![/bold]
 rmc-ui-discord = Дискорд
 rmc-ui-patreon = Boosty
+rmc-other-credits-tab = Другое
 cm-ui-audio-humanoid-voicelines = Воспроизводить голоса
 cm-ui-roadmap = Дорожная карта

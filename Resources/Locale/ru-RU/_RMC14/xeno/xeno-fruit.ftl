@@ -73,3 +73,6 @@ rmc-xeno-fruit-examine-grown = [color=darkgreen]вырос[/color]
 # UI text
 rmc-xeno-fruit-ui-title = Выберите фрукт из смолы
 rmc-xeno-fruit-ui-count = Посаженные фрукты: { $count }/{ $max }
+# Not-same hive
+rmc-xeno-fruit-wrong-hive = Это не из нашего улья!
+rmc-xeno-fruit-feed-wrong-hive = { THE($target) } не из нашего улья!
