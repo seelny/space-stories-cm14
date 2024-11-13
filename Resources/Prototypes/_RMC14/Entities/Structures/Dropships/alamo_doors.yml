@@ -92,6 +92,19 @@
     isCorrodible: false
   - type: Docking
   - type: DockingSignalControl
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 9000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: AirlockReceiverXenoClaws
+    maxHealth: 9000
+    minimumClawStrength: VerySharp
 
 - type: entity
   parent: CMDoubleDoorInvincible
@@ -107,14 +120,25 @@
     isCorrodible: false
   - type: Docking
   - type: DockingSignalControl
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 9000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: AirlockReceiverXenoClaws
+    maxHealth: 9000
+    minimumClawStrength: VerySharp
 
 - type: entity
   parent: RMCBaseDoorInvincible
   id: RMCCargoAirlockAlamo
   name: alamo cargo door
   description: It opens and closes.
-  placement:
-    mode: SnapgridCenter
   components:
   - type: Fixtures
     fixtures:
@@ -129,6 +153,16 @@
         - AirlockLayer
   - type: Sprite
     sprite: _Stories/Structures/Doors/alamo_doors.rsi
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 9000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
   - type: Corrodible
     isCorrodible: true
   - type: ApcPowerReceiver
@@ -138,3 +172,6 @@
     powered: true
   - type: Docking
   - type: DockingSignalControl
+  - type: AirlockReceiverXenoClaws
+    maxHealth: 9000
+    minimumClawStrength: VerySharp

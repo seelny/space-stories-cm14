@@ -41,6 +41,7 @@
     - type: RMCPointing
     - type: JobPrefix
       prefix: "MW"
+    - type: CMVendorUser
 
 - type: startingGear
   id: CMGearMilitaryWarden

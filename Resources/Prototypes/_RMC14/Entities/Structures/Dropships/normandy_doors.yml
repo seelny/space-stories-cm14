@@ -15,42 +15,26 @@
     sprite: _RMC14/Structures/Dropships/normandy.rsi
 
 - type: entity
-  parent: CMDoubleDoorBase
+  parent: CMDoubleDoorAlamoSolidRight
   id: CMDoubleDoorNormandySolidRight
   suffix: Normandy, Solid, Right
   components:
   - type: Sprite
     sprite: _RMC14/Structures/Doors/Airlocks/Double/normandy_dropship_solid_right.rsi
-  - type: Occluder
-  - type: ApcPowerReceiver
-    powerLoad: 0
-  - type: Corrodible
-    isCorrodible: false
-  - type: Docking
-  - type: DockingSignalControl
 
 - type: entity
-  parent: CMDoubleDoorBase
+  parent: CMDoubleDoorAlamoSolidLeft
   id: CMDoubleDoorNormandySolidLeft
   suffix: Normandy, Solid, Left
   components:
   - type: Sprite
     sprite: _RMC14/Structures/Doors/Airlocks/Double/normandy_dropship_solid_left.rsi
-  - type: Occluder
-  - type: ApcPowerReceiver
-    powerLoad: 0
-  - type: Corrodible
-    isCorrodible: false
-  - type: Docking
-  - type: DockingSignalControl
 
 - type: entity
   parent: RMCCargoAirlockAlamo
   id: RMCCargoAirlockNormandy
   name: normandy cargo door
   description: It opens and closes.
-  placement:
-    mode: SnapgridCenter
   components:
   - type: Sprite
     sprite: _Stories/Structures/Doors/normandy_doors.rsi

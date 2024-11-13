@@ -19,7 +19,6 @@
       - GrenadeSpecWhitelist
   - type: BallisticAmmoProvider
     capacity: 6
-    proto: CMGrenadeHighExplosive
   - type: Corrodible
     isCorrodible: false
   - type: ExplosionResistance

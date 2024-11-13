@@ -34,6 +34,7 @@
     - type: RMCUserBulkyArmorIncapable
     - type: JobPrefix
       prefix: "Rsr"
+    - type: CMVendorUser
   hidden: true # TODO RMC14
 
 - type: startingGear

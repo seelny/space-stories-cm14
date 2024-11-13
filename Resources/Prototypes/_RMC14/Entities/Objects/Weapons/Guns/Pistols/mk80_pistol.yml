@@ -46,7 +46,6 @@
         whitelist:
           tags:
           - CMMagazinePistolMK80
-        startingItem: CMMagazinePistolMK80
   - type: AttachableHolder
     slots:
       rmc-aslot-barrel:

@@ -115,7 +115,7 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: LV-631 (Gallileo 57)
+      name: LV-631 (Снежный Шар Шивы)
     - type: Transform
     - type: Map
       mapPaused: True
@@ -46492,14 +46492,14 @@ entities:
   - uid: 5558
     components:
     - type: MetaData
-      name: 'ЗП2: Посадочная зона "Лаборатория"'
+      name: 'ЗП2: Зона Посадки "Лаборатория"'
     - type: Transform
       pos: 22.5,139.5
       parent: 1
   - uid: 5559
     components:
     - type: MetaData
-      name: 'ЗП1: Посадочная зона'
+      name: 'ЗП1: Зона Посадки'
     - type: Transform
       pos: 23.5,32.5
       parent: 1
