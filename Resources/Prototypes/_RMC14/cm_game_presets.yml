@@ -6,9 +6,21 @@
   - cmds
   name: rmc-distress-signal-title
   description: rmc-distress-signal-description
-  showInVote: false
+  showInVote: true
   rules:
   - CMDistressSignal
+
+- type: gamePreset
+  id: CMDistressSignalLowPop
+  alias:
+  - distresssignallowpop
+  - cmdistresssignallowpop
+  - cmdslp
+  name: rmc-distress-signal-title
+  description: rmc-distress-signal-description
+  showInVote: true
+  rules:
+  - CMDistressSignalLowPop
 
 - type: gamePreset
   id: CMGreenshift
