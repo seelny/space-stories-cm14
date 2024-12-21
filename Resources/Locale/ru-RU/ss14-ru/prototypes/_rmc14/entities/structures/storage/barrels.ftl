@@ -1,0 +1,16 @@
+ent-RMCBarrelPileBase = свайный ствол
+    .desc = большая куча энергии.
+ent-RMCBarrelPileYard = { ent-RMCBarrelPileBase }
+    .desc = { ent-RMCBarrelPileBase.desc }
+ent-RMCBarrelBase = ствол
+    .desc = хранилище ствол.
+ent-RMCBarrelBlue = синий ствол
+    .desc = синее хранилище ствол.
+ent-RMCBarrelGreen = зеленый ствол
+    .desc = зеленое хранилище ствол.
+ent-RMCBarrelRed = красный ствол
+    .desc = красное хранилище ствол.
+ent-RMCBarrelWhite = белый ствол
+    .desc = белое хранилище ствол.
+ent-RMCBarrelYellow = жёлтый ствол
+    .desc = жёлтое хранилище ствол.

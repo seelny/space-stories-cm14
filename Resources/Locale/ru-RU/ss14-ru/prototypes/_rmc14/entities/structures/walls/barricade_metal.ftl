@@ -35,5 +35,7 @@ ent-RMCBarricadeHandrailKutjevo = { ent-RMCBarricadeHandrail }
     .desc = { ent-RMCBarricadeHandrail.desc }
 ent-RMCBarricadeWireRail = { ent-RMCBarricadeHandrail }
     .desc = { ent-RMCBarricadeHandrail.desc }
+ent-RMCBarricadeSmallWire = { ent-RMCBarricadeHandrail }
+    .desc = { ent-RMCBarricadeHandrail.desc }
 ent-CMBarricadeMetalDoor = складная баррикада
     .desc = Складная металлическая баррикада слабее нескладных аналогов. Может быть открыта и закрыта в любой момент. Ремонтируется с помощью сварочного аппарата.

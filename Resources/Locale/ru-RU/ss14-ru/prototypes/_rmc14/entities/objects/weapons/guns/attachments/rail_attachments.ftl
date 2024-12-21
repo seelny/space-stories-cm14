@@ -26,6 +26,7 @@ ent-RMCM96SIntegratedScope = интегрированный прицел M96S
     .desc = Этого не должно быть в пистолете. Как вы его достали?
 ent-RMCAttachmentXS-9 = реле целеуказания XS-9
     .desc = Пока еще находящийся в разработке прицел XS-9 имеет множество функций - большинство из них отключено на время полевых испытаний - и функционирует чуть лучше, чем стандартный прицел.
+    .suffix = Пустыня
 ent-CMRailAttachmentBase = { ent-CMAttachmentBase }
     .desc = { ent-CMAttachmentBase.desc }
 ent-CMAttachmentS42xTelescopicMiniScope = телескопический мини-скоп S4 2x

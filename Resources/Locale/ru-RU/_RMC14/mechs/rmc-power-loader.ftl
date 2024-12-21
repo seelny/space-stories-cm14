@@ -8,3 +8,4 @@ rmc-power-loader-occupied-ammo = Сначала нужно разгрузить 
 rmc-power-loader-ammo-no-weapon = Сначала нужно установить оружие!
 rmc-power-loader-nothing-attached = Здесь нет ничего лишнего!
 rmc-power-loader-discard-empty = Вы выбрасываете пустые { $ammo }
+rmc-power-loader-occupied-utility = Там уже установлена система инженерных коммуникаций!

@@ -1,5 +1,9 @@
 ent-CMPlushieBase = обычная игрушка
     .desc = совершенно обычный
+ent-RMCPlushieMoth = { ent-PlushieMoth }
+    .desc = { ent-PlushieMoth.desc }
+ent-RMCPlushieSharkGrey = { ent-PlushieSharkGrey }
+    .desc = { ent-PlushieSharkGrey.desc }
 ent-CMPlushieFarwa = Фарва плюшевая
     .desc = Плюшевая кукла Фарва. Она мягкая и уютная!
 ent-CMPlushieBarricade = плюшевая баррикада

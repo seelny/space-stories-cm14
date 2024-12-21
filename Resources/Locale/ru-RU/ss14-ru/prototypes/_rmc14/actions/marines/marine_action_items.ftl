@@ -12,3 +12,5 @@ ent-RMCActionTelephone = Использовать Телефон
     .desc = Используется для вызова другого телефона.
 ent-RMCActionToggleMedhud = Переключить Медицинский HUD
     .desc = Переключение оптической матрицы медицинского HUD.
+ent-RMCActionToggleWeldingGoggles = Переключите сварочные очки
+    .desc = Измените положение сварочных очков на лбу.

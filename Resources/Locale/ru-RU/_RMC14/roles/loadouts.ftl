@@ -1,0 +1,14 @@
+rmc-loadout-group-backpack = Рюкзак
+rmc-loadout-group-eyewear = Очки
+rmc-loadout-group-masks = Маски и шарфы
+rmc-loadout-group-headwear = Головные уборы
+rmc-loadout-group-paperwork = Бумажная работа
+rmc-loadout-group-plushies = Плюши
+rmc-loadout-group-weapons = Оружие
+rmc-loadout-group-canned-drinks = Консервированные напитки
+rmc-loadout-group-flasks = Фляжки
+rmc-loadout-group-foods-sweets = Еда (сладости)
+rmc-loadout-group-foods-packaged = Еда (упакованная)
+rmc-loadout-group-foods-healthy = Еда (здоровая)
+rmc-loadout-group-role-specific = Ролевые особенности
+loadout-group-points-insufficient = У вас недостаточно баллов!
