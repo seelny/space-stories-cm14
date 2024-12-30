@@ -20,7 +20,7 @@
     - id: CMWeaponPistolMK80
     - id: CMMagazinePistolMK80
       amount: 2
-    - id: WeaponM96SSniperRifleJungle
+    - id: CMM96SSniperRifle
 #    - id: CMFacepaintSniper
 #    - id: CMSpotter
   - type: CMChangeUserOnVend
@@ -46,7 +46,7 @@
     - 0,0,21,1
   - type: StorageFill
     contents:
-    - id: WeaponLauncherM83Jungle # check IFF
+    - id: WeaponLauncherM83 # check IFF
     - id: RMCBeltGrenadeLargeFilled
     - id: RMCSatchelGrenadeSpec # ID lock
     - id: RMCSatchelGrenadeSpec
@@ -134,7 +134,7 @@
     - id: CMWeaponPistolMK80
     - id: CMMagazinePistolMK80
       amount: 2
-    - id: WeaponRifleM4SPRCustomJungle
+    - id: WeaponRifleM4SPRCustom
     - id: RMCThermalTarpFolded
 #    - id: RMCPlasticExplosives
 #      amount: 2

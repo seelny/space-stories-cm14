@@ -7,7 +7,7 @@ using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
-using Robust.Shared.Prototypes;
+using Robust.Shared.Map;
 
 namespace Content.Shared._RMC14.Xenonids.Construction.ResinWhisper;
 
@@ -17,20 +17,19 @@ public sealed class ResinWhispererSystem : EntitySystem
     [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedXenoWeedsSystem _weeds = default!;
-
-    private readonly List<EntProtoId> _resinDoorPrototypes = new() { "DoorXenoResin", "DoorXenoResinThick" };
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<DoorComponent, GetVerbsEvent<AlternativeVerb>>(OnDoorAltVerb);
+        SubscribeLocalEvent<ResinDoorComponent, GetVerbsEvent<AlternativeVerb>>(OnDoorAltVerb);
 
         SubscribeLocalEvent<ResinWhispererComponent, XenoSecreteStructureAdjustFields>(OnRemoteSecreteStructure);
     }
 
-    private void OnDoorAltVerb(Entity<DoorComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
+    private void OnDoorAltVerb(Entity<ResinDoorComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
     {
         if (!HasComp<ResinWhispererComponent>(args.User))
             return;
@@ -49,12 +48,8 @@ public sealed class ResinWhispererSystem : EntitySystem
                     return;
                 }
 
-                if (Prototype(target) is not { } targetProto ||
-                    !_resinDoorPrototypes.Contains(targetProto.ID) ||
-                    !TryComp(target, out DoorComponent? doorComp))
-                {
+                if (!TryComp(target, out DoorComponent? doorComp))
                     return;
-                }
 
                 if (!_door.TryToggleDoor(target))
                     return;
@@ -90,8 +85,11 @@ public sealed class ResinWhispererSystem : EntitySystem
         if (_interaction.InRangeUnobstructed(ent, args.TargetCoordinates, ent.Comp.MaxConstructDistance.Value.Float()))
             return;
 
-        if (!_examineSystem.InRangeUnOccluded(ent, args.TargetCoordinates, ent.Comp.MaxRemoteConstructDistance))
+        if (!TileIsVisible(ent, args.TargetCoordinates))
+        {
+            _popup.PopupClient(Loc.GetString("rmc-xeno-construction-remote-failed-need-line-of-sight"), ent, ent);
             return;
+        }
 
         if (!_weeds.IsOnWeeds(ent.Owner))
         {
@@ -101,5 +99,39 @@ public sealed class ResinWhispererSystem : EntitySystem
 
         constructComp.BuildDelay = ent.Comp.StandardConstructDelay.Value.Multiply(ent.Comp.RemoteConstructDelayMultiplier);
         constructComp.BuildRange = ent.Comp.MaxRemoteConstructDistance;
+    }
+
+    private bool TileIsVisible(Entity<ResinWhispererComponent> ent, EntityCoordinates targetCoordinates)
+    {
+        //Check coordinates of center, then check 4 corners and 4 edges, clockwise starting from the eastern edge
+        var pointCoordinates = _transform.ToMapCoordinates(targetCoordinates);
+        for (int i = 0; i < 9; i++)
+        {
+            switch (i)
+            {
+                case 1: case 7: case 8:
+                    pointCoordinates = pointCoordinates.Offset(0.499f, 0);
+                    break;
+                case 2:
+                    pointCoordinates = pointCoordinates.Offset(0, -0.499f);
+                    break;
+                case 3: case 4:
+                    pointCoordinates = pointCoordinates.Offset(-0.499f, 0);
+                    break;
+                case 5: case 6:
+                    pointCoordinates = pointCoordinates.Offset(0, 0.499f);
+                    break;
+                default:
+                    break;
+            }
+
+            if (_examineSystem.InRangeUnOccluded(ent, pointCoordinates, ent.Comp.MaxRemoteConstructDistance))
+            {
+                return true;
+                break;
+            }
+        }
+
+        return false;
     }
 }

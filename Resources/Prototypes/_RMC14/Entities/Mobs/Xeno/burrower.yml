@@ -4,6 +4,7 @@
   - CMXenoTail
   - CMXenoFlammable
   - RMCXenoSpeechSounds
+  - RMCXenoCommendationReceiver
   id: CMXenoBurrower
   name: Burrower
   description: A beefy alien with sharp claws.
@@ -11,7 +12,7 @@
   - type: GhostRole
     name: cm-job-name-xeno-burrower
   - type: Sprite
-    sprite: _RMC14/Mobs/Xenonids/Burrower/burrower.rsi
+    sprite: _Stories/Mobs/Xenos/Burrower/burrower.rsi
   - type: MobState
     allowedStates:
     - Alive

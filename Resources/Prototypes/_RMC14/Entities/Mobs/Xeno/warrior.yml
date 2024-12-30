@@ -4,6 +4,7 @@
   - CMXenoTail
   - CMXenoFlammable
   - RMCXenoSpeechSounds
+  - RMCXenoCommendationReceiver
   id: CMXenoWarrior
   name: Warrior
   description: A beefy alien with an armored carapace.
@@ -11,7 +12,7 @@
   - type: GhostRole
     name: cm-job-name-xeno-warrior
   - type: Sprite
-    sprite: _RMC14/Mobs/Xenonids/Warrior/warrior.rsi
+    sprite: _Stories/Mobs/Xenos/Warrior/warrior.rsi
   - type: MobState
     allowedStates:
     - Alive

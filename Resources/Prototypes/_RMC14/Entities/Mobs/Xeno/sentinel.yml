@@ -4,6 +4,7 @@
   - CMXenoTail
   - CMXenoFlammable
   - RMCXenoSpeechSounds
+  - RMCXenoCommendationReceiver
   id: CMXenoSentinel
   name: Sentinel
   description: A slithery, spitting kind of alien.
@@ -11,7 +12,7 @@
   - type: GhostRole
     name: cm-job-name-xeno-sentinel
   - type: Sprite
-    sprite: _RMC14/Mobs/Xenonids/Sentinel/sentinel.rsi
+    sprite: _Stories/Mobs/Xenos/Sentinel/sentinel.rsi
   - type: MobState
     allowedStates:
     - Alive

@@ -40,9 +40,7 @@
   - type: GunDualWielding
     weaponGroup: Submachinegun
   - type: GunPointBlank
-  - type: RMCFireGroup
-    group: Rifles
-    delay: 2
+  - type: GunGroupPenalty
 
 - type: entity
   parent: BaseCartridgeCaselessRifle

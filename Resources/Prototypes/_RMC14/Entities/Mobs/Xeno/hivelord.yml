@@ -5,6 +5,7 @@
   - CMXenoTail
   - CMXenoFlammable
   - RMCXenoSpeechSounds
+  - RMCXenoCommendationReceiver
   id: CMXenoHivelordBase
   name: Hivelord
   description: A builder of really big hives.
@@ -87,13 +88,15 @@
     icon:
       sprite: _RMC14/Interface/map_blips.rsi
       state: hivelord
+  - type: XenoInhands
+    prefix: hivelord
 
 - type: entity
   parent: CMXenoHivelordBase
   id: CMXenoHivelord
   components:
   - type: Sprite
-    sprite: _RMC14/Mobs/Xenonids/Hivelord/hivelord.rsi
+    sprite: _Stories/Mobs/Xenos/Hivelord/hivelord.rsi
   - type: Xeno
     role: CMXenoHivelord
     actionIds:
@@ -135,7 +138,7 @@
   suffix: Resin Whisperer
   components:
   - type: Sprite
-    sprite: _RMC14/Mobs/Xenonids/Hivelord/resin_whisperer_hivelord.rsi
+    sprite: _Stories/Mobs/Xenos/Hivelord/resin_whisperer_hivelord.rsi
   - type: Xeno
     role: CMXenoHivelord
     actionIds:
@@ -151,6 +154,7 @@
     - ActionXenoTransferPlasma
     - ActionXenoResinWalker
     - ActionXenoDevolve
+    hidden: true
   - type: XenoConstruction
     buildDelay: 1
     canBuild:

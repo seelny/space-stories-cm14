@@ -47,7 +47,7 @@
   id: CMGearDoctorEquipped
   equipment:
     jumpsuit: CMScrubsBlue
-    outerClothing: RMCCoatServiceSnow
+    outerClothing: RMCCoatService
     gloves: CMHandsLatex
     shoes: RMCShoesWhite
     head: CMHeadCapSurgBlue

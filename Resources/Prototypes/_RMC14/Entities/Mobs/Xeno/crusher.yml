@@ -4,6 +4,7 @@
   - CMXenoTail
   - CMXenoFlammable
   - RMCXenoSpeechSounds
+  - RMCXenoCommendationReceiver
   id: CMXenoCrusher
   name: Crusher
   description: A huge alien with an enormous armored crest.
@@ -11,7 +12,7 @@
   - type: GhostRole
     name: cm-job-name-xeno-crusher
   - type: Sprite
-    sprite: _RMC14/Mobs/Xenonids/Crusher/crusher.rsi
+    sprite: _Stories/Mobs/Xenos/Crusher/crusher.rsi
   - type: MobState
     allowedStates:
     - Alive
