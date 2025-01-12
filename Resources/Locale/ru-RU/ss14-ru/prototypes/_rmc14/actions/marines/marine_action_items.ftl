@@ -18,3 +18,5 @@ ent-RMCActionToggleMedhud = Переключить Медицинский HUD
     .desc = Переключение оптической матрицы медицинского HUD.
 ent-RMCActionToggleWeldingGoggles = Переключите сварочные очки
     .desc = Измените положение сварочных очков на лбу.
+ent-RMCActionCycleVisor = Переключить HUD шлема
+    .desc = Циклическое переключение активного в данный момент визора.

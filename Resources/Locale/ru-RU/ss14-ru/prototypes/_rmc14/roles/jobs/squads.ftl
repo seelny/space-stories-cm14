@@ -12,3 +12,5 @@ ent-SquadEcho = Эхо
     .desc = { ent-SquadBase.desc }
 ent-SquadFoxtrot = Фокстрот
     .desc = { ent-SquadBase.desc }
+ent-SquadIntel = Разведка
+    .desc = { ent-SquadBase.desc }

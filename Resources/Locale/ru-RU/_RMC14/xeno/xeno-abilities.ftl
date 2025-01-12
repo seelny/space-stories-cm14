@@ -3,6 +3,9 @@ cm-xeno-not-enough-plasma = У вас недостаточно плазмы!
 # Energy
 rmc-xeno-not-enough-energy = Ваши запасы здоровья недостаточны!
 rmc-xeno-energy-increase-user = Вы чувствуете, как увеличиваются внутренние резервы здоровья!
+# Internal Health
+rmc-xeno-not-enough-internal-health = Ваши запасы здоровья недостаточны!
+rmc-xeno-internal-health-increase-user = Вы чувствуете, как увеличиваются внутренние резервы здоровья!
 # Acid reserves
 rmc-xeno-not-enough-acid = У вас недостаточно кислоты!
 rmc-xeno-acid-increase-user = Вы чувствуете, как увеличивается запас кислоты!
@@ -32,6 +35,7 @@ rmc-xeno-evolution-cant-strain-damaged = Мы должны быть полнос
 rmc-xeno-evolution-cant-devolve-damaged = Мы слишком слабы для деградации, сначала нам нужно восстановить здоровье.
 rmc-xeno-evolution-cant-evolve-recent-queen-death-minutes = Мы должны подождать около { $minutes } минут и { $seconds } секунд, чтобы улей оправился от смерти предыдущей королевы.
 rmc-xeno-evolution-cant-evolve-recent-queen-death-seconds = Мы должны подождать около { $seconds } секунд, чтобы улей оправился от смерти предыдущей королевы.
+rmc-xeno-evolution-cant-evolve-caste-cooldown = Мы не можем снова превратиться в эту касту! (Осталось { $minutes } минут и { $seconds } секунд)
 rmc-xeno-evolution-failed-bad-location = Мы не можем развиваться здесь.
 rmc-xeno-evolution-start-self = Мы начинаем скручиваться и деформироваться.
 rmc-xeno-evolution-start-others = { $xeno } начинает крутиться и извиваться.
@@ -199,7 +203,7 @@ rmc-xeno-respawn-corpse-others = Из мертвой шелухи внезапн
 rmc-xeno-apply-salve-target-not-xeno-failure = Цель не может быть исцелена!
 rmc-xeno-apply-salve-target-self-failure = Мы не можем исцелить себя собственной смоляной мазью!
 rmc-xeno-apply-salve-target-hostile-failure = { $target_xeno } враждебен нашему улью!
-rmc-xeno-apply-salve-target-too-faraway-failure = Мы не можем применить нашу смоляную мазь отсюда!
+rmc-xeno-apply-salve-target-too-far-away-failure = Мы не можем нанести нашу смоляную мазь отсюда!
 rmc-xeno-apply-salve-target-dead-failure = { $target_xeno } мертв!
 rmc-xeno-apply-salve-target-on-fire-failure = Сначала потушите { $target_xeno }, иначе пламя сожжет нашу смоляную мазь!
 rmc-xeno-apply-salve-target-full-health-failure = { $target_xeno } уже имеет полное здоровье!

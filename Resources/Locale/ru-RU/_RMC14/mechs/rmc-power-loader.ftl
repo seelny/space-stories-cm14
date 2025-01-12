@@ -5,7 +5,7 @@ rmc-power-loader-too-far = Это слишком далеко!
 rmc-power-loader-cant-drop-occupied = Вы не можете бросить { THE($drop) } здесь, что-то преграждает путь!
 rmc-power-loader-occupied-weapon = Там уже установлено оружие!
 rmc-power-loader-occupied-ammo = Сначала нужно разгрузить ящик с патронами!
-rmc-power-loader-transfer-ammo = 
+rmc-power-loader-transfer-ammo =
     Вы переводите { $rounds } { $rounds ->
         [one] патрон
         *[other] патронов

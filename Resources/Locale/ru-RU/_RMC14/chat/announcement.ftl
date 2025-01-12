@@ -9,6 +9,9 @@ rmc-announcement-message-signed = [font size=14][bold][color=white]Объявл�
     
     Подписано,
     { $job } { $name }[/color][/font]
+rmc-announcement-message-raw = [font size=14][bold][color=white]{ $author }[/color][/bold][/font][font size=12][color=red]
+    
+    { $message }
 rmc-announcement-ares-message = [color=white][font size=16][bold]ARES v3.2 Порядок постановки операций[/bold][/font][/color][color=red][font size=14][bold]
     
     { $message }[/bold][/font][/color]

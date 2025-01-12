@@ -3,6 +3,7 @@ cm-xeno-construction-failed-need-weeds = Вы можете только форм
 cm-xeno-construction-failed-cant-build = Вы не можете строить там!
 cm-xeno-construction-failed-select-structure = Сначала вам нужно выбрать структуру для строительства! Используйте действие "Выбрать структуру из смолы".
 cm-xeno-construction-failed-requires-support = Чтобы { CAPITALIZE(MAKEPLURAL($choice)) } устоял, нужен стена или дверь из смолы рядом.
+rmc-xeno-construction-remote-failed-need-line-of-sight = Нам нужна прямая видимость, чтобы строить!
 rmc-xeno-construction-remote-failed-need-on-weeds = Мы должны стоять на сорняках, чтобы установить связь со смолой.
 rmc-xeno-construction-remote-construct = Мы направляем нашу плазму на сорняки под нами и заставляем их выделять смолу!
 rmc-xeno-construction-remote-open-door = Мы фокусируем наше соединение с смолой и дистанционно открываем дверь смолы.

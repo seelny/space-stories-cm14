@@ -18,5 +18,7 @@ ent-CMXenoTail = { "" }
     .desc = { "" }
 ent-CMXenoFlammable = { "" }
     .desc = { "" }
+ent-RMCXenoCommendationReceiver = { "" }
+    .desc = { "" }
 ent-RMCXenoSpeechSounds = { "" }
     .desc = { "" }

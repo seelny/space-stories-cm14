@@ -1,3 +1,15 @@
 ent-CMClosetBombFilled = { ent-CMClosetBomb }
     .suffix = Заполненный
     .desc = { ent-CMClosetBomb.desc }
+ent-RMCArmoryLockerBlueFilled = { ent-RMCLockerGunBlue }
+    .suffix = Заполненный
+    .desc = { ent-RMCLockerGunBlue.desc }
+ent-RMCArmoryLockerRedM890Filled = { ent-RMCLockerGunRed }
+    .suffix = Заполненный 890Tactical
+    .desc = { ent-RMCLockerGunRed.desc }
+ent-RMCArmoryLockerRedM4SPRFilled = { ent-RMCLockerGunRed }
+    .suffix = Заполненный M4RA
+    .desc = { ent-RMCLockerGunRed.desc }
+ent-RMCArmoryLockerRedM63Filled = { ent-RMCLockerGunRed }
+    .suffix = Заполненный M39
+    .desc = { ent-RMCLockerGunRed.desc }

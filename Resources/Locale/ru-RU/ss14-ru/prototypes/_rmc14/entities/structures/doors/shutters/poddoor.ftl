@@ -1,7 +1,11 @@
+ent-RMCPodDoorIndestructible = подлок
+    .desc = Похоже, что он открывается нелегко.
 ent-RMCPodDoor = подлок
     .desc = { ent-RMCShutterBase.desc }
 ent-RMCPodDoorAlmayer = { ent-RMCPodDoor }
     .desc = { ent-RMCPodDoor.desc }
+ent-RMCPodDoorAlmayerIndestructible = { ent-RMCPodDoorIndestructible }
+    .desc = { ent-RMCPodDoorIndestructible.desc }
 ent-RMCPodDoorAlmayerLocked = { ent-RMCPodDoorAlmayer }
     .desc = Похоже, он открывается не так легко. Может, поискать кнопку или использовать разрывной заряд?
     .suffix = Заблокированный

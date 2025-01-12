@@ -1,3 +1,5 @@
+ent-RMCShutterBaseIndestructible = ставни
+    .desc = Похоже, что они открываются нелегко.
 ent-RMCShutterBase = ставни
     .desc = Похоже, что они открываются с трудом.
 ent-RMCShutterAlmayer = { ent-RMCShutterBase }
