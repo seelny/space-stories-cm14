@@ -559,6 +559,11 @@ public sealed class CMDistressSignalRuleSystem : GameRuleSystem<CMDistressSignal
             if (!rule.Comp.Squads.ContainsKey(id))
                 rule.Comp.Squads[id] = Spawn(id);
         }
+
+        foreach (var id in rule.Comp.ExtraSquadIds)
+        {
+            // Spawn(id);
+        }
     }
 
     public void SetCamoType(CamouflageType? ct = null)
