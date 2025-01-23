@@ -1,6 +1,6 @@
 - type: entity
-  parent: CMDoubleDoorInvincible
-  id: CMDoubleDoorAlamoSolidRight
+  parent: STDoubleDoorInvincible
+  id: STDoubleDoorAlamoSolidRight
   suffix: Alamo, Solid, Right
   components:
   - type: Sprite
@@ -27,8 +27,8 @@
     minimumClawStrength: VerySharp
 
 - type: entity
-  parent: CMDoubleDoorInvincible
-  id: CMDoubleDoorAlamoSolidLeft
+  parent: STDoubleDoorInvincible
+  id: STDoubleDoorAlamoSolidLeft
   suffix: Alamo, Solid, Left
   components:
   - type: Sprite
@@ -56,7 +56,7 @@
 
 - type: entity
   parent: RMCBaseDoorInvincible
-  id: RMCCargoAirlockAlamo
+  id: STCargoAirlockAlamo
   name: alamo cargo door
   description: It opens and closes.
   components:

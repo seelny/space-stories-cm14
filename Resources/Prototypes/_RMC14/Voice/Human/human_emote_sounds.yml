@@ -8,7 +8,7 @@
       collection: MaleLaugh
     # Stories-Emote-Start
     Warcry:
-      collection: CMMaleWarcry
+      collection: STMaleWarcry
     # Stories-Emote-End
 
 - type: emoteSounds
@@ -21,5 +21,5 @@
       collection: FemaleLaugh
     # Stories-Emote-Start
     Warcry:
-      collection: CMFemaleWarcry
+      collection: STFemaleWarcry
     # Stories-Emote-End

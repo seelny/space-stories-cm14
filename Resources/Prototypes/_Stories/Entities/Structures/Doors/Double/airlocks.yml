@@ -3,7 +3,7 @@
   parent:
   - RMCBaseDoorInvincible
   - CMBaseDoorConstructible
-  id: CMDoubleDoorInvincible
+  id: STDoubleDoorInvincible
   components:
   - type: CMDoubleDoor
   - type: Door
