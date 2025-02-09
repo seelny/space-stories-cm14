@@ -3,6 +3,7 @@ using Content.Server.Chat.Systems;
 using Content.Server.Power.Components;
 using Content.Server.Radio.Components;
 using Content.Shared._RMC14.Xenonids;
+using Content.Shared._RMC14.Marines;
 using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.Radio;
