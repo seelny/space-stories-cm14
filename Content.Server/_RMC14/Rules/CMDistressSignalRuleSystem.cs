@@ -50,6 +50,7 @@ using Content.Shared._RMC14.Xenonids.Construction.Nest;
 using Content.Shared._RMC14.Xenonids.Construction.Tunnel;
 using Content.Shared._RMC14.Xenonids.Evolution;
 using Content.Shared._RMC14.Xenonids.Parasite;
+using Content.Shared._Stories.HijackSong;
 using Content.Shared.Actions;
 using Content.Shared.CCVar;
 using Content.Shared.Coordinates;
@@ -740,7 +741,15 @@ public sealed class CMDistressSignalRuleSystem : GameRuleSystem<CMDistressSignal
                 break;
 
             rule.HijackSongPlayed = true;
-            _audio.PlayGlobal(rule.HijackSong, Filter.Broadcast(), true);
+            // Stories-HijackVolume-Start
+
+            //  _audio.PlayGlobal(rule.HijackSong, Filter.Broadcast(), true);
+            var hijackSong = _audio.GetSound(rule.HijackSong);
+            if (string.IsNullOrEmpty(hijackSong))
+                break;
+
+            RaiseNetworkEvent(new PlayHijackSongEvent(hijackSong), Filter.Broadcast());
+            // Stories-HijackVolume-End
             break;
         }
 
