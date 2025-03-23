@@ -380,7 +380,6 @@ namespace Content.Client.IconSmoothing
             {
                 // TODO RMC14 restore to upstream
                 if (smoothQuery.TryGetComponent(entity, out var other) &&
-                    (other.SmoothKey == smooth.SmoothKey || other.SmoothKey == smooth.SmoothKeyTwo) && 
                     other.Enabled)
                 {
                     if ((other.SmoothKey != null && (other.SmoothKey == smooth.SmoothKey || smooth.AdditionalKeys.Contains(other.SmoothKey))) ||

@@ -34,7 +34,8 @@
     - state: weed0
   - type: IconSmooth # Stories-Fixes
     key: xeno_weeds
-    keyTwo: xeno_structure
+    additionalKeys:
+    - xeno_structure
     base: weed_dir
     mode: CardinalFlags
   - type: IconSmoothRandom
@@ -151,7 +152,8 @@
   - type: HiveWeeds
   - type: IconSmooth # Stories-Fixes
     key: xeno_weeds
-    keyTwo: xeno_structure
+    additionalKeys:
+    - xeno_structure
     base: hive_weed
     mode: CardinalFlags
   - type: IconSmoothRandom
