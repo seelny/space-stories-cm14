@@ -84,7 +84,6 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MeatLaserImpact
-  - type: Stamina
   - type: RadiationReceiver
   - type: MobState
   - type: MobThresholds
