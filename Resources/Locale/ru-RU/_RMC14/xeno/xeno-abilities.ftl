@@ -296,7 +296,7 @@ rmc-xeno-headbite-hit-others = { $xeno } прокалывает голову { $
 # Производите яйца
 rmc-xeno-produce-eggs-no-plasma = У нас недостаточно плазмы для поддержания формирования яйцеклеток.
 rmc-xeno-produce-eggs-new-egg = Мы генерируем яйцо. Теперь держите: { $cur_eggs } / { $max_eggs }.
-rmc-xeno-produce-eggs-start = Начинаем формировать яйца.
+rmc-xeno-produce-eggs-start = Мы начинаем формировать яйца.
 # Eggsac Пассивный
 rmc-xeno-sustain-egg-decaying = Мы можем поддерживать только { $max } яиц из сорняков улья! Наша самая старая яйцеклетка быстро разлагается.
 rmc-xeno-sustain-death = { CAPITALIZE($xeno) } агонит, когда его мешок для яиц превращается в месиво из кислоты!

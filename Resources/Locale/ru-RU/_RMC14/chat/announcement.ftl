@@ -40,6 +40,6 @@ rmc-announcement-dropship-hijack-hive = Королева приказала ме
 rmc-announcement-ares-command = [color=#CECECE][font size=16][bold]ARES v3.2[/bold][/font][/color][color=red][font size=16]
     
     { $message }[/font][/color]
-rmc-announcement-unidentified-lifesigns = [color=#CECECE][font size=16][bold]Неопознанные признаки жизни[/bold][/font][/color][color=red][font size=16][bold]
+rmc-announcement-unidentified-lifesigns = [color=#CECECE][font size=16][bold]Неопознанные формы жизни[/bold][/font][/color][color=red][font size=16][bold]
     
-    Обнаружены неопознанные признаки жизни ({ $count }) на борту десантного корабля { $name }. Рекомендация: блокировка внешних портов доступа, включая вентиляционные каналы и шахты.[/bold][/font][/color]
+    Обнаружены неопознанные формы жизни ({ $count }) на борту десантного корабля { $name }. Рекомендация: блокировка внешних портов доступа, включая вентиляционные каналы и шахты.[/bold][/font][/color]
