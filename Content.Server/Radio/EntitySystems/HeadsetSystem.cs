@@ -1,5 +1,3 @@
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Content.Server.Chat.Systems;
 using Content.Server.Emp;
 using Content.Server.Radio.Components;
@@ -21,8 +19,6 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
 {
     [Dependency] private readonly INetManager _netMan = default!;
     [Dependency] private readonly RadioSystem _radio = default!;
-    [Dependency] private readonly TTSSystem _ttsSystem = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
     public override void Initialize()
     {
@@ -60,7 +56,7 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
             && keys.Channels.Contains(args.Channel.ID))
         {
             _radio.SendRadioMessage(uid, args.Message, args.Channel, component.Headset);
-            args.Channel = null; // prevent duplicate messages from other listeners.
+            args.Channel = null;
         }
     }
 
@@ -113,34 +109,12 @@ public sealed class HeadsetSystem : SharedHeadsetSystem
         if (playerSession.Status != SessionStatus.InGame)
             return;
 
-        // Send the text message immediately
         _netMan.ServerSendMessage(args.ChatMsg, playerSession.Channel);
 
-        // Kick off the async TTS generation without blocking the event handler
         if (Exists(args.MessageSource))
         {
-            HandleRadioTts(args.MessageSource, args.Message, playerSession);
+            _radio.TryPlayRadioTtsAsync(args.MessageSource, args.Message, playerSession);
         }
-    }
-
-    private async void HandleRadioTts(EntityUid sourceUid, string message, ICommonSession playerSession)
-    {
-        if (!TryComp<TTSComponent>(sourceUid, out var tts) || string.IsNullOrEmpty(tts.VoicePrototypeId) ||
-            !_prototypeManager.TryIndex<TTSVoicePrototype>(tts.VoicePrototypeId, out var protoVoice))
-        {
-            return;
-        }
-
-        var soundData = await _ttsSystem.GenerateTTS(message, protoVoice.Speaker, isWhisper: false);
-
-        // After await, we MUST re-validate the player's connection, as they might have disconnected.
-        if (soundData == null || playerSession.Status != SessionStatus.InGame)
-            return;
-
-        // Play the sound as a "whisper" to lower its volume, making it sound like it's coming from a headset.
-        // A null source UID will make the sound play globally for the receiving client.
-        var ttsEvent = new PlayTTSEvent(soundData, sourceUid: null, isWhisper: true, originalSourceUid: GetNetEntity(sourceUid));
-        RaiseNetworkEvent(ttsEvent, playerSession);
     }
 
     private void OnEmpPulse(EntityUid uid, HeadsetComponent component, ref EmpPulseEvent args)

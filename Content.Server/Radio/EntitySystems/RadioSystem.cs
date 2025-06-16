@@ -92,14 +92,16 @@ public sealed class RadioSystem : EntitySystem
         _netMan.ServerSendMessage(args.ChatMsg, playerSession.Channel);
 
         if (Exists(args.MessageSource))
-        {
-            HandleRadioTts(args.MessageSource, args.Message, playerSession);
-        }
+            TryPlayRadioTtsAsync(args.MessageSource, args.Message, playerSession);
     }
 
-    private async void HandleRadioTts(EntityUid sourceUid, string message, ICommonSession playerSession)
+    public async void TryPlayRadioTtsAsync(EntityUid sourceUid, string message, ICommonSession playerSession)
     {
-        var soundData = await _tts.GenerateTTS(message, GetVoiceId(sourceUid), isWhisper: false);
+        if (!_cfg.GetCVar(SCCVars.TTSEnabled))
+            return;
+
+        var voiceId = GetVoiceId(sourceUid);
+        var soundData = await _tts.GenerateTTS(message, voiceId, isWhisper: false);
 
         if (soundData == null || playerSession.Status != SessionStatus.InGame)
             return;
