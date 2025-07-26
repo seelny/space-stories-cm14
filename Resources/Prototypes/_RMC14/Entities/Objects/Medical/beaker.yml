@@ -30,6 +30,9 @@
     minimumSpeed: 2
     damage: {}
   - type: RMCSmartFridgeInsertable
+  - type: Tag
+    tags:
+    - CMBeaker
 
 - type: entity
   parent: BaseBeakerMetallic
@@ -55,6 +58,12 @@
         solution: beaker
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: Tag
+    tags:
+    - CMBeaker
+
+- type: Tag
+  id: CMBeaker
 
 - type: entity
   parent: CMBeakerBase
