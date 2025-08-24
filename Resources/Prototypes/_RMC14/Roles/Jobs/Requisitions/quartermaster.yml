@@ -44,12 +44,11 @@
         RMCSkillPolice: 1
         RMCSkillPowerLoader: 2
     - type: MarineOrders
-    - type: CMVendorUser
-      id: CMQuartermaster
     - type: RMCPointing
     - type: JobPrefix
       prefix: cm-job-prefix-quartermaster
     - type: CMVendorUser # Stories-Partners
+      id: CMQuartermaster
     - type: ViewIntelObjectives
     - type: CommandAccent
     - type: TacticalMapIcon

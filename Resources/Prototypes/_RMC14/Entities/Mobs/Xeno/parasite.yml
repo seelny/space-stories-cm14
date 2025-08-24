@@ -5,7 +5,6 @@
   - CMXenoFlammable
   id: CMXenoParasiteBase
   name: Parasite
-  abstract: true
   components:
   - type: GuideHelp
     guides:
