@@ -37,6 +37,14 @@ public sealed partial class CMDistressSignalRuleSystem
         if (distress == null)
             return;
 
+        // Stories-Start
+        if (distress.Nuked)
+        {
+            EndRound(distress, DistressSignalRuleResult.AllDied, "st-distress-signal-nuked");
+            return;
+        }
+        // Stories-End
+
         distress.NextCheck ??= Timing.CurTime + distress.CheckEvery;
 
         if (distress.ForceEndAt != null && Timing.CurTime >= distress.ForceEndAt)
@@ -396,7 +404,7 @@ public sealed partial class CMDistressSignalRuleSystem
             {
                 if (_prefsManager.TryGetCachedPreferences(player.UserId, out var preferences))
                 {
-                    var profile = (HumanoidCharacterProfile) preferences.GetProfile(preferences.SelectedCharacterIndex);
+                    var profile = (HumanoidCharacterProfile)preferences.GetProfile(preferences.SelectedCharacterIndex);
                     if (profile.JobPriorities.TryGetValue(distress.XenoSelectableJob, out var xenoPriority) &&
                         xenoPriority > JobPriority.Never)
                     {

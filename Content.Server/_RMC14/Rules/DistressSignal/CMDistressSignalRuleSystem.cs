@@ -174,7 +174,7 @@ public sealed partial class CMDistressSignalRuleSystem : GameRuleSystem<CMDistre
     private readonly Queue<EntProtoId<RMCPlanetMapPrototypeComponent>> _lastPlanetMaps = new();
 
     [ViewVariables]
-    private RMCPlanet? SelectedPlanetMap { get; set; }
+    public RMCPlanet? SelectedPlanetMap { get; private set; } // Stories-Survivor
 
     [ViewVariables]
     public string? SelectedPlanetMapName => SelectedPlanetMap?.Proto.Name;
