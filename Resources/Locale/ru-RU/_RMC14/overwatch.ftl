@@ -30,7 +30,7 @@ rmc-overwatch-console-save = Сохранить
 rmc-overwatch-console-max-coordinates = Сохраняется максимум 3 координаты. Старейшая будет перезаписана первой.
 rmc-overwatch-console-fire = Огонь
 rmc-overwatch-console-confirm-fire = Подтвердить отправку ОБ?
-rmc-overwatch-console-disabled-select-squad = НАБЛЮДЕНИЕ ОТКЛЮЧЕНО - ВЫБЕРИТЕ ОТРЯД
+rmc-overwatch-console-disabled-select-squad = НАБЛЮДЕНИЕ ОТКЛЮЧЕНО — ВЫБЕРИТЕ ОТРЯД
 rmc-overwatch-console-dashboard = { $squadName } Наблюдение | Панель управления
 rmc-overwatch-console-role-none = Нет
 rmc-overwatch-console-hide-marine = Скрыть морпехов
@@ -48,7 +48,7 @@ rmc-overwatch-console-none = НЕТ
 rmc-overwatch-console-deployed = ВЫСАЖЕНО
 rmc-overwatch-console-total-living = ВСЕГО/ЖИВО
 rmc-overwatch-console-total = ВСЕГО
-rmc-overwatch-console-operator = Оператор - { $operator }
+rmc-overwatch-console-operator = Оператор — { $operator }
 rmc-overwatch-console-shown-planetside = Показать: на планете
 rmc-overwatch-console-shown-shipside = Показать: на корабле
 rmc-overwatch-console-show-hidden = Отображение скрытых
@@ -61,8 +61,9 @@ rmc-overwatch-console-no-crate-loaded = [color=red][bold] \[ ЯЩИК НЕ ЗА�
 rmc-overwatch-console-crate-loaded = [color=green][bold] \[ ЯЩИК ЗАГРУЖЕН \][/bold][/color]
 rmc-overwatch-console-ready = [color=green][bold] \[ ГОТОВО \][/bold][/color]
 rmc-overwatch-console-not-ready = [color=red][bold] \[ НЕ ГОТОВО \][/bold][/color]
-rmc-overwatch-console-cooldown = [color=#D3B400][bold][ ПЕРЕЗАРЯДКА - { $seconds } СЕКУНД ][/bold][/color]
+rmc-overwatch-console-cooldown = [color=#D3B400][bold][ ПЕРЕЗАРЯДКА — { $seconds } СЕКУНД ][/bold][/color]
 rmc-overwatch-console-no-warhead-loaded = [color=red][bold]БОЕГОЛОВКА НЕ ЗАРЯЖЕНА[/bold][/color]
+
 # Transfer messages
 rmc-overwatch-console-squad-selection = Выберите отряд
 rmc-overwatch-console-choose-marine-squad = Выберите новый отряд для морпеха
@@ -76,17 +77,21 @@ rmc-overwatch-console-marine-transferred = { $marineName } был перевед
 rmc-overwatch-console-you-transferred = Вы были переведены в отряд { $squadName }!
 rmc-overwatch-console-transfer-marine-title = Перевести морпеха
 rmc-overwatch-console-choose-marine-transfer = Выберите морпеха для перевода
+
 # Console messages
 rmc-overwatch-console-pain-kicked-out = Боль вытолкнула тебя из консоли!
+
 # Squad message announcements
 rmc-overwatch-console-announce-message = [color=#3C70FF][bold]Наблюдение:[/bold] { $operatorName } передает: [font size=16][bold]{ $message }[/bold][/font][/color]
 rmc-overwatch-console-squad-message-sent = [bold][color=#6685F5]'{ $squadName }' получил сообщение от наблюдателя: '{ $message }'.[/color][/bold]
+
 # Squad leader promotion messages
 rmc-overwatch-console-marine-unfit-to-lead = { $marineName } не пригоден для руководства!
 rmc-overwatch-console-marine-is-kia-exclamation = { $marineName } мёртв!
 rmc-overwatch-console-promoted-to-leader = Наблюдение: Вы были назначены командиром отряда { $squadStr }. Ваша гарнитура теперь имеет частоту командования (:в).
 rmc-overwatch-console-new-squad-leader-announce = Внимание: Назначен новый командир отряда: { $leaderName }
 rmc-overwatch-console-new-squad-leader-popup = { $leaderName } теперь командир отряда { $squadName }!
+
 # Squad objectives
 rmc-overwatch-console-objective-primary = [bold]Основная задача[/bold]
 rmc-overwatch-console-objective-secondary = [bold]Дополнительная задача[/bold]
@@ -97,6 +102,5 @@ rmc-overwatch-console-announce-objective-updated = [color=#50ECA3][bold]Набл
 rmc-overwatch-console-announce-objective-cancelled = [color=#50ECA3][bold]Наблюдение:[/bold] { $operatorName } [bold]отменил[/bold] { $objectiveType } отряда: [font size=16][bold]{ $objective }[/bold][/font][/color]
 rmc-overwatch-console-objective-updated = [bold][color=#7FFFD4]'{ $squadName }' { $objectiveType } обновлена: '{ $objective }'.[/color][/bold]
 rmc-overwatch-console-objective-cancelled = [bold][color=#7FFFD4]'{ $squadName }' { $objectiveType } '{ $objective }' отменена.[/color][/bold]
-rmc-overwatch-console-objectives =
-    Задачи вашего отряда:
+rmc-overwatch-console-objectives = Задачи вашего отряда:
     { $objectives }

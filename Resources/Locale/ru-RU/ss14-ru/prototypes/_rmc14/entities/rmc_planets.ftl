@@ -26,5 +26,5 @@ ent-RMCPlanetCorsat = КОРСАТ
     .desc = { "" }
 ent-RMCPlanetHybrisaRepaired = LV-759 Гибриса Проспера (Отремонтированный)
     .desc = { "" }
-ent-RMCPlanetSorokyneRepaired = LV-976 - Сорокина Страта (Отремонтированный)
+ent-RMCPlanetSorokyneRepaired = LV-976 — Сорокина Страта (Отремонтированный)
     .desc = { "" }

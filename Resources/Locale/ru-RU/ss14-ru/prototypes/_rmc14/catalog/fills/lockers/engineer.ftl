@@ -1,9 +1,9 @@
 ent-CMClosetToolFilled = { ent-CMClosetTool }
-    .suffix = Заполненный
     .desc = { ent-CMClosetTool.desc }
-ent-CMClosetRadiationFilled = { ent-CMClosetRadiation }
     .suffix = Заполненный
+ent-CMClosetRadiationFilled = { ent-CMClosetRadiation }
     .desc = { ent-CMClosetRadiation.desc }
+    .suffix = Заполненный
 ent-CMClosetRadiationFilledTycho = radiation suit closet
     .desc = It's a storage unit for rad-protective suits.
     .suffix = Filled, Tycho 4000 Suit

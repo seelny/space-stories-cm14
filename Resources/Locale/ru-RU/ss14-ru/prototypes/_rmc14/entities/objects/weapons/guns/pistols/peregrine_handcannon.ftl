@@ -21,4 +21,4 @@ ent-RMCBulletPistolHandcannon = пуля ( .50 )
 ent-RMCBulletPistolHandcannonHI = пуля ( Повышенной мощности .50 )
     .desc = { ent-CMBulletBase.desc }
 ent-RMCBulletPistolHandcannonHIAP = пуля ( Бронебойная повышенной мощности .50 )
-    .desc = { ent-CMBulletBase.desc }
+    .desc = { ent-RMCBulletPistolHandcannonHI.desc }
