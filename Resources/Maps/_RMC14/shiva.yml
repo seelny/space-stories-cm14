@@ -130087,7 +130087,7 @@ entities:
     - type: Transform
       pos: 181.5,98.5
       parent: 1
-- proto: STHunterTeleporter
+- proto: STHunterTeleportDestination
   entities:
   - uid: 2
     components:

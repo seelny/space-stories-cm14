@@ -18,7 +18,7 @@
   accessGroups:
   - STTankCrew
   ranks:
-    RMCRankParaCorporal: []
+    RMCRankCorporal: []
   roleWeight: 0.25
   special:
   - !type:AddComponentSpecial
