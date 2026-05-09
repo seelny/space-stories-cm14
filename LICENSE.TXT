@@ -1,21 +1,42 @@
-MIT License
+SPACE STORIES MARINE CORPS LICENSE AGREEMENT
 
-Copyright (c) 2017-2025 Space Wizards Federation
+PREAMBLE
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Upon receipt of a copy of the licensed work (the "Build") by any means, any person (the "Licensee") may use it only if they accept and agree to all the terms of this License Agreement (the "Agreement"). Accessing, compiling, or running the Build constitutes full acceptance of these terms. Any violation of the Agreement grants the Licensor the right to take legal and technological enforcement measures, including but not limited to the Digital Millennium Copyright Act (DMCA) or other applicable laws in the jurisdictions of hosting providers and information intermediaries.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+By accepting these terms, the Licensee enters into a non-exclusive, royalty-free agreement with the Space Stories Marine Corps Administration (the "Licensor").
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+DEFINITIONS
+
+Build: The object of this Agreement, representing the complex intellectual property of the "Space Stories Marine Corps" project. This includes, but is not limited to, unique source code, object code, custom game assets (graphics, audio), shaders, UI/UX design, narrative elements, and translations based on the revision of the "Space Station 14" and "RMC-14" open-source code. The Build is a derivative work containing unique proprietary elements created by the collective work of the project team.
+
+Contribution: Any original work provided by the Licensee to the Licensor, including modifications, additions, bug fixes, assets, documentation, or specifications intended for incorporation into the Build. Submission of a Contribution (via GitHub Pull Request, Discord, or other communication channels) implies the granting of a perpetual, royalty-free, non-exclusive, irrevocable license to the Licensor to use, modify, and distribute said Contribution. The Contributor retains copyright to their individual work but may not use the Build as a whole for unauthorized purposes.
+
+Licensor: The designated administration and authorized representatives of the "Space Stories Marine Corps" project.
+
+SCOPE OF GRANTED RIGHTS
+
+The Licensor grants the Licensee a limited, non-exclusive right to use the Build subject to the following conditions:
+
+1. Permitted Use: The Licensee may copy, execute, and modify the Build solely for the purposes of:
+   a) Private, non-public testing and personal gameplay;
+   b) Non-public hosting for a private group of individuals;
+   c) Improving the Project by preparing and submitting Contributions to the Licensor.
+
+2. Prohibited Use: The following actions are strictly prohibited without express written consent from the Licensor:
+   a) Public Hosting: Operating a publicly accessible server or service using the Build or its components.
+   b) Commercial Use: Any form of monetization, sale of access, or financial gain derived from the Build.
+   c) Fragmentation/Cloning: Extracting unique mechanics, code, or assets for use in external projects, forks, or derivative works intended for public distribution.
+
+RESERVATION OF RIGHTS AND ENFORCEMENT
+
+All rights not expressly granted herein are reserved by the Licensor. Any use of the Build in violation of this Agreement automatically terminates the Licensee's rights. The Licensor reserves the right to contact hosting providers, domain registrars, and other information intermediaries to restrict or block unauthorized public hosting or distribution of the Build.
+
+LICENSE COMPATIBILITY AND THIRD-PARTY ASSETS
+
+1. MIT License: The original "Space Station 14", "Space Syndicate 14" and "RMC-14" source code remains subject to the MIT License. This Agreement applies only to the unique modifications, proprietary code, and custom content created specifically for Space Stories Marine Corps.
+2. Assets: Individual elements (graphics, sounds) may be subject to different licenses, such as CC-BY-SA 3.0 or CC-BY-NC-SA 3.0. Refer to the specific metadata files within the Resources folder for individual asset licensing information.
+
+DISCLAIMER
+
+THE BUILD IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY ARISING FROM THE USE OF THE BUILD.
